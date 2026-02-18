@@ -2,707 +2,1070 @@
 
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-```
-<title>NeuroSaaS™ — Canonical Technical Whitepaper | FALX GLOBAL LLC</title>
-<meta name="description" content="Institutional Infrastructure Specification. Canonical public definition of NeuroSaaS™ cognitive infrastructure.">
-<meta name="author" content="FALX GLOBAL LLC">
-
-<meta name="citation_title" content="NeuroSaaS™ — Canonical Technical Whitepaper">
-<meta name="citation_author" content="FALX GLOBAL LLC">
-<meta name="citation_publication_date" content="2026">
-<meta name="citation_technical_report_number" content="NS-WP-2026-001">
-
-<meta name="DC.title" content="NeuroSaaS™ — Canonical Technical Whitepaper">
-<meta name="DC.creator" content="FALX GLOBAL LLC">
-<meta name="DC.date" content="2026">
-<meta name="DC.identifier" content="NS-WP-2026-001">
-<meta name="DC.rights" content="© 2026 FALX GLOBAL LLC. All rights reserved.">
-
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
-
-<style>
-    :root {
-        --black: #000000;
-        --white: #FFFFFF;
-        --gray-50: #FAFAFA;
-        --gray-100: #F4F4F5;
-        --gray-200: #E4E4E7;
-        --gray-300: #D4D4D8;
-        --gray-500: #71717A;
-        --gray-600: #52525B;
-        --gray-700: #3F3F46;
-        --gray-900: #18181B;
-    }
-
-    * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-    }
-
-    body {
-        font-family: 'Inter', -apple-system, sans-serif;
-        font-size: 16px;
-        line-height: 1.6;
-        color: var(--gray-900);
-        background: var(--white);
-        -webkit-font-smoothing: antialiased;
-    }
-
-    .document {
-        max-width: 800px;
-        margin: 0 auto;
-        padding: 5rem 2rem;
-    }
-
-    .header {
-        text-align: center;
-        margin-bottom: 4rem;
-    }
-
-    .logo {
-        font-family: 'JetBrains Mono', monospace;
-        font-size: 32px;
-        font-weight: 700;
-        letter-spacing: 0.25em;
-        margin-bottom: 2rem;
-    }
-
-    .title {
-        font-size: 13px;
-        font-weight: 700;
-        text-transform: uppercase;
-        letter-spacing: 0.2em;
-        color: var(--gray-600);
-        margin-bottom: 0.75rem;
-    }
-
-    .subtitle {
-        font-size: 15px;
-        color: var(--gray-500);
-        margin-bottom: 3rem;
-    }
-
-    .meta {
-        display: inline-block;
-        text-align: left;
-        font-family: 'JetBrains Mono', monospace;
-        font-size: 11px;
-        line-height: 1.9;
-        background: var(--gray-50);
-        padding: 1.5rem 2.5rem;
-        border: 1px solid var(--gray-200);
-    }
-
-    .divider {
-        text-align: center;
-        color: var(--gray-300);
-        margin: 3.5rem 0;
-    }
-
-    .abstract {
-        background: var(--gray-900);
-        color: var(--white);
-        padding: 2.5rem 3rem;
-        margin: 3rem 0;
-    }
-
-    .abstract-title {
-        font-size: 11px;
-        font-weight: 700;
-        text-transform: uppercase;
-        letter-spacing: 0.25em;
-        color: var(--gray-500);
-        margin-bottom: 1.5rem;
-    }
-
-    .abstract p {
-        line-height: 1.75;
-        color: var(--gray-100);
-        margin-bottom: 1.25rem;
-    }
-
-    section {
-        margin: 3.5rem 0;
-    }
-
-    h2 {
-        font-size: 12px;
-        font-weight: 700;
-        text-transform: uppercase;
-        letter-spacing: 0.2em;
-        margin-bottom: 1.75rem;
-        padding-bottom: 0.75rem;
-        border-bottom: 2px solid var(--gray-200);
-    }
-
-    h3 {
-        font-size: 14px;
-        font-weight: 600;
-        margin: 2rem 0 1rem;
-    }
-
-    p {
-        margin-bottom: 1.25rem;
-        line-height: 1.75;
-    }
-
-    ul, ol {
-        margin: 1.25rem 0;
-        padding-left: 2rem;
-    }
-
-    li {
-        margin-bottom: 0.5rem;
-        line-height: 1.75;
-    }
-
-    table {
-        width: 100%;
-        border-collapse: collapse;
-        margin: 2rem 0;
-        font-size: 14px;
-    }
-
-    thead {
-        background: var(--gray-900);
-        color: var(--white);
-    }
-
-    th {
-        padding: 1rem 1.25rem;
-        text-align: left;
-        font-weight: 600;
-        font-size: 12px;
-        text-transform: uppercase;
-        letter-spacing: 0.05em;
-    }
-
-    td {
-        padding: 1rem 1.25rem;
-        border-bottom: 1px solid var(--gray-200);
-    }
-
-    tbody tr:hover {
-        background: var(--gray-50);
-    }
-
-    .code {
-        background: var(--gray-100);
-        font-family: 'JetBrains Mono', monospace;
-        font-size: 13px;
-        padding: 1.5rem;
-        margin: 1.5rem 0;
-        border-left: 3px solid var(--gray-500);
-        line-height: 1.8;
-    }
-
-    .emphasis {
-        background: var(--gray-50);
-        border-left: 4px solid var(--black);
-        padding: 1.5rem 2rem;
-        margin: 2rem 0;
-    }
-
-    .citation {
-        background: var(--gray-50);
-        font-family: 'JetBrains Mono', monospace;
-        font-size: 13px;
-        padding: 2rem;
-        margin: 2rem 0;
-        border: 1px solid var(--gray-300);
-        line-height: 1.8;
-    }
-
-    .legal {
-        background: var(--black);
-        color: var(--white);
-        padding: 2.5rem 3rem;
-        margin: 3.5rem 0;
-    }
-
-    .legal-title {
-        font-size: 12px;
-        font-weight: 700;
-        text-transform: uppercase;
-        letter-spacing: 0.2em;
-        margin-bottom: 1.5rem;
-    }
-
-    .legal p {
-        font-size: 14px;
-        line-height: 1.75;
-        color: var(--gray-300);
-        margin-bottom: 1rem;
-    }
-
-    .footer {
-        margin-top: 3.5rem;
-        padding: 2rem;
-        background: var(--gray-100);
-        font-family: 'JetBrains Mono', monospace;
-        font-size: 11px;
-        color: var(--gray-600);
-        text-align: center;
-        line-height: 1.8;
-    }
-
-    .hash {
-        margin-top: 1.5rem;
-        font-size: 10px;
-        word-break: break-all;
-        color: var(--gray-500);
-    }
-
-    @media (max-width: 768px) {
-        .document { padding: 3rem 1.5rem; }
-        .logo { font-size: 24px; }
-    }
-
-    @media print {
-        .document { padding: 0; }
-    }
-</style>
-```
-
-</head>
-
-<body>
-    <div class="document">
-
-```
-    <div class="header">
-        <div class="logo">NEUROSAAS</div>
-        <div class="title">Canonical Technical Whitepaper</div>
-        <div class="subtitle">Institutional Infrastructure Specification</div>
-        
-        <div class="meta">
-            <div>Owner: FALX GLOBAL LLC</div>
-            <div>Jurisdiction: Delaware, United States</div>
-            <div>Document ID: NS-WP-2026-001</div>
-            <div>Version: 1.0.0</div>
-            <div>Publication Date: 2026</div>
-            <div>Classification: Public Technical Record</div>
-        </div>
-    </div>
-
-    <div class="divider">* * *</div>
-
-    <div class="abstract">
-        <div class="abstract-title">Abstract</div>
-        <p>
-            NeuroSaaS designates a proprietary cognitive-operational infrastructure architecture designed to augment human decision coherence under conditions of systemic complexity. The system operates as a structural layer rather than an application-level tool, providing metacognitive stabilization, inferential transparency, and adaptive decision scaffolding.
-        </p>
-        <p>
-            This document establishes the canonical public definition, architectural category, scope boundaries, legal status, and institutional framing of NeuroSaaS, without exposing internal mechanisms or protected implementations.
-        </p>
-    </div>
-
-    <div class="divider">* * *</div>
-
-    <section>
-        <h2>1. Purpose of This Document</h2>
-        <p>This whitepaper exists to:</p>
-        <ol>
-            <li>formally define NeuroSaaS</li>
-            <li>establish canonical terminology</li>
-            <li>delimit public scope</li>
-            <li>declare ownership</li>
-            <li>fix semantic meaning</li>
-            <li>prevent conceptual misappropriation</li>
-        </ol>
-        <p>It does not disclose architecture, algorithms, models, or operational mechanisms.</p>
-    </section>
-
-    <div class="divider">* * *</div>
-
-    <section>
-        <h2>2. Canonical Definition</h2>
-        <p>
-            NeuroSaaS is a distributed cognitive infrastructure designed to enhance human reasoning stability and decision integrity in high-complexity environments through structured metacognitive augmentation.
-        </p>
-        <p>Key properties:</p>
-        <ul>
-            <li>infrastructure, not application</li>
-            <li>augmentation, not automation</li>
-            <li>structural, not interface-level</li>
-            <li>institutional, not consumer-oriented</li>
-        </ul>
-    </section>
-
-    <div class="divider">* * *</div>
-
-    <section>
-        <h2>3. System Classification</h2>
-        <table>
-            <thead>
-                <tr>
-                    <th>Dimension</th>
-                    <th>Classification</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>Category</td>
-                    <td>Cognitive Infrastructure</td>
-                </tr>
-                <tr>
-                    <td>Layer</td>
-                    <td>Structural</td>
-                </tr>
-                <tr>
-                    <td>Function</td>
-                    <td>Decision Stabilization</td>
-                </tr>
-                <tr>
-                    <td>Mode</td>
-                    <td>Augmentation</td>
-                </tr>
-                <tr>
-                    <td>Access</td>
-                    <td>Controlled</td>
-                </tr>
-                <tr>
-                    <td>Exposure</td>
-                    <td>Limited Surface</td>
-                </tr>
-            </tbody>
-        </table>
-    </section>
-
-    <div class="divider">* * *</div>
-
-    <section>
-        <h2>4. Architectural Positioning</h2>
-        <p>NeuroSaaS does not operate as software in the traditional sense.</p>
-        <p>It functions as a meta-layer positioned above:</p>
-        <ul>
-            <li>analytics systems</li>
-            <li>decision platforms</li>
-            <li>AI models</li>
-            <li>enterprise tools</li>
-            <li>human workflows</li>
-        </ul>
-        
-        <p>Conceptual stack:</p>
-        <div class="code">Human cognition
-```
-
-↑
-NeuroSaaS cognitive infrastructure layer
-↑
-Operational systems
-↑
-Data + models</div>
-</section>
-
-```
-    <div class="divider">* * *</div>
-
-    <section>
-        <h2>5. Design Philosophy</h2>
-        <p>NeuroSaaS is built on five governing principles:</p>
-
-        <h3>5.1 Metacognitive Activation</h3>
-        <p>Encourages deliberate reasoning rather than reactive processing.</p>
-
-        <h3>5.2 Structural Friction</h3>
-        <p>Introduces beneficial resistance that prevents cognitive collapse into impulsive decision states.</p>
-
-        <h3>5.3 Inferential Transparency</h3>
-        <p>Returns system-derived interpretations back to the user.</p>
-
-        <h3>5.4 Agency Preservation</h3>
-        <p>Strengthens human decision authority rather than replacing it.</p>
-
-        <h3>5.5 Contextual Alignment</h3>
-        <p>Maintains coherence between environment, intent, and action.</p>
-    </section>
-
-    <div class="divider">* * *</div>
-
-    <section>
-        <h2>6. What NeuroSaaS Is Not</h2>
-        <p>NeuroSaaS is explicitly not:</p>
-        <ul>
-            <li>a chatbot</li>
-            <li>an AI assistant</li>
-            <li>a SaaS platform</li>
-            <li>a workflow tool</li>
-            <li>a productivity system</li>
-            <li>a decision engine</li>
-            <li>an automation framework</li>
-        </ul>
-        <p>It is a structural cognitive substrate.</p>
-    </section>
-
-    <div class="divider">* * *</div>
-
-    <section>
-        <h2>7. System Functional Role</h2>
-        <p>NeuroSaaS stabilizes decision systems when complexity exceeds natural cognitive bandwidth.</p>
-        <p>It performs three macro-functions:</p>
-
-        <table>
-            <thead>
-                <tr>
-                    <th>Function</th>
-                    <th>Effect</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>Cognitive stabilization</td>
-                    <td>reduces volatility in reasoning</td>
-                </tr>
-                <tr>
-                    <td>Interpretive reflection</td>
-                    <td>clarifies internal states</td>
-                </tr>
-                <tr>
-                    <td>Decision scaffolding</td>
-                    <td>preserves coherence</td>
-                </tr>
-            </tbody>
-        </table>
-    </section>
-
-    <div class="divider">* * *</div>
-
-    <section>
-        <h2>8. Operational Domain</h2>
-        <p>NeuroSaaS operates exclusively in:</p>
-        <ul>
-            <li>controlled environments</li>
-            <li>defined contexts</li>
-            <li>authorized deployments</li>
-            <li>aligned institutions</li>
-        </ul>
-        <p>Public execution is not supported.</p>
-    </section>
-
-    <div class="divider">* * *</div>
-
-    <section>
-        <h2>9. Access Model</h2>
-        <p>Access is governed by three conditions:</p>
-        <ol>
-            <li>contextual suitability</li>
-            <li>institutional alignment</li>
-            <li>authorization framework</li>
-        </ol>
-        <p>Absence of access is structural, not temporary.</p>
-    </section>
-
-    <div class="divider">* * *</div>
-
-    <section>
-        <h2>10. Asymmetry Model</h2>
-        <p>NeuroSaaS intentionally maintains asymmetric architecture:</p>
-        
-        <div class="code">Public Layer: minimal
-```
-
-Protected Layer: full</div>
-
-```
-        <p>This asymmetry preserves:</p>
-        <ul>
-            <li>system integrity</li>
-            <li>interpretive fidelity</li>
-            <li>cognitive safety</li>
-            <li>misuse resistance</li>
-        </ul>
-    </section>
-
-    <div class="divider">* * *</div>
-
-    <section>
-        <h2>11. Human-System Relationship Model</h2>
-        
-        <p>Traditional systems:</p>
-        <div class="code">system interprets user → platform retains advantage</div>
-
-        <p>NeuroSaaS model:</p>
-        <div class="code">system interprets user → interpretation returned to user</div>
-
-        <p>This establishes epistemic symmetry.</p>
-    </section>
-
-    <div class="divider">* * *</div>
-
-    <section>
-        <h2>12. Application Class</h2>
-        <p>NeuroSaaS is designed for:</p>
-        <ul>
-            <li>strategic environments</li>
-            <li>institutional decision contexts</li>
-            <li>high-impact domains</li>
-            <li>cognitive-intensive operations</li>
-        </ul>
-        <p>It is not intended for general consumer use.</p>
-    </section>
-
-    <div class="divider">* * *</div>
-
-    <section>
-        <h2>13. Security Posture</h2>
-        <p>Protected layers include:</p>
-        <ul>
-            <li>internal architecture</li>
-            <li>inference logic</li>
-            <li>structural design</li>
-            <li>semantic protocols</li>
-            <li>implementation methods</li>
-        </ul>
-        <p>Disclosure is restricted.</p>
-    </section>
-
-    <div class="divider">* * *</div>
-
-    <section>
-        <h2>14. Intellectual Property Status</h2>
-        <p>NeuroSaaS constitutes proprietary intellectual property owned exclusively by:</p>
-        
-        <div class="emphasis">FALX GLOBAL LLC</div>
-
-        <p>Protected components include:</p>
-        <ul>
-            <li>conceptual architecture</li>
-            <li>system model</li>
-            <li>framework semantics</li>
-            <li>structural methods</li>
-            <li>internal mechanisms</li>
-            <li>derived implementations</li>
-        </ul>
-
-        <p>Legal protection frameworks:</p>
-        <ul>
-            <li>trade secret law</li>
-            <li>copyright law</li>
-            <li>contractual law</li>
-            <li>software law</li>
-            <li>database rights</li>
-            <li>applicable international statutes</li>
-        </ul>
-    </section>
-
-    <div class="divider">* * *</div>
-
-    <section>
-        <h2>15. Jurisdiction</h2>
-        <p>All rights and protections are governed under:</p>
-        <div class="emphasis">Delaware, United States law</div>
-    </section>
-
-    <div class="divider">* * *</div>
-
-    <section>
-        <h2>16. Citation Format</h2>
-        <p>Academic or technical citation must follow:</p>
-        <div class="citation">FALX GLOBAL LLC (2026).
-```
-
-NeuroSaaS — Canonical Technical Definition.
-Version 1.0.0.</div>
-</section>
-
-```
-    <div class="divider">* * *</div>
-
-    <section>
-        <h2>17. Versioning Policy</h2>
-        <p>This document is version-controlled.</p>
-        <p>Updates:</p>
-        <ul>
-            <li>are timestamped</li>
-            <li>maintain prior validity</li>
-            <li>preserve historical traceability</li>
-            <li>include integrity hashes</li>
-        </ul>
-    </section>
-
-    <div class="divider">* * *</div>
-
-    <section>
-        <h2>18. Semantic Fixation Clause</h2>
-        <p>This whitepaper fixes the public meaning of NeuroSaaS.</p>
-        <p>Any external definition conflicting with this record is non-canonical.</p>
-    </section>
-
-    <div class="divider">* * *</div>
-
-    <section>
-        <h2>19. Canonical Status Declaration</h2>
-        <div class="emphasis">
-            <p>This document is the authoritative public reference for the term NeuroSaaS.</p>
-        </div>
-        <p>No other public description supersedes this record.</p>
-    </section>
-
-    <div class="divider">* * *</div>
-
-    <section>
-        <h2>20. Final Technical Statement</h2>
-        <p>NeuroSaaS represents a shift in computational paradigm:</p>
-        
-        <div class="code">from software that executes tasks
-```
-
-to infrastructure that stabilizes cognition</div>
-</section>
-
-```
-    <div class="divider">* * *</div>
-
-    <div class="legal">
-        <div class="legal-title">Legal Notice</div>
-        <p>
-            Copyright 2026 FALX GLOBAL LLC. All rights reserved.
-        </p>
-        <p>
-            NeuroSaaS is a proprietary system category and protected technological asset. Unauthorized reproduction, derivation, or implementation is prohibited.
-        </p>
-    </div>
-
-    <div class="divider">* * *</div>
-
-    <div class="footer">
-        <div>DOCUMENT HASH (PLACEHOLDER)</div>
-        <div class="hash">Insert SHA-256 hash upon final publication.</div>
-    </div>
-
-    <div class="divider">* * *</div>
-    <div class="divider">* * *</div>
-
-</div>
-
-<script type="application/ld+json">
-{
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NeuroSaaS™ — Canonical Technical Whitepaper | FALX GLOBAL LLC</title>
+  <meta name="description" content="NeuroSaaS™ Canonical Technical Whitepaper. Institutional Infrastructure Specification. Owner: FALX GLOBAL LLC. Document ID: NS-WP-2026-001.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://falxsystem.com/neurosaas/whitepaper">
+
+  <script type="application/ld+json">
+  {
     "@context": "https://schema.org",
     "@type": "TechArticle",
-    "headline": "NeuroSaaS — Canonical Technical Whitepaper",
-    "description": "Institutional Infrastructure Specification",
-    "datePublished": "2026",
-    "author": {
-        "@type": "Organization",
-        "name": "FALX GLOBAL LLC"
-    },
-    "identifier": "NS-WP-2026-001",
-    "version": "1.0.0",
-    "copyrightHolder": {
-        "@type": "Organization",
-        "name": "FALX GLOBAL LLC"
-    },
-    "copyrightYear": "2026"
-}
-</script>
+    "headline": "NeuroSaaS™ — Canonical Technical Whitepaper",
+    "datePublished": "2026-01-01T00:00:00Z",
+    "author": { "@type": "Organization", "name": "FALX GLOBAL LLC", "url": "https://falxsystem.com" },
+    "publisher": { "@type": "Organization", "name": "FALX GLOBAL LLC" },
+    "copyrightHolder": { "@type": "Organization", "name": "FALX GLOBAL LLC" },
+    "copyrightYear": "2026",
+    "license": "All rights reserved"
+  }
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500;600&family=Sora:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --black:    #000000;
+      --s1:       rgba(255,255,255,0.015);
+      --s2:       rgba(255,255,255,0.04);
+      --s3:       rgba(255,255,255,0.07);
+      --s4:       rgba(255,255,255,0.10);
+      --t0:       #FFFFFF;
+      --t1:       #D1D5DB;
+      --t2:       #9CA3AF;
+      --t3:       #6B7280;
+      --t4:       #374151;
+      --acc:      #4d6bf7;
+      --acc-glow: rgba(77,107,247,0.11);
+      --acc-bdr:  rgba(77,107,247,0.22);
+      --acc-mid:  rgba(77,107,247,0.06);
+      --red:      #991B1B;
+      --nav-h:    68px;
+      --pad:      clamp(1.5rem, 6vw, 5rem);
+      --max:      880px;
+      --mono:     'JetBrains Mono', 'Courier New', monospace;
+      --sans:     'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      --display:  'Sora', -apple-system, sans-serif;
+    }
+
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; background: #000; }
+    body {
+      background: #000000;
+      color: var(--t1);
+      font-family: var(--sans);
+      font-size: 16px;
+      line-height: 1.7;
+      font-weight: 300;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      overflow-x: hidden;
+      min-height: 100vh;
+    }
+    ::selection { background: var(--acc); color: #fff; }
+
+    .noise {
+      position: fixed; inset: 0;
+      pointer-events: none; z-index: 9999; opacity: 0.026;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    }
+
+    /* NAV */
+    .site-nav {
+      position: fixed; top: 0; left: 0; right: 0;
+      height: var(--nav-h);
+      background: #000000;
+      border-bottom: 1px solid var(--s2);
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 var(--pad);
+      z-index: 100;
+      transition: border-color 0.3s ease;
+    }
+    .site-nav.scrolled { border-bottom-color: var(--s3); }
+    .nav-brand {
+      font-family: var(--sans); font-size: 0.78rem; font-weight: 700;
+      letter-spacing: 0.3em; text-transform: uppercase;
+      color: var(--t0); text-decoration: none;
+    }
+    .nav-right { display: flex; align-items: center; gap: 1.25rem; }
+    .nav-live {
+      font-family: var(--mono); font-size: 0.6rem;
+      color: var(--acc); letter-spacing: 0.08em;
+      animation: blink 3s ease-in-out infinite;
+    }
+    .nav-badge {
+      font-family: var(--mono); font-size: 0.52rem; font-weight: 700;
+      letter-spacing: 0.14em; text-transform: uppercase;
+      padding: 4px 10px; background: var(--red); color: #fff;
+    }
+    @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0.35} }
+
+    .page-wrap { background: #000000; padding-top: var(--nav-h); }
+
+    /* COVER */
+    .doc-cover {
+      background:
+        radial-gradient(ellipse 1000px 700px at -5% 60%, rgba(77,107,247,0.15) 0%, transparent 58%),
+        radial-gradient(ellipse 600px 400px at 105% 20%, rgba(77,107,247,0.07) 0%, transparent 55%),
+        #000000;
+      padding: 6rem var(--pad) 5rem;
+      border-bottom: 1px solid var(--s3);
+    }
+    .cover-inner { max-width: var(--max); margin: 0 auto; }
+
+    .cover-strip {
+      display: flex; align-items: center; flex-wrap: wrap; gap: 0.75rem;
+      margin-bottom: 3.5rem;
+    }
+    .strip-badge {
+      font-family: var(--mono); font-size: 0.52rem; font-weight: 700;
+      letter-spacing: 0.15em; text-transform: uppercase;
+      padding: 4px 10px; background: var(--red); color: #fff;
+    }
+    .strip-tag {
+      font-family: var(--mono); font-size: 0.52rem;
+      color: var(--t3); letter-spacing: 0.14em; text-transform: uppercase;
+    }
+    .strip-dot {
+      width: 3px; height: 3px; border-radius: 50%;
+      background: var(--s4); flex-shrink: 0;
+    }
+
+    .cover-wordmark {
+      font-family: var(--display);
+      font-size: clamp(2.6rem, 7vw, 5.5rem);
+      font-weight: 200; line-height: 0.95;
+      letter-spacing: -0.04em; color: var(--t0);
+      margin-bottom: 0.5rem;
+    }
+    .cover-wordmark sup {
+      font-size: 0.3em; vertical-align: super;
+      color: var(--acc); font-weight: 400; letter-spacing: 0.06em;
+    }
+    .cover-doc-type {
+      font-family: var(--display);
+      font-size: clamp(0.9rem, 2vw, 1.25rem);
+      font-weight: 300; color: var(--t3);
+      letter-spacing: 0.01em;
+      border-left: 2px solid var(--acc); padding-left: 1rem;
+      margin-top: 1.25rem; margin-bottom: 3rem;
+    }
+
+    .cover-meta {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 0; border: 1px solid var(--s3);
+      margin-bottom: 3rem; overflow: hidden;
+    }
+    .cover-meta-row {
+      padding: 1rem 1.25rem;
+      border-right: 1px solid var(--s2);
+      border-bottom: 1px solid var(--s2);
+    }
+    .cover-meta-row:nth-last-child(-n+2) { border-bottom: none; }
+    .cover-meta-row:last-child { border-right: none; }
+    .cm-lbl {
+      display: block; font-family: var(--mono); font-size: 0.46rem;
+      color: var(--t3); text-transform: uppercase; letter-spacing: 0.2em;
+      margin-bottom: 5px;
+    }
+    .cm-val {
+      display: block; font-family: var(--mono); font-size: 0.68rem;
+      color: var(--t1); font-weight: 500; line-height: 1.4;
+    }
+    .cm-val.accent { color: var(--acc); }
+
+    .abstract-block {
+      background: var(--acc-mid);
+      border: 1px solid var(--acc-bdr);
+      border-left: 3px solid var(--acc);
+      padding: 2rem 2.25rem;
+    }
+    .abstract-label {
+      display: block; font-family: var(--mono); font-size: 0.48rem;
+      color: var(--acc); letter-spacing: 0.24em; text-transform: uppercase;
+      opacity: 0.65; margin-bottom: 1rem;
+    }
+    .abstract-text {
+      font-family: var(--display); font-size: 0.97rem;
+      font-weight: 300; line-height: 1.85; color: var(--t0);
+    }
+
+    /* TOC */
+    .doc-toc {
+      background:
+        radial-gradient(ellipse 600px 350px at 110% 50%, rgba(77,107,247,0.07) 0%, transparent 60%),
+        #000000;
+      padding: 3.5rem var(--pad);
+      border-bottom: 1px solid var(--s3);
+    }
+    .toc-inner { max-width: var(--max); margin: 0 auto; }
+    .toc-label {
+      display: block; font-family: var(--mono); font-size: 0.48rem;
+      color: var(--acc); letter-spacing: 0.24em; text-transform: uppercase;
+      opacity: 0.55; margin-bottom: 1.75rem;
+    }
+    .toc-grid {
+      display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 3px; list-style: none;
+    }
+    .toc-link {
+      display: flex; align-items: baseline; gap: 0.7rem;
+      padding: 0.55rem 0.75rem;
+      font-family: var(--mono); font-size: 0.66rem;
+      color: var(--t3); text-decoration: none; letter-spacing: 0.03em;
+      border: 1px solid transparent;
+      transition: color 0.2s, background 0.2s, border-color 0.2s, padding-left 0.2s;
+    }
+    .toc-link:hover {
+      color: var(--t0); background: var(--s1);
+      border-color: var(--s2); padding-left: 1rem;
+    }
+    .toc-n {
+      color: var(--acc); font-weight: 600; min-width: 30px;
+      opacity: 0.55; flex-shrink: 0; transition: opacity 0.2s;
+    }
+    .toc-link:hover .toc-n { opacity: 1; }
+
+    /* BODY */
+    .doc-main { background: #000000; }
+    .doc-body { max-width: var(--max); margin: 0 auto; padding: 5rem var(--pad) 6rem; }
+
+    .doc-section {
+      background: #000000;
+      margin-bottom: 4.5rem;
+      padding-bottom: 4.5rem;
+      border-bottom: 1px solid var(--s2);
+    }
+    .doc-section:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+
+    .sec-eyebrow {
+      display: flex; align-items: center; gap: 1rem;
+      margin-bottom: 1.25rem;
+    }
+    .sec-num {
+      font-family: var(--mono); font-size: 0.48rem;
+      color: var(--acc); letter-spacing: 0.22em;
+      text-transform: uppercase; opacity: 0.5;
+      white-space: nowrap;
+    }
+    .sec-rule { flex: 1; height: 1px; background: var(--s2); }
+
+    h2 {
+      font-family: var(--display);
+      font-size: clamp(1.35rem, 2.5vw, 1.8rem);
+      font-weight: 300; line-height: 1.2;
+      letter-spacing: -0.025em; color: var(--t0);
+      margin-bottom: 1.75rem;
+    }
+    h2 strong { font-weight: 600; }
+
+    p {
+      font-size: 0.93rem; line-height: 1.85;
+      color: var(--t2); margin-bottom: 1.2rem;
+    }
+    p:last-child { margin-bottom: 0; }
+    p strong { font-weight: 500; color: var(--t1); }
+    p em { font-style: italic; }
+    sup { font-size: 0.65em; vertical-align: super; }
+
+    /* Classification table */
+    .class-table {
+      width: 100%; border-collapse: collapse;
+      margin: 1.75rem 0; font-family: var(--mono);
+    }
+    .class-table thead tr { border-bottom: 1px solid var(--s3); }
+    .class-table th {
+      font-size: 0.48rem; color: var(--acc);
+      letter-spacing: 0.2em; text-transform: uppercase;
+      font-weight: 600; text-align: left;
+      padding: 0.65rem 1.25rem; opacity: 0.65;
+    }
+    .class-table td {
+      padding: 0.85rem 1.25rem;
+      font-size: 0.72rem; color: var(--t2);
+      border-bottom: 1px solid var(--s1); line-height: 1.5;
+    }
+    .class-table tr:last-child td { border-bottom: none; }
+    .class-table td:first-child { color: var(--t3); }
+    .class-table td:last-child { color: var(--t0); font-weight: 400; }
+    .class-table tbody tr { background: var(--s1); transition: background 0.2s; }
+    .class-table tbody tr:hover { background: var(--s2); }
+
+    /* Key properties */
+    .key-props {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1px; border: 1px solid var(--s3);
+      margin: 1.75rem 0; overflow: hidden;
+    }
+    .key-prop {
+      padding: 1.1rem 1.4rem; background: var(--s1);
+      border-right: 1px solid var(--s2); transition: background 0.2s;
+    }
+    .key-prop:last-child { border-right: none; }
+    .key-prop:hover { background: var(--s2); }
+    .kp-arrow {
+      display: block; font-family: var(--mono); font-size: 0.48rem;
+      color: var(--acc); margin-bottom: 0.4rem; opacity: 0.6;
+    }
+    .kp-text {
+      font-family: var(--display); font-size: 0.8rem;
+      color: var(--t1); font-weight: 300; line-height: 1.4;
+    }
+
+    /* Stack diagram */
+    .stack-diagram { margin: 2rem 0; border: 1px solid var(--s3); overflow: hidden; }
+    .stack-label {
+      background: var(--s1); padding: 0.65rem 1.25rem;
+      font-family: var(--mono); font-size: 0.46rem;
+      color: var(--acc); letter-spacing: 0.2em; text-transform: uppercase;
+      opacity: 0.55; border-bottom: 1px solid var(--s2);
+    }
+    .stack-layer {
+      display: flex; align-items: center; gap: 1.5rem;
+      padding: 1rem 1.5rem;
+      border-bottom: 1px solid var(--s1);
+      transition: background 0.2s;
+    }
+    .stack-layer:last-child { border-bottom: none; }
+    .stack-layer:hover { background: var(--s1); }
+    .stack-layer.highlighted {
+      background: var(--acc-glow);
+      border-left: 3px solid var(--acc);
+    }
+    .stack-arrow {
+      font-family: var(--mono); font-size: 0.6rem;
+      color: var(--acc); opacity: 0.5; flex-shrink: 0; width: 16px;
+    }
+    .stack-name {
+      font-family: var(--display); font-size: 0.85rem;
+      font-weight: 300; color: var(--t0); flex: 1;
+    }
+    .stack-layer.highlighted .stack-name { font-weight: 500; }
+    .stack-desc {
+      font-family: var(--mono); font-size: 0.55rem;
+      color: var(--t3); letter-spacing: 0.06em; text-align: right;
+    }
+    .stack-layer.highlighted .stack-desc { color: var(--acc); }
+
+    /* Principles */
+    .principles { display: flex; flex-direction: column; gap: 1px; margin: 1.75rem 0; }
+    .principle {
+      display: flex; gap: 1.5rem; align-items: flex-start;
+      padding: 1.25rem 1.5rem;
+      background: var(--s1); border: 1px solid var(--s2);
+      border-top: none; transition: background 0.2s;
+    }
+    .principle:first-child { border-top: 1px solid var(--s2); }
+    .principle:hover { background: var(--s2); }
+    .pr-num {
+      font-family: var(--mono); font-size: 0.55rem;
+      color: var(--acc); font-weight: 600; opacity: 0.6;
+      flex-shrink: 0; padding-top: 2px; min-width: 28px;
+    }
+    .pr-body { flex: 1; }
+    .pr-title {
+      font-family: var(--display); font-size: 0.9rem;
+      font-weight: 400; color: var(--t0); margin-bottom: 0.35rem;
+    }
+    .pr-desc { font-size: 0.82rem; color: var(--t2); line-height: 1.65; }
+
+    /* Not-list */
+    .not-list {
+      display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 1px; margin: 1.75rem 0;
+      border: 1px solid var(--s3); overflow: hidden;
+    }
+    .not-item {
+      padding: 1rem 1.25rem; background: var(--s1);
+      border-right: 1px solid var(--s2);
+      font-family: var(--mono); font-size: 0.65rem;
+      color: var(--t3); letter-spacing: 0.04em;
+      display: flex; align-items: center; gap: 0.75rem;
+      transition: background 0.2s, color 0.2s;
+    }
+    .not-item:hover { background: var(--s2); color: var(--t1); }
+    .not-item::before { content: '×'; color: var(--red); font-size: 0.8rem; font-weight: 600; flex-shrink: 0; }
+
+    /* Function table */
+    .fn-table {
+      width: 100%; border-collapse: collapse;
+      margin: 1.75rem 0; font-family: var(--mono);
+    }
+    .fn-table thead tr { border-bottom: 1px solid var(--s3); }
+    .fn-table th {
+      font-size: 0.46rem; color: var(--acc); letter-spacing: 0.2em;
+      text-transform: uppercase; font-weight: 600;
+      text-align: left; padding: 0.65rem 1.25rem; opacity: 0.65;
+    }
+    .fn-table td {
+      padding: 1rem 1.25rem; font-size: 0.72rem; color: var(--t2);
+      border-bottom: 1px solid var(--s1); line-height: 1.5;
+    }
+    .fn-table tr:last-child td { border-bottom: none; }
+    .fn-table td:first-child { color: var(--t1); font-weight: 500; }
+    .fn-table tbody tr { background: var(--s1); transition: background 0.2s; }
+    .fn-table tbody tr:hover { background: var(--s2); }
+
+    /* Asymmetry diagram */
+    .asym-diagram {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 1px; border: 1px solid var(--s3);
+      margin: 1.75rem 0; overflow: hidden;
+    }
+    .asym-layer { padding: 1.5rem 1.75rem; display: flex; flex-direction: column; gap: 0.75rem; }
+    .asym-layer.public { background: var(--s1); }
+    .asym-layer.protected { background: var(--acc-glow); border-left: 1px solid var(--acc-bdr); }
+    .asym-lbl {
+      font-family: var(--mono); font-size: 0.48rem;
+      letter-spacing: 0.2em; text-transform: uppercase; font-weight: 600;
+    }
+    .asym-layer.public .asym-lbl { color: var(--t3); }
+    .asym-layer.protected .asym-lbl { color: var(--acc); }
+    .asym-content { font-family: var(--display); font-size: 0.85rem; font-weight: 300; line-height: 1.6; }
+    .asym-layer.public .asym-content { color: var(--t2); }
+    .asym-layer.protected .asym-content { color: var(--t0); }
+    .asym-tag { font-family: var(--mono); font-size: 2rem; font-weight: 700; opacity: 0.06; line-height: 1; margin-top: auto; }
+
+    /* Model comparison */
+    .model-comparison { display: flex; flex-direction: column; gap: 1px; margin: 1.75rem 0; }
+    .model-row {
+      display: grid; grid-template-columns: 180px 1fr;
+      border: 1px solid var(--s2); border-top: none; overflow: hidden;
+    }
+    .model-row:first-child { border-top: 1px solid var(--s2); }
+    .model-label {
+      padding: 1.1rem 1.25rem;
+      font-family: var(--mono); font-size: 0.52rem;
+      color: var(--t3); letter-spacing: 0.1em; text-transform: uppercase;
+      background: var(--s1); border-right: 1px solid var(--s2);
+      display: flex; align-items: center;
+    }
+    .model-content {
+      padding: 1.1rem 1.4rem;
+      font-family: var(--display); font-size: 0.85rem;
+      font-weight: 300; color: var(--t2); line-height: 1.6;
+    }
+    .model-row.neurosaas .model-label { color: var(--acc); background: var(--acc-glow); }
+    .model-row.neurosaas .model-content { color: var(--t0); background: var(--acc-mid); }
+
+    /* Legal block */
+    .legal-block {
+      background: var(--s1); border-left: 3px solid var(--red);
+      padding: 1.6rem 1.75rem; margin: 1.75rem 0;
+      font-family: var(--mono); font-size: 0.7rem;
+      line-height: 1.95; color: var(--t2);
+    }
+    .legal-block.blue { border-left-color: var(--acc); }
+
+    /* Citation block */
+    .citation-block {
+      background: var(--s1);
+      border: 1px solid var(--s3); border-left: 3px solid var(--acc-bdr);
+      padding: 1.4rem 1.6rem;
+      font-family: var(--mono); font-size: 0.7rem;
+      line-height: 1.7; color: var(--t2); margin: 1.4rem 0;
+    }
+
+    /* Item list */
+    .item-list { display: flex; flex-direction: column; gap: 2px; margin: 1.25rem 0; }
+    .item-list li {
+      display: flex; align-items: flex-start; gap: 0.75rem;
+      padding: 0.65rem 1rem;
+      font-family: var(--mono); font-size: 0.7rem;
+      color: var(--t2); line-height: 1.6;
+      background: var(--s1); list-style: none;
+      border: 1px solid var(--s2); border-top: none;
+    }
+    .item-list li:first-child { border-top: 1px solid var(--s2); }
+    .item-list li::before { content: '→'; color: var(--acc); flex-shrink: 0; opacity: 0.6; }
+
+    /* Final statement */
+    .final-statement {
+      background: var(--acc-glow);
+      border: 1px solid var(--acc-bdr); border-left: 3px solid var(--acc);
+      padding: 2.5rem; margin: 2rem 0; text-align: center;
+    }
+    .fs-from { font-family: var(--display); font-size: 0.85rem; font-weight: 300; color: var(--t3); margin-bottom: 1rem; }
+    .fs-arrow { font-family: var(--mono); font-size: 0.6rem; color: var(--acc); opacity: 0.6; letter-spacing: 0.2em; margin-bottom: 1rem; }
+    .fs-to { font-family: var(--display); font-size: clamp(1rem, 2.5vw, 1.35rem); font-weight: 300; color: var(--t0); line-height: 1.5; }
+    .fs-to strong { font-weight: 600; color: var(--acc); }
+
+    /* FOOTER */
+    .doc-footer {
+      background:
+        radial-gradient(ellipse 700px 500px at 110% 100%, rgba(77,107,247,0.09) 0%, transparent 60%),
+        #000000;
+      border-top: 1px solid var(--s3); padding: 5rem var(--pad) 4rem;
+    }
+    .footer-inner { max-width: var(--max); margin: 0 auto; }
+    .footer-cols {
+      display: grid; grid-template-columns: 1.5fr 1fr 1fr;
+      gap: 3.5rem; padding-bottom: 2.5rem;
+      border-bottom: 1px solid var(--s2); margin-bottom: 2rem;
+    }
+    .f-logo { font-family: var(--sans); font-size: 1rem; font-weight: 700; letter-spacing: 0.25em; text-transform: uppercase; color: var(--t0); margin-bottom: 0.75rem; }
+    .f-tagline { font-size: 0.78rem; color: var(--t3); line-height: 1.65; }
+    .f-col { display: flex; flex-direction: column; gap: 0.5rem; }
+    .f-col-title { display: block; font-family: var(--mono); font-size: 0.48rem; color: var(--acc); text-transform: uppercase; letter-spacing: 0.16em; margin-bottom: 0.5rem; }
+    .f-link { font-size: 0.78rem; color: var(--t3); text-decoration: none; transition: color 0.2s; }
+    .f-link:hover { color: var(--acc); }
+    .footer-copy {
+      font-family: var(--mono); font-size: 0.55rem; line-height: 2.1;
+      color: var(--t3); border-left: 2px solid var(--red);
+      padding: 1rem 1.25rem; background: var(--s1); margin-bottom: 2rem;
+    }
+    .footer-bottom {
+      display: flex; justify-content: space-between; align-items: flex-start; gap: 2rem;
+      font-family: var(--mono); font-size: 0.48rem; color: var(--t4);
+    }
+    .doc-hash { word-break: break-all; max-width: 400px; line-height: 1.7; text-align: right; }
+
+    /* RESPONSIVE */
+    @media (max-width: 720px) {
+      :root { --pad: 1.5rem; }
+      .cover-wordmark { font-size: 2.4rem; }
+      .cover-meta { grid-template-columns: 1fr 1fr; }
+      .cover-meta-row:nth-last-child(-n+2) { border-bottom: none; }
+      .toc-grid { grid-template-columns: 1fr 1fr; }
+      .key-props { grid-template-columns: 1fr 1fr; }
+      .not-list { grid-template-columns: 1fr 1fr; }
+      .asym-diagram { grid-template-columns: 1fr; }
+      .asym-layer.protected { border-left: none; border-top: 1px solid var(--acc-bdr); }
+      .model-row { grid-template-columns: 1fr; }
+      .model-label { border-right: none; border-bottom: 1px solid var(--s2); }
+      .footer-cols { grid-template-columns: 1fr; gap: 2rem; }
+      .footer-bottom { flex-direction: column; }
+      .doc-hash { max-width: 100%; text-align: left; }
+      .nav-badge { display: none; }
+    }
+    @media (max-width: 480px) {
+      .toc-grid { grid-template-columns: 1fr; }
+      .key-props { grid-template-columns: 1fr; }
+      .not-list { grid-template-columns: 1fr; }
+      .cover-meta { grid-template-columns: 1fr; }
+    }
+    @media print {
+      .noise, .site-nav { display: none; }
+      .page-wrap { padding-top: 0; }
+      body, .doc-cover, .doc-toc, .doc-main, .doc-footer, .doc-section { background: #fff !important; color: #111 !important; }
+      a { color: #000; }
+    }
+  </style>
+
+</head>
+<body>
+
+  <div class="noise" aria-hidden="true"></div>
+
+  <nav class="site-nav" id="siteNav" role="navigation" aria-label="Main navigation">
+    <a href="https://falxsystem.com" class="nav-brand">FALX</a>
+    <div class="nav-right">
+      <span class="nav-live" aria-live="polite">NEUROSAAS ACTIVE ●</span>
+      <span class="nav-badge">Technical Whitepaper</span>
+    </div>
+  </nav>
+
+  <div class="page-wrap">
+
 ```
+<!-- COVER -->
+<header class="doc-cover" role="banner">
+  <div class="cover-inner">
+    <div class="cover-strip">
+      <span class="strip-badge">Technical Whitepaper</span>
+      <span class="strip-dot" aria-hidden="true"></span>
+      <span class="strip-tag">NS-WP-2026-001</span>
+      <span class="strip-dot" aria-hidden="true"></span>
+      <span class="strip-tag">Version 1.0.0</span>
+      <span class="strip-dot" aria-hidden="true"></span>
+      <span class="strip-tag">Public Technical Record</span>
+    </div>
+
+    <div class="cover-wordmark">NeuroSaaS<sup>™</sup></div>
+    <p class="cover-doc-type">Canonical Technical Whitepaper — Institutional Infrastructure Specification</p>
+
+    <div class="cover-meta">
+      <div class="cover-meta-row">
+        <span class="cm-lbl">Owner</span>
+        <span class="cm-val">FALX GLOBAL LLC</span>
+      </div>
+      <div class="cover-meta-row">
+        <span class="cm-lbl">Jurisdiction</span>
+        <span class="cm-val">Delaware, United States</span>
+      </div>
+      <div class="cover-meta-row">
+        <span class="cm-lbl">Document ID</span>
+        <span class="cm-val accent">NS-WP-2026-001</span>
+      </div>
+      <div class="cover-meta-row">
+        <span class="cm-lbl">Version</span>
+        <span class="cm-val">1.0.0</span>
+      </div>
+      <div class="cover-meta-row">
+        <span class="cm-lbl">Publication Year</span>
+        <span class="cm-val">2026</span>
+      </div>
+      <div class="cover-meta-row">
+        <span class="cm-lbl">Classification</span>
+        <span class="cm-val accent">Public Technical Record</span>
+      </div>
+    </div>
+
+    <div class="abstract-block">
+      <span class="abstract-label">Abstract</span>
+      <p class="abstract-text">
+        NeuroSaaS™ designates a proprietary cognitive-operational infrastructure architecture designed to augment human decision coherence under conditions of systemic complexity. The system operates as a structural layer rather than an application-level tool, providing metacognitive stabilization, inferential transparency, and adaptive decision scaffolding.<br><br>
+        This document establishes the canonical public definition, architectural category, scope boundaries, legal status, and institutional framing of NeuroSaaS™, without exposing internal mechanisms or protected implementations.
+      </p>
+    </div>
+  </div>
+</header>
+
+<!-- TOC -->
+<nav class="doc-toc" aria-labelledby="toc-heading">
+  <div class="toc-inner">
+    <span class="toc-label" id="toc-heading">Table of Contents</span>
+    <ol class="toc-grid">
+      <li><a href="#s01" class="toc-link"><span class="toc-n">01 —</span>Purpose of This Document</a></li>
+      <li><a href="#s02" class="toc-link"><span class="toc-n">02 —</span>Canonical Definition</a></li>
+      <li><a href="#s03" class="toc-link"><span class="toc-n">03 —</span>System Classification</a></li>
+      <li><a href="#s04" class="toc-link"><span class="toc-n">04 —</span>Architectural Positioning</a></li>
+      <li><a href="#s05" class="toc-link"><span class="toc-n">05 —</span>Design Philosophy</a></li>
+      <li><a href="#s06" class="toc-link"><span class="toc-n">06 —</span>What NeuroSaaS™ Is Not</a></li>
+      <li><a href="#s07" class="toc-link"><span class="toc-n">07 —</span>System Functional Role</a></li>
+      <li><a href="#s08" class="toc-link"><span class="toc-n">08 —</span>Operational Domain</a></li>
+      <li><a href="#s09" class="toc-link"><span class="toc-n">09 —</span>Access Model</a></li>
+      <li><a href="#s10" class="toc-link"><span class="toc-n">10 —</span>Asymmetry Model</a></li>
+      <li><a href="#s11" class="toc-link"><span class="toc-n">11 —</span>Human – System Relationship</a></li>
+      <li><a href="#s12" class="toc-link"><span class="toc-n">12 —</span>Application Class</a></li>
+      <li><a href="#s13" class="toc-link"><span class="toc-n">13 —</span>Security Posture</a></li>
+      <li><a href="#s14" class="toc-link"><span class="toc-n">14 —</span>Intellectual Property Status</a></li>
+      <li><a href="#s15" class="toc-link"><span class="toc-n">15 —</span>Jurisdiction</a></li>
+      <li><a href="#s16" class="toc-link"><span class="toc-n">16 —</span>Citation Format</a></li>
+      <li><a href="#s17" class="toc-link"><span class="toc-n">17 —</span>Versioning Policy</a></li>
+      <li><a href="#s18" class="toc-link"><span class="toc-n">18 —</span>Semantic Fixation Clause</a></li>
+      <li><a href="#s19" class="toc-link"><span class="toc-n">19 —</span>Canonical Status Declaration</a></li>
+      <li><a href="#s20" class="toc-link"><span class="toc-n">20 —</span>Final Technical Statement</a></li>
+    </ol>
+  </div>
+</nav>
+
+<!-- BODY -->
+<main class="doc-main" role="main">
+  <div class="doc-body">
+
+    <!-- 01 -->
+    <article class="doc-section" id="s01">
+      <div class="sec-eyebrow"><span class="sec-num">01 // Purpose of This Document</span><div class="sec-rule" aria-hidden="true"></div></div>
+      <h2>Purpose of This Document</h2>
+      <p>This whitepaper exists to establish a canonical, legally defensible, and institutionally stable public record of NeuroSaaS™. It does not disclose architecture, algorithms, models, or operational mechanisms.</p>
+      <ul class="item-list">
+        <li>Formally define NeuroSaaS™</li>
+        <li>Establish canonical terminology</li>
+        <li>Delimit public scope</li>
+        <li>Declare ownership</li>
+        <li>Fix semantic meaning</li>
+        <li>Prevent conceptual misappropriation</li>
+      </ul>
+    </article>
+
+    <!-- 02 -->
+    <article class="doc-section" id="s02">
+      <div class="sec-eyebrow"><span class="sec-num">02 // Canonical Definition</span><div class="sec-rule" aria-hidden="true"></div></div>
+      <h2>Canonical Definition</h2>
+      <div class="abstract-block">
+        <span class="abstract-label">Definition — NS-WP-2026-001 § 2</span>
+        <p class="abstract-text">NeuroSaaS™ is a distributed cognitive infrastructure designed to enhance human reasoning stability and decision integrity in high-complexity environments through structured metacognitive augmentation.</p>
+      </div>
+      <p>Key properties:</p>
+      <div class="key-props">
+        <div class="key-prop"><span class="kp-arrow">→</span><span class="kp-text">Infrastructure, not application</span></div>
+        <div class="key-prop"><span class="kp-arrow">→</span><span class="kp-text">Augmentation, not automation</span></div>
+        <div class="key-prop"><span class="kp-arrow">→</span><span class="kp-text">Structural, not interface-level</span></div>
+        <div class="key-prop"><span class="kp-arrow">→</span><span class="kp-text">Institutional, not consumer-oriented</span></div>
+      </div>
+    </article>
+
+    <!-- 03 -->
+    <article class="doc-section" id="s03">
+      <div class="sec-eyebrow"><span class="sec-num">03 // System Classification</span><div class="sec-rule" aria-hidden="true"></div></div>
+      <h2>System Classification</h2>
+      <table class="class-table" aria-label="System Classification Dimensions">
+        <thead><tr><th>Dimension</th><th>Classification</th></tr></thead>
+        <tbody>
+          <tr><td>Category</td><td>Cognitive Infrastructure</td></tr>
+          <tr><td>Layer</td><td>Structural</td></tr>
+          <tr><td>Function</td><td>Decision Stabilization</td></tr>
+          <tr><td>Mode</td><td>Augmentation</td></tr>
+          <tr><td>Access</td><td>Controlled</td></tr>
+          <tr><td>Exposure</td><td>Limited Surface</td></tr>
+        </tbody>
+      </table>
+    </article>
+
+    <!-- 04 -->
+    <article class="doc-section" id="s04">
+      <div class="sec-eyebrow"><span class="sec-num">04 // Architectural Positioning</span><div class="sec-rule" aria-hidden="true"></div></div>
+      <h2>Architectural Positioning</h2>
+      <p>NeuroSaaS™ does not operate as software in the traditional sense. It functions as a <strong>meta-layer</strong> positioned above operational systems and directly below the human cognitive layer — serving cognition rather than replacing it.</p>
+      <div class="stack-diagram" aria-label="Conceptual Stack">
+        <div class="stack-label">Conceptual Stack — Top to Bottom</div>
+        <div class="stack-layer">
+          <span class="stack-arrow">↑</span>
+          <span class="stack-name">Human Cognition</span>
+          <span class="stack-desc">USER LAYER</span>
+        </div>
+        <div class="stack-layer highlighted">
+          <span class="stack-arrow">↑</span>
+          <span class="stack-name">NeuroSaaS™ — Cognitive Infrastructure Layer</span>
+          <span class="stack-desc">META-LAYER</span>
+        </div>
+        <div class="stack-layer">
+          <span class="stack-arrow">↑</span>
+          <span class="stack-name">Analytics Systems &amp; Decision Platforms</span>
+          <span class="stack-desc">OPERATIONAL</span>
+        </div>
+        <div class="stack-layer">
+          <span class="stack-arrow">↑</span>
+          <span class="stack-name">AI Models &amp; Enterprise Tools</span>
+          <span class="stack-desc">TOOLING</span>
+        </div>
+        <div class="stack-layer">
+          <span class="stack-arrow">↑</span>
+          <span class="stack-name">Data + Models</span>
+          <span class="stack-desc">FOUNDATION</span>
+        </div>
+      </div>
+    </article>
+
+    <!-- 05 -->
+    <article class="doc-section" id="s05">
+      <div class="sec-eyebrow"><span class="sec-num">05 // Design Philosophy</span><div class="sec-rule" aria-hidden="true"></div></div>
+      <h2>Design Philosophy</h2>
+      <p>NeuroSaaS™ is built on five governing principles:</p>
+      <div class="principles">
+        <div class="principle">
+          <span class="pr-num">5.1</span>
+          <div class="pr-body">
+            <div class="pr-title">Metacognitive Activation</div>
+            <p class="pr-desc">Encourages deliberate reasoning rather than reactive processing. Engages System 2 cognition as the default mode of operation.</p>
+          </div>
+        </div>
+        <div class="principle">
+          <span class="pr-num">5.2</span>
+          <div class="pr-body">
+            <div class="pr-title">Structural Friction</div>
+            <p class="pr-desc">Introduces beneficial resistance that prevents cognitive collapse into impulsive decision states. Friction as a design feature, not a failure.</p>
+          </div>
+        </div>
+        <div class="principle">
+          <span class="pr-num">5.3</span>
+          <div class="pr-body">
+            <div class="pr-title">Inferential Transparency</div>
+            <p class="pr-desc">Returns system-derived interpretations back to the user. Inferences are assets returned to their source — not retained by the platform.</p>
+          </div>
+        </div>
+        <div class="principle">
+          <span class="pr-num">5.4</span>
+          <div class="pr-body">
+            <div class="pr-title">Agency Preservation</div>
+            <p class="pr-desc">Strengthens human decision authority rather than replacing it. The system augments — it does not delegate or automate judgment.</p>
+          </div>
+        </div>
+        <div class="principle">
+          <span class="pr-num">5.5</span>
+          <div class="pr-body">
+            <div class="pr-title">Contextual Alignment</div>
+            <p class="pr-desc">Maintains coherence between environment, intent, and action. Every output is anchored to a specific, verifiable context.</p>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <!-- 06 -->
+    <article class="doc-section" id="s06">
+      <div class="sec-eyebrow"><span class="sec-num">06 // What NeuroSaaS™ Is Not</span><div class="sec-rule" aria-hidden="true"></div></div>
+      <h2>What NeuroSaaS™ Is Not</h2>
+      <p>NeuroSaaS™ is explicitly not any of the following. It is a <strong>structural cognitive substrate</strong> — a category distinct from all items listed below.</p>
+      <div class="not-list">
+        <div class="not-item">A chatbot</div>
+        <div class="not-item">An AI assistant</div>
+        <div class="not-item">A SaaS platform</div>
+        <div class="not-item">A workflow tool</div>
+        <div class="not-item">A productivity system</div>
+        <div class="not-item">A decision engine</div>
+        <div class="not-item">An automation framework</div>
+        <div class="not-item">A consumer application</div>
+      </div>
+    </article>
+
+    <!-- 07 -->
+    <article class="doc-section" id="s07">
+      <div class="sec-eyebrow"><span class="sec-num">07 // System Functional Role</span><div class="sec-rule" aria-hidden="true"></div></div>
+      <h2>System Functional Role</h2>
+      <p>NeuroSaaS™ stabilizes decision systems when complexity exceeds natural cognitive bandwidth. It performs three macro-functions:</p>
+      <table class="fn-table" aria-label="Macro Functions">
+        <thead><tr><th>Function</th><th>Effect</th></tr></thead>
+        <tbody>
+          <tr><td>Cognitive Stabilization</td><td>Reduces volatility in reasoning under systemic pressure</td></tr>
+          <tr><td>Interpretive Reflection</td><td>Clarifies internal states and surfaces latent decision logic</td></tr>
+          <tr><td>Decision Scaffolding</td><td>Preserves structural coherence across high-stakes decisions</td></tr>
+        </tbody>
+      </table>
+    </article>
+
+    <!-- 08 -->
+    <article class="doc-section" id="s08">
+      <div class="sec-eyebrow"><span class="sec-num">08 // Operational Domain</span><div class="sec-rule" aria-hidden="true"></div></div>
+      <h2>Operational Domain</h2>
+      <p>NeuroSaaS™ operates exclusively within the following conditions. Public execution is not supported and is not a design goal.</p>
+      <ul class="item-list">
+        <li>Controlled environments</li>
+        <li>Defined operational contexts</li>
+        <li>Authorized deployments</li>
+        <li>Institutionally aligned organizations</li>
+      </ul>
+    </article>
+
+    <!-- 09 -->
+    <article class="doc-section" id="s09">
+      <div class="sec-eyebrow"><span class="sec-num">09 // Access Model</span><div class="sec-rule" aria-hidden="true"></div></div>
+      <h2>Access Model</h2>
+      <p>Access is governed by three conditions. All three must be satisfied concurrently. Absence of access is <strong>structural</strong>, not temporary.</p>
+      <ul class="item-list">
+        <li>Contextual suitability — the operational environment must qualify</li>
+        <li>Institutional alignment — organizational compatibility must be verified</li>
+        <li>Authorization framework — applicable contractual instruments must be in place</li>
+      </ul>
+    </article>
+
+    <!-- 10 -->
+    <article class="doc-section" id="s10">
+      <div class="sec-eyebrow"><span class="sec-num">10 // Asymmetry Model</span><div class="sec-rule" aria-hidden="true"></div></div>
+      <h2>Asymmetry Model</h2>
+      <p>NeuroSaaS™ intentionally maintains an asymmetric architecture. This asymmetry is a design requirement, not a limitation.</p>
+      <div class="asym-diagram" aria-label="Asymmetry Model">
+        <div class="asym-layer public">
+          <span class="asym-lbl">Public Layer</span>
+          <p class="asym-content">Minimal surface. Canonical definition only. Scope boundaries. Institutional framing.</p>
+          <span class="asym-tag" aria-hidden="true">MIN</span>
+        </div>
+        <div class="asym-layer protected">
+          <span class="asym-lbl">Protected Layer</span>
+          <p class="asym-content">Full architecture. Internal mechanisms. Inference logic. Structural design. Semantic protocols. Implementation methods.</p>
+          <span class="asym-tag" aria-hidden="true">FULL</span>
+        </div>
+      </div>
+      <p>This asymmetry preserves: <strong>system integrity</strong> · <strong>interpretive fidelity</strong> · <strong>cognitive safety</strong> · <strong>misuse resistance</strong>.</p>
+    </article>
+
+    <!-- 11 -->
+    <article class="doc-section" id="s11">
+      <div class="sec-eyebrow"><span class="sec-num">11 // Human – System Relationship Model</span><div class="sec-rule" aria-hidden="true"></div></div>
+      <h2>Human – System Relationship Model</h2>
+      <p>The NeuroSaaS™ model inverts the conventional platform–user power structure, establishing <strong>epistemic symmetry</strong>.</p>
+      <div class="model-comparison" aria-label="Relationship Model Comparison">
+        <div class="model-row">
+          <div class="model-label">Traditional Systems</div>
+          <div class="model-content">System interprets user → platform retains the advantage. Inferences become platform capital.</div>
+        </div>
+        <div class="model-row neurosaas">
+          <div class="model-label">NeuroSaaS™ Model</div>
+          <div class="model-content">System interprets user → interpretation is returned to the user. Inferences become user capital. This establishes epistemic symmetry.</div>
+        </div>
+      </div>
+    </article>
+
+    <!-- 12 -->
+    <article class="doc-section" id="s12">
+      <div class="sec-eyebrow"><span class="sec-num">12 // Application Class</span><div class="sec-rule" aria-hidden="true"></div></div>
+      <h2>Application Class</h2>
+      <p>NeuroSaaS™ is designed for high-stakes institutional environments. It is not intended for general consumer use.</p>
+      <ul class="item-list">
+        <li>Strategic environments</li>
+        <li>Institutional decision contexts</li>
+        <li>High-impact operational domains</li>
+        <li>Cognitive-intensive operations</li>
+      </ul>
+    </article>
+
+    <!-- 13 -->
+    <article class="doc-section" id="s13">
+      <div class="sec-eyebrow"><span class="sec-num">13 // Security Posture</span><div class="sec-rule" aria-hidden="true"></div></div>
+      <h2>Security Posture</h2>
+      <p>The following components are classified as protected. Disclosure is restricted under applicable legal and contractual frameworks.</p>
+      <ul class="item-list">
+        <li>Internal architecture</li>
+        <li>Inference logic</li>
+        <li>Structural design</li>
+        <li>Semantic protocols</li>
+        <li>Implementation methods</li>
+      </ul>
+    </article>
+
+    <!-- 14 -->
+    <article class="doc-section" id="s14">
+      <div class="sec-eyebrow"><span class="sec-num">14 // Intellectual Property Status</span><div class="sec-rule" aria-hidden="true"></div></div>
+      <h2>Intellectual Property Status</h2>
+      <p>NeuroSaaS™ constitutes proprietary intellectual property owned exclusively by <strong>FALX GLOBAL LLC</strong>.</p>
+      <p>Protected components include:</p>
+      <ul class="item-list">
+        <li>Conceptual architecture</li>
+        <li>System model</li>
+        <li>Framework semantics</li>
+        <li>Structural methods</li>
+        <li>Internal mechanisms</li>
+        <li>Derived implementations</li>
+      </ul>
+      <p style="margin-top:1.5rem;">Legal protection frameworks:</p>
+      <div class="legal-block blue">
+        • Trade secret law<br>
+        • Copyright law<br>
+        • Contractual law<br>
+        • Software law<br>
+        • Database rights<br>
+        • Applicable international statutes
+      </div>
+    </article>
+
+    <!-- 15 -->
+    <article class="doc-section" id="s15">
+      <div class="sec-eyebrow"><span class="sec-num">15 // Jurisdiction</span><div class="sec-rule" aria-hidden="true"></div></div>
+      <h2>Jurisdiction</h2>
+      <p>All rights and protections are governed exclusively under:</p>
+      <div class="legal-block blue">Delaware, United States law</div>
+    </article>
+
+    <!-- 16 -->
+    <article class="doc-section" id="s16">
+      <div class="sec-eyebrow"><span class="sec-num">16 // Citation Format</span><div class="sec-rule" aria-hidden="true"></div></div>
+      <h2>Citation Format</h2>
+      <p>Academic or technical citation of this document must follow the format below:</p>
+      <div class="citation-block">
+        FALX GLOBAL LLC (2026). <em>NeuroSaaS™ — Canonical Technical Definition.</em> Version 1.0.0. Document ID: NS-WP-2026-001.
+      </div>
+    </article>
+
+    <!-- 17 -->
+    <article class="doc-section" id="s17">
+      <div class="sec-eyebrow"><span class="sec-num">17 // Versioning Policy</span><div class="sec-rule" aria-hidden="true"></div></div>
+      <h2>Versioning Policy</h2>
+      <p>This document is version-controlled. All updates adhere to the following policy:</p>
+      <ul class="item-list">
+        <li>All updates are timestamped</li>
+        <li>Prior versions maintain their validity for their applicable period</li>
+        <li>Historical traceability is preserved across all versions</li>
+        <li>Each version includes cryptographic integrity hashes</li>
+      </ul>
+    </article>
+
+    <!-- 18 -->
+    <article class="doc-section" id="s18">
+      <div class="sec-eyebrow"><span class="sec-num">18 // Semantic Fixation Clause</span><div class="sec-rule" aria-hidden="true"></div></div>
+      <h2>Semantic Fixation Clause</h2>
+      <p>This whitepaper fixes the public meaning of <strong>NeuroSaaS™</strong>.</p>
+      <div class="legal-block blue">
+        Any external definition conflicting with this record is non-canonical and carries no institutional validity.
+      </div>
+    </article>
+
+    <!-- 19 -->
+    <article class="doc-section" id="s19">
+      <div class="sec-eyebrow"><span class="sec-num">19 // Canonical Status Declaration</span><div class="sec-rule" aria-hidden="true"></div></div>
+      <h2>Canonical Status Declaration</h2>
+      <p>This document is the <strong>authoritative public reference</strong> for the term:</p>
+      <div class="abstract-block">
+        <span class="abstract-label">Canonical Term</span>
+        <p class="abstract-text" style="font-size:1.5rem;letter-spacing:-0.02em;">NeuroSaaS™</p>
+      </div>
+      <p>No other public description supersedes this record. This declaration is permanent for Version 1.0.0 and binding until superseded by a dated revision under the versioning policy of Section 17.</p>
+    </article>
+
+    <!-- 20 -->
+    <article class="doc-section" id="s20">
+      <div class="sec-eyebrow"><span class="sec-num">20 // Final Technical Statement</span><div class="sec-rule" aria-hidden="true"></div></div>
+      <h2>Final Technical Statement</h2>
+      <div class="final-statement">
+        <p class="fs-from">NeuroSaaS™ represents a shift in computational paradigm:</p>
+        <p class="fs-from">from software that executes tasks</p>
+        <p class="fs-arrow">↓ ↓ ↓</p>
+        <p class="fs-to">to <strong>infrastructure that stabilizes cognition</strong></p>
+      </div>
+    </article>
+
+    <!-- Legal Notice -->
+    <article class="doc-section" id="legal">
+      <div class="sec-eyebrow"><span class="sec-num">Legal Notice</span><div class="sec-rule" aria-hidden="true"></div></div>
+      <h2>Legal Notice</h2>
+      <div class="legal-block">
+        © 2026 FALX GLOBAL LLC — All rights reserved.<br><br>
+        NeuroSaaS™ is a proprietary system category and protected technological asset.<br>
+        Unauthorized reproduction, derivation, or implementation is prohibited.<br><br>
+        All rights and protections are governed under Delaware, United States law.
+      </div>
+    </article>
+
+  </div>
+</main>
+
+<!-- FOOTER -->
+<footer class="doc-footer" role="contentinfo">
+  <div class="footer-inner">
+    <div class="footer-cols">
+      <div>
+        <div class="f-logo">FALX</div>
+        <p class="f-tagline">Decision Infrastructure for<br>Complex Organizations</p>
+      </div>
+      <div class="f-col">
+        <span class="f-col-title">Protocols</span>
+        <a href="#" class="f-link">Systemic Reading</a>
+        <a href="#" class="f-link">Data Architecture</a>
+        <a href="#" class="f-link">Proprietary AI</a>
+        <a href="#" class="f-link">Use Cases</a>
+      </div>
+      <div class="f-col">
+        <span class="f-col-title">Contact</span>
+        <a href="https://falxsystem.com" class="f-link">falxsystem.com</a>
+        <a href="mailto:contato@falx.com.br" class="f-link">contato@falx.com.br</a>
+        <a href="#" class="f-link">Technical Documentation</a>
+      </div>
+    </div>
+
+    <div class="footer-copy">
+      <strong>© 2026 · NeuroSaaS™ — All rights reserved.</strong><br>
+      <strong>© 2026 · FALX GLOBAL LLC — Owner of Record</strong><br><br>
+      All rights reserved. NeuroSaaS™ is a registered trademark of FALX GLOBAL LLC.
+      This canonical technical whitepaper establishes the authoritative public definition of NeuroSaaS™.
+      Unauthorized use, reproduction, or derivation is prohibited.
+    </div>
+
+    <div class="footer-bottom">
+      <div>
+        <strong>Document:</strong> NS-WP-2026-001 &nbsp;·&nbsp;
+        <strong>Version:</strong> 1.0.0 &nbsp;·&nbsp;
+        <strong>Year:</strong> 2026
+      </div>
+      <div class="doc-hash">
+        <strong>SHA-256:</strong> Insert hash upon final publication
+      </div>
+    </div>
+  </div>
+</footer>
+```
+
+  </div><!-- /page-wrap -->
+
+  <script>
+    var nav = document.getElementById('siteNav');
+    window.addEventListener('scroll', function () {
+      nav.classList.toggle('scrolled', window.scrollY > 50);
+    }, { passive: true });
+  </script>
 
 </body>
 </html>
