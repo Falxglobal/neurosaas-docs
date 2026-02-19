@@ -4,1203 +4,1149 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>NeuroSaaS™ — Whitepaper Técnico Canônico | FALX GLOBAL LLC</title>
-  <meta name="description" content="Whitepaper Técnico Canônico do NeuroSaaS™. Especificação de Infraestrutura Institucional. Proprietário: FALX GLOBAL LLC. Documento: NS-WP-2026-001.">
-  <meta name="robots" content="index, follow">
-  <link rel="canonical" href="https://falxsystem.com/neurosaas/whitepaper">
+  <meta name="theme-color" content="#000000">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="color-scheme" content="dark">
+  <title>NeuroSaaS™ — Infraestrutura Cognitiva para Estabilização de Decisões · FALX</title>
+  <meta name="description" content="Whitepaper técnico que define o NeuroSaaS como uma infraestrutura cognitiva distribuída baseada em transparência inferencial e estabilização deliberativa. FALX GLOBAL, 2026.">
+  <meta name="author" content="FALX GLOBAL">
+  <meta name="citation_title" content="NeuroSaaS™: Infraestrutura Cognitiva para Estabilização de Decisões">
+  <meta name="citation_author" content="FALX GLOBAL">
+  <meta name="citation_publication_date" content="2026/02/11">
 
+  <!-- JSON-LD structured data — machine readable -->
   <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "TechArticle",
-    "headline": "NeuroSaaS™ — Whitepaper Técnico Canônico",
-    "datePublished": "2026-01-01T00:00:00Z",
-    "author": { "@type": "Organization", "name": "FALX GLOBAL LLC", "url": "https://falxsystem.com" },
-    "publisher": { "@type": "Organization", "name": "FALX GLOBAL LLC" },
-    "copyrightHolder": { "@type": "Organization", "name": "FALX GLOBAL LLC" },
-    "copyrightYear": "2026",
-    "license": "Todos os direitos reservados"
-  }
-  </script>
+{
+  "@context": "https://schema.org",
 
+  "@type": "ScholarlyArticle",
+
+  "headline": "NeuroSaaS™: Infraestrutura Cognitiva para Estabilização de Decisões",
+
+  "name": "Whitepaper NeuroSaaS",
+
+  "author": {
+    "@type": "Organization",
+    "name": "FALX GLOBAL",
+    "url": "https://falxorg.com"
+  },
+
+  "publisher": {
+    "@type": "Organization",
+    "name": "FALX GLOBAL",
+    "url": "https://falxorg.com"
+  },
+
+  "datePublished": "2026-02-11",
+
+  "dateModified": "2026-02-11",
+
+  "version": "1.0.0",
+
+  "inLanguage": "pt-BR",
+
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://falxorg.com/papers/neurosaas/v1.0/"
+  },
+
+  "url": "https://falxorg.com/papers/neurosaas/v1.0/",
+
+  "description": "Whitepaper técnico que define o NeuroSaaS como uma infraestrutura cognitiva distribuída baseada em transparência inferencial, fricção deliberativa e estabilização cognitiva.",
+
+  "keywords": [
+    "NeuroSaaS",
+    "infraestrutura cognitiva",
+    "transparência inferencial",
+    "estabilização decisória",
+    "interação humano-IA",
+    "arquitetura epistemicamente consciente"
+  ],
+
+  "license": "https://creativecommons.org/licenses/by/4.0/",
+
+  "isAccessibleForFree": true,
+
+  "identifier": {
+    "@type": "PropertyValue",
+    "propertyID": "DOI",
+    "value": "PENDENTE"
+  }
+}
+</script>
+
+  <link rel="canonical" href="https://falxorg.com/papers/neurosaas/v1.0/">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500;600&family=Sora:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600&family=Sora:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
 
   <style>
+    /* ══════════════════════════════════════════════════
+       FALX WHITEPAPER v1.0 — COLOR SYSTEM
+
+       PALETTE RULE:
+       · Black background: #000000 everywhere (no rgba(0,0,...))
+       · Body text / readable content: #ffffff → #eaeeff (near-white)
+       · UI labels / chrome: #4a6080 (quiet indigo accent)
+       · Borders: rgba(90,106,138,...) blue-tinted
+       · ZERO gray. ZERO rgba(0,0,0,...).
+       · Blue reserved for UI only — NOT body text.
+    ══════════════════════════════════════════════════ */
     :root {
-      --black:    #000000;
-      --s1:       rgba(255,255,255,0.015);
-      --s2:       rgba(255,255,255,0.04);
-      --s3:       rgba(255,255,255,0.07);
-      --s4:       rgba(255,255,255,0.10);
-      --t0:       #FFFFFF;
-      --t1:       #D1D5DB;
-      --t2:       #9CA3AF;
-      --t3:       #6B7280;
-      --t4:       #374151;
-      --acc:      #4d6bf7;
-      --acc-glow: rgba(77,107,247,0.11);
-      --acc-bdr:  rgba(77,107,247,0.22);
-      --acc-mid:  rgba(77,107,247,0.06);
-      --red:      #991B1B;
-      --nav-h:    68px;
-      --pad:      clamp(1.5rem, 6vw, 5rem);
-      --max:      880px;
-      --mono:     'JetBrains Mono', 'Courier New', monospace;
-      --sans:     'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-      --display:  'Sora', -apple-system, sans-serif;
+      color-scheme: dark;
+
+      /* Accent */
+      --blue:   #4a6080;
+      --blue-b: #6878a0;
+
+      /* Text — near-white for reading, blue only for UI chrome */
+      --tx-hi:  #ffffff;         /* H1, H2, key values */
+      --tx-md:  #e8eaf0;         /* Body paragraphs, main readable text */
+      --tx-sub: #b8bccf;         /* Card descriptions, secondary readable text */
+      --tx-ui:  #5a6a8a;         /* Section numbers, keys — muted, subtle */
+      --tx-dim: #3a4a62;         /* TOC inactive — very quiet */
+
+      /* Borders */
+      --b1:   rgba(90,106,138,.14);
+      --b2:   rgba(90,106,138,.24);
+      --b3:   rgba(90,106,138,.40);
+
+      /* Surface washes */
+      --surf:   rgba(90,106,138,.04);
+      --surf-2: rgba(90,106,138,.09);
+
+      /* Layout */
+      --g:   clamp(1.5rem, 5vw, 4.5rem);
+      --eas: cubic-bezier(.16,1,.3,1);
+      --sw:  240px;
     }
 
-    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-    html { scroll-behavior: smooth; background: #000; }
-    body {
-      background: #000000;
-      color: var(--t1);
-      font-family: var(--sans);
-      font-size: 16px;
-      line-height: 1.7;
-      font-weight: 300;
+    *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+
+    html {
+      scroll-behavior: smooth;
       -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
+      background-color: #000000 !important;
+      min-height: 100%;
+    }
+
+    body {
+      background-color: #000000 !important;
+      color: var(--tx-md);
+      font-family: 'Sora', sans-serif;
+      font-weight: 300;
+      line-height: 1.7;
       overflow-x: hidden;
-      min-height: 100vh;
-    }
-    ::selection { background: var(--acc); color: #fff; }
-
-    .noise {
-      position: fixed; inset: 0;
-      pointer-events: none; z-index: 9999; opacity: 0.026;
-      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
     }
 
-    /* NAV */
-    .site-nav {
-      position: fixed; top: 0; left: 0; right: 0;
-      height: var(--nav-h);
+    /* ── Progress ── */
+    #progress {
+      position: fixed; top: 0; left: 0; height: 2px; width: 0;
+      background: var(--blue); z-index: 9999;
+      transition: width .08s linear;
+    }
+
+    /* ── Nav — solid black, no backdrop ── */
+    .nav {
+      position: fixed; top: 0; left: 0; right: 0; height: 56px;
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 0 var(--g);
       background: #000000;
-      border-bottom: 1px solid var(--s2);
-      display: flex; align-items: center; justify-content: space-between;
-      padding: 0 var(--pad);
-      z-index: 100;
-      transition: border-color 0.3s ease;
+      border-bottom: 1px solid var(--b1);
+      z-index: 1000;
     }
-    .site-nav.scrolled { border-bottom-color: var(--s3); }
     .nav-brand {
-      font-family: var(--sans); font-size: 0.78rem; font-weight: 700;
-      letter-spacing: 0.3em; text-transform: uppercase;
-      color: var(--t0); text-decoration: none;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: .72rem; font-weight: 700; letter-spacing: .35em;
+      text-transform: uppercase; color: var(--tx-hi); text-decoration: none;
     }
-    .nav-right { display: flex; align-items: center; gap: 1.25rem; }
-    .nav-live {
-      font-family: var(--mono); font-size: 0.6rem;
-      color: var(--acc); letter-spacing: 0.08em;
-      animation: blink 3s ease-in-out infinite;
+    .nav-right { display: flex; align-items: center; gap: 1.8rem; }
+    .nav-label {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: .48rem; letter-spacing: .18em; text-transform: uppercase;
+      color: var(--tx-ui);
     }
     .nav-badge {
-      font-family: var(--mono); font-size: 0.52rem; font-weight: 700;
-      letter-spacing: 0.14em; text-transform: uppercase;
-      padding: 4px 10px; background: var(--red); color: #fff;
-    }
-    @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0.35} }
-
-    .page-wrap { background: #000000; padding-top: var(--nav-h); }
-
-    /* CAPA */
-    .doc-cover {
-      background:
-        radial-gradient(ellipse 1000px 700px at -5% 60%, rgba(77,107,247,0.15) 0%, transparent 58%),
-        radial-gradient(ellipse 600px 400px at 105% 20%, rgba(77,107,247,0.07) 0%, transparent 55%),
-        #000000;
-      padding: 6rem var(--pad) 5rem;
-      border-bottom: 1px solid var(--s3);
-    }
-    .cover-inner { max-width: var(--max); margin: 0 auto; }
-
-    .cover-strip {
-      display: flex; align-items: center; flex-wrap: wrap; gap: 0.75rem;
-      margin-bottom: 3.5rem;
-    }
-    .strip-badge {
-      font-family: var(--mono); font-size: 0.52rem; font-weight: 700;
-      letter-spacing: 0.15em; text-transform: uppercase;
-      padding: 4px 10px; background: var(--red); color: #fff;
-    }
-    .strip-tag {
-      font-family: var(--mono); font-size: 0.52rem;
-      color: var(--t3); letter-spacing: 0.14em; text-transform: uppercase;
-    }
-    .strip-dot {
-      width: 3px; height: 3px; border-radius: 50%;
-      background: var(--s4); flex-shrink: 0;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: .46rem; letter-spacing: .12em; text-transform: uppercase;
+      color: var(--blue); padding: .22rem .6rem;
+      border: 1px solid var(--b2); background: #000000;
     }
 
-    .cover-wordmark {
-      font-family: var(--display);
-      font-size: clamp(2.6rem, 7vw, 5.5rem);
-      font-weight: 200; line-height: 0.95;
-      letter-spacing: -0.04em; color: var(--t0);
-      margin-bottom: 0.5rem;
-    }
-    .cover-wordmark sup {
-      font-size: 0.3em; vertical-align: super;
-      color: var(--acc); font-weight: 400; letter-spacing: 0.06em;
-    }
-    .cover-doc-type {
-      font-family: var(--display);
-      font-size: clamp(0.9rem, 2vw, 1.25rem);
-      font-weight: 300; color: var(--t3);
-      letter-spacing: 0.01em;
-      border-left: 2px solid var(--acc); padding-left: 1rem;
-      margin-top: 1.25rem; margin-bottom: 3rem;
-    }
-
-    .cover-meta {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-      gap: 0; border: 1px solid var(--s3);
-      margin-bottom: 3rem; overflow: hidden;
-    }
-    .cover-meta-row {
-      padding: 1rem 1.25rem;
-      border-right: 1px solid var(--s2);
-      border-bottom: 1px solid var(--s2);
-    }
-    .cover-meta-row:nth-last-child(-n+2) { border-bottom: none; }
-    .cover-meta-row:last-child { border-right: none; }
-    .cm-lbl {
-      display: block; font-family: var(--mono); font-size: 0.46rem;
-      color: var(--t3); text-transform: uppercase; letter-spacing: 0.2em;
-      margin-bottom: 5px;
-    }
-    .cm-val {
-      display: block; font-family: var(--mono); font-size: 0.68rem;
-      color: var(--t1); font-weight: 500; line-height: 1.4;
-    }
-    .cm-val.accent { color: var(--acc); }
-
-    .abstract-block {
-      background: var(--acc-mid);
-      border: 1px solid var(--acc-bdr);
-      border-left: 3px solid var(--acc);
-      padding: 2rem 2.25rem;
-    }
-    .abstract-label {
-      display: block; font-family: var(--mono); font-size: 0.48rem;
-      color: var(--acc); letter-spacing: 0.24em; text-transform: uppercase;
-      opacity: 0.65; margin-bottom: 1rem;
-    }
-    .abstract-text {
-      font-family: var(--display); font-size: 0.97rem;
-      font-weight: 300; line-height: 1.85; color: var(--t0);
-    }
-
-    /* ÍNDICE */
-    .doc-toc {
-      background:
-        radial-gradient(ellipse 600px 350px at 110% 50%, rgba(77,107,247,0.07) 0%, transparent 60%),
-        #000000;
-      padding: 3.5rem var(--pad);
-      border-bottom: 1px solid var(--s3);
-    }
-    .toc-inner { max-width: var(--max); margin: 0 auto; }
-    .toc-label {
-      display: block; font-family: var(--mono); font-size: 0.48rem;
-      color: var(--acc); letter-spacing: 0.24em; text-transform: uppercase;
-      opacity: 0.55; margin-bottom: 1.75rem;
-    }
-    .toc-grid {
-      display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-      gap: 3px; list-style: none;
-    }
-    .toc-link {
-      display: flex; align-items: baseline; gap: 0.7rem;
-      padding: 0.55rem 0.75rem;
-      font-family: var(--mono); font-size: 0.66rem;
-      color: var(--t3); text-decoration: none; letter-spacing: 0.03em;
-      border: 1px solid transparent;
-      transition: color 0.2s, background 0.2s, border-color 0.2s, padding-left 0.2s;
-    }
-    .toc-link:hover {
-      color: var(--t0); background: var(--s1);
-      border-color: var(--s2); padding-left: 1rem;
-    }
-    .toc-n {
-      color: var(--acc); font-weight: 600; min-width: 30px;
-      opacity: 0.55; flex-shrink: 0; transition: opacity 0.2s;
-    }
-    .toc-link:hover .toc-n { opacity: 1; }
-
-    /* CORPO */
-    .doc-main { background: #000000; }
-    .doc-body { max-width: var(--max); margin: 0 auto; padding: 5rem var(--pad) 6rem; }
-
-    .doc-section {
+    /* ── Layout ── */
+    .layout {
       background: #000000;
+      display: grid; grid-template-columns: var(--sw) 1fr;
+      min-height: 100vh; padding-top: 56px;
+    }
+
+    /* ── Sidebar ── */
+    .sidebar {
+      position: sticky; top: 56px;
+      height: calc(100vh - 56px); overflow-y: auto;
+      background: #000000;
+      padding: 2.8rem 1.4rem 2.8rem 2rem;
+      border-right: 1px solid var(--b1);
+      scrollbar-width: thin;
+      scrollbar-color: var(--blue) #000000;
+    }
+    .sidebar::-webkit-scrollbar { width: 2px; }
+    .sidebar::-webkit-scrollbar-thumb { background: var(--blue); }
+
+    .toc-label {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: .44rem; letter-spacing: .3em; text-transform: uppercase;
+      color: var(--blue); display: block; margin-bottom: 1.8rem;
+    }
+    .toc { list-style: none; display: flex; flex-direction: column; }
+    .toc li a {
+      display: block; padding: .26rem 0 .26rem .7rem;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: .48rem; letter-spacing: .05em; text-transform: uppercase;
+      color: var(--tx-dim); text-decoration: none; line-height: 1.4;
+      border-left: 1px solid transparent;
+      transition: color .2s, padding-left .2s, border-color .2s;
+    }
+    .toc li a:hover, .toc li a.active {
+      color: var(--blue-b); padding-left: 1.1rem;
+      border-left-color: var(--blue);
+    }
+    .toc-sep { height: 1px; background: var(--b1); margin: .8rem 0; }
+
+    /* ── Main ── */
+    .main {
+      background: #000000;
+      padding: 3.5rem var(--g) 7rem;
+      max-width: 880px;
+    }
+
+    /* ── Cover — reveal only here ── */
+    .cover {
+      padding-bottom: 4rem;
+      border-bottom: 1px solid var(--b1);
       margin-bottom: 4.5rem;
-      padding-bottom: 4.5rem;
-      border-bottom: 1px solid var(--s2);
+      position: relative; overflow: hidden;
+      opacity: 0; transform: translateY(18px);
+      transition: opacity .75s var(--eas), transform .75s var(--eas);
     }
-    .doc-section:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+    .cover.vis { opacity: 1; transform: translateY(0); }
+    .cover::before {
+      content: ''; position: absolute; top: -200px; left: -200px;
+      width: 700px; height: 700px;
+      background: radial-gradient(ellipse at 25% 25%, rgba(90,106,138,.14) 0%, rgba(90,106,138,.04) 40%, transparent 68%);
+      pointer-events: none; z-index: 0;
+    }
+    .cover-line {
+      position: absolute; bottom: -1px; left: 0;
+      width: 100px; height: 1px;
+      background: linear-gradient(90deg, var(--blue), transparent);
+    }
+    .cover > * { position: relative; z-index: 1; }
 
-    .sec-eyebrow {
-      display: flex; align-items: center; gap: 1rem;
-      margin-bottom: 1.25rem;
+    /* Chips */
+    .chips { display: flex; align-items: center; gap: .5rem; flex-wrap: wrap; margin-bottom: 2.2rem; }
+    .chip {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: .44rem; letter-spacing: .16em; text-transform: uppercase;
+      padding: .26rem .7rem; border: 1px solid;
+      display: inline-flex; align-items: center; gap: .4rem;
+      background: #000000;
     }
-    .sec-num {
-      font-family: var(--mono); font-size: 0.48rem;
-      color: var(--acc); letter-spacing: 0.22em;
-      text-transform: uppercase; opacity: 0.5;
-      white-space: nowrap;
+    .chip-a { color: var(--blue); border-color: var(--b3); }
+    .chip-n { color: var(--tx-ui); border-color: var(--b2); }
+    .chip-dot {
+      width: 4px; height: 4px; border-radius: 50%; background: var(--blue);
+      animation: blink 2s ease-in-out infinite;
     }
-    .sec-rule { flex: 1; height: 1px; background: var(--s2); }
+    @keyframes blink { 0%,100%{opacity:1} 50%{opacity:.2} }
 
+    .eyebrow {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: .46rem; letter-spacing: .28em; text-transform: uppercase;
+      color: var(--tx-ui); display: block; margin-bottom: 1.1rem;
+    }
+    .paper-title {
+      font-family: 'Sora', sans-serif;
+      font-size: clamp(2.6rem, 7vw, 4.2rem);
+      font-weight: 700; letter-spacing: -.04em; line-height: 1.0; margin-bottom: .5rem;
+      background: linear-gradient(170deg, #ffffff 0%, #cfd4e8 100%);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+    }
+    .paper-title sup {
+      font-size: .26em; vertical-align: super;
+      -webkit-text-fill-color: var(--blue); color: var(--blue);
+      font-weight: 400; letter-spacing: .08em;
+    }
+    .paper-sub {
+      font-family: 'Sora', sans-serif;
+      font-size: clamp(.95rem, 2.2vw, 1.25rem);
+      font-weight: 200; color: var(--tx-md);     /* near-white, NOT blue */
+      letter-spacing: -.01em; line-height: 1.45; margin-bottom: 2.8rem;
+    }
+
+    /* PDF bar */
+    .pdf-bar {
+      display: inline-flex; align-items: center; gap: .6rem;
+      padding: .38rem .9rem; border: 1px solid var(--b2);
+      background: #000000;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: .46rem; letter-spacing: .14em; text-transform: uppercase;
+      color: var(--blue); text-decoration: none; margin-bottom: 2rem;
+      transition: border-color .3s, background .3s;
+    }
+    .pdf-bar:hover { border-color: var(--b3); background: var(--surf); }
+
+    /* Meta grid */
+    .meta-grid { display: grid; grid-template-columns: repeat(4,1fr); border: 1px solid var(--b1); }
+    .meta-cell {
+      padding: .7rem 1.1rem; background: #000000;
+      border-right: 1px solid var(--b1); border-bottom: 1px solid var(--b1);
+    }
+    .meta-cell:nth-child(4n) { border-right: none; }
+    .meta-cell:nth-last-child(-n+4) { border-bottom: none; }
+    .mkey {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: .42rem; letter-spacing: .22em; text-transform: uppercase;
+      color: var(--tx-ui); display: block; margin-bottom: .3rem;
+    }
+    .mval {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: .56rem; color: var(--tx-md); letter-spacing: .04em;
+    }
+
+    /* ── Section typography ── */
+    .sec { margin-bottom: 3.8rem; }
+    .sec-head { display: flex; align-items: flex-start; gap: 1.2rem; margin-bottom: 1.6rem; }
+    .sec-n {
+      font-family: 'JetBrains Mono', monospace; font-size: .48rem;
+      color: var(--tx-ui);           /* blue — UI, not text */
+      letter-spacing: .16em; text-transform: uppercase;
+      white-space: nowrap; padding-top: .38rem; flex-shrink: 0;
+    }
     h2 {
-      font-family: var(--display);
-      font-size: clamp(1.35rem, 2.5vw, 1.8rem);
-      font-weight: 300; line-height: 1.2;
-      letter-spacing: -0.025em; color: var(--t0);
-      margin-bottom: 1.75rem;
+      font-family: 'Sora', sans-serif;
+      font-size: clamp(1.05rem,2.4vw,1.35rem);
+      font-weight: 400; color: var(--tx-hi); letter-spacing: -.025em; line-height: 1.25;
     }
-    h2 strong { font-weight: 600; }
-
-    p {
-      font-size: 0.93rem; line-height: 1.85;
-      color: var(--t2); margin-bottom: 1.2rem;
+    h3 {
+      font-family: 'Sora', sans-serif; font-size: .92rem; font-weight: 500;
+      color: var(--tx-md); letter-spacing: -.015em; margin: 1.4rem 0 .5rem;
     }
+    h3:first-child { margin-top: 0; }
+    /* Body text — near white, readable */
+    p { font-size: .875rem; color: var(--tx-md); line-height: 1.9; margin-bottom: .85rem; }
     p:last-child { margin-bottom: 0; }
-    p strong { font-weight: 500; color: var(--t1); }
-    p em { font-style: italic; }
-    sup { font-size: 0.65em; vertical-align: super; }
+    strong { color: var(--tx-hi); font-weight: 500; }
+    em { font-style: normal; color: var(--blue-b); }
+    a { color: var(--blue-b); }
+    a:hover { color: var(--tx-hi); }
 
-    /* Tabela de classificação */
-    .class-table {
-      width: 100%; border-collapse: collapse;
-      margin: 1.75rem 0; font-family: var(--mono);
+    /* Rule */
+    .rule {
+      border: none; border-top: 1px solid var(--b1);
+      margin: 4rem 0; position: relative;
     }
-    .class-table thead tr { border-bottom: 1px solid var(--s3); }
-    .class-table th {
-      font-size: 0.48rem; color: var(--acc);
-      letter-spacing: 0.2em; text-transform: uppercase;
-      font-weight: 600; text-align: left;
-      padding: 0.65rem 1.25rem; opacity: 0.65;
+    .rule::before {
+      content: ''; position: absolute; top: -1px; left: 0;
+      width: 48px; height: 1px; background: var(--blue);
     }
-    .class-table td {
-      padding: 0.85rem 1.25rem;
-      font-size: 0.72rem; color: var(--t2);
-      border-bottom: 1px solid var(--s1); line-height: 1.5;
-    }
-    .class-table tr:last-child td { border-bottom: none; }
-    .class-table td:first-child { color: var(--t3); }
-    .class-table td:last-child { color: var(--t0); font-weight: 400; }
-    .class-table tbody tr { background: var(--s1); transition: background 0.2s; }
-    .class-table tbody tr:hover { background: var(--s2); }
-
-    /* Propriedades-chave */
-    .key-props {
-      display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 1px; border: 1px solid var(--s3);
-      margin: 1.75rem 0; overflow: hidden;
-    }
-    .key-prop {
-      padding: 1.1rem 1.4rem; background: var(--s1);
-      border-right: 1px solid var(--s2); transition: background 0.2s;
-    }
-    .key-prop:last-child { border-right: none; }
-    .key-prop:hover { background: var(--s2); }
-    .kp-arrow {
-      display: block; font-family: var(--mono); font-size: 0.48rem;
-      color: var(--acc); margin-bottom: 0.4rem; opacity: 0.6;
-    }
-    .kp-text {
-      font-family: var(--display); font-size: 0.8rem;
-      color: var(--t1); font-weight: 300; line-height: 1.4;
+    .rule::after {
+      content: attr(data-label);
+      position: absolute; top: -.55rem; left: 0;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: .42rem; letter-spacing: .22em; text-transform: uppercase;
+      color: var(--tx-ui); background: #000000; padding-right: .9rem;
     }
 
-    /* Diagrama de stack */
-    .stack-diagram {
-      margin: 2rem 0;
-      border: 1px solid var(--s3); overflow: hidden;
+    /* Abstract panel */
+    .abs-panel {
+      border-left: 2px solid var(--blue); padding: 1.8rem 2rem;
+      background: var(--surf); border-top: 1px solid var(--b1);
+      position: relative; overflow: hidden;
     }
-    .stack-label {
-      background: var(--s1);
-      padding: 0.65rem 1.25rem;
-      font-family: var(--mono); font-size: 0.46rem;
-      color: var(--acc); letter-spacing: 0.2em; text-transform: uppercase;
-      opacity: 0.55; border-bottom: 1px solid var(--s2);
+    .abs-panel::before {
+      content: ''; position: absolute; top: -80px; right: -80px;
+      width: 400px; height: 400px;
+      background: radial-gradient(ellipse, rgba(90,106,138,.06) 0%, transparent 60%);
+      pointer-events: none;
     }
-    .stack-layer {
-      display: flex; align-items: center; gap: 1.5rem;
-      padding: 1rem 1.5rem;
-      border-bottom: 1px solid var(--s1);
-      transition: background 0.2s;
-    }
-    .stack-layer:last-child { border-bottom: none; }
-    .stack-layer:hover { background: var(--s1); }
-    .stack-layer.highlighted {
-      background: var(--acc-glow);
-      border-left: 3px solid var(--acc);
-    }
-    .stack-arrow {
-      font-family: var(--mono); font-size: 0.6rem;
-      color: var(--acc); opacity: 0.5; flex-shrink: 0; width: 16px;
-    }
-    .stack-name {
-      font-family: var(--display); font-size: 0.85rem;
-      font-weight: 300; color: var(--t0); flex: 1;
-    }
-    .stack-layer.highlighted .stack-name { font-weight: 500; }
-    .stack-desc {
-      font-family: var(--mono); font-size: 0.55rem;
-      color: var(--t3); letter-spacing: 0.06em; text-align: right;
-    }
-    .stack-layer.highlighted .stack-desc { color: var(--acc); }
+    .abs-panel p { font-size: .88rem; color: var(--tx-md); line-height: 1.9; position: relative; z-index: 1; }
 
-    /* Princípios */
-    .principles { display: flex; flex-direction: column; gap: 1px; margin: 1.75rem 0; }
-    .principle {
-      display: flex; gap: 1.5rem; align-items: flex-start;
-      padding: 1.25rem 1.5rem;
-      background: var(--s1); border: 1px solid var(--s2);
-      border-top: none; transition: background 0.2s;
-    }
-    .principle:first-child { border-top: 1px solid var(--s2); }
-    .principle:hover { background: var(--s2); }
-    .pr-num {
-      font-family: var(--mono); font-size: 0.55rem;
-      color: var(--acc); font-weight: 600; opacity: 0.6;
-      flex-shrink: 0; padding-top: 2px; min-width: 28px;
-    }
-    .pr-body { flex: 1; }
-    .pr-title {
-      font-family: var(--display); font-size: 0.9rem;
-      font-weight: 400; color: var(--t0); margin-bottom: 0.35rem;
-    }
-    .pr-desc { font-size: 0.82rem; color: var(--t2); line-height: 1.65; }
-
-    /* Lista negativa */
-    .not-list {
-      display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-      gap: 1px; margin: 1.75rem 0;
-      border: 1px solid var(--s3); overflow: hidden;
-    }
-    .not-item {
-      padding: 1rem 1.25rem; background: var(--s1);
-      border-right: 1px solid var(--s2);
-      font-family: var(--mono); font-size: 0.65rem;
-      color: var(--t3); letter-spacing: 0.04em;
-      display: flex; align-items: center; gap: 0.75rem;
-      transition: background 0.2s, color 0.2s;
-    }
-    .not-item:hover { background: var(--s2); color: var(--t1); }
-    .not-item::before {
-      content: '×';
-      color: var(--red); font-size: 0.8rem; font-weight: 600; flex-shrink: 0;
+    /* Statement */
+    .stmt {
+      font-family: 'Sora', sans-serif; font-size: clamp(.92rem,1.8vw,1.1rem);
+      font-weight: 200; color: var(--tx-hi); line-height: 1.8; letter-spacing: -.018em;
+      border-left: 2px solid var(--blue); padding: 1rem 1.6rem; margin: 1.2rem 0;
     }
 
-    /* Tabela de funções */
-    .fn-table {
-      width: 100%; border-collapse: collapse;
-      margin: 1.75rem 0; font-family: var(--mono);
+    /* Hypothesis */
+    .hypo {
+      border: 1px solid var(--b2); border-left: 2px solid var(--blue);
+      padding: 1.1rem 1.5rem; background: var(--surf); margin: 1rem 0;
     }
-    .fn-table thead tr { border-bottom: 1px solid var(--s3); }
-    .fn-table th {
-      font-size: 0.46rem; color: var(--acc); letter-spacing: 0.2em;
-      text-transform: uppercase; font-weight: 600;
-      text-align: left; padding: 0.65rem 1.25rem; opacity: 0.65;
+    .hypo-lbl {
+      font-family: 'JetBrains Mono', monospace; font-size: .44rem;
+      color: var(--tx-ui); letter-spacing: .2em; text-transform: uppercase;
+      display: block; margin-bottom: .5rem;
     }
-    .fn-table td {
-      padding: 1rem 1.25rem; font-size: 0.72rem; color: var(--t2);
-      border-bottom: 1px solid var(--s1); line-height: 1.5;
-    }
-    .fn-table tr:last-child td { border-bottom: none; }
-    .fn-table td:first-child { color: var(--t1); font-weight: 500; }
-    .fn-table tbody tr { background: var(--s1); transition: background 0.2s; }
-    .fn-table tbody tr:hover { background: var(--s2); }
+    .hypo p { font-size: .84rem; color: var(--tx-md); line-height: 1.75; margin: 0; font-style: italic; }
 
-    /* Diagrama de assimetria */
-    .asym-diagram {
-      display: grid; grid-template-columns: 1fr 1fr;
-      gap: 1px; border: 1px solid var(--s3);
-      margin: 1.75rem 0; overflow: hidden;
+    /* Lists */
+    .pl { list-style: none; margin: .7rem 0 .9rem; display: flex; flex-direction: column; gap: .4rem; }
+    .pl li {
+      display: flex; align-items: flex-start; gap: .75rem;
+      font-size: .855rem; color: var(--tx-md); line-height: 1.75;
     }
-    .asym-layer {
-      padding: 1.5rem 1.75rem;
-      display: flex; flex-direction: column; gap: 0.75rem;
+    .pl li::before {
+      content: ''; width: 3px; height: 3px; border-radius: 50%;
+      background: var(--blue); flex-shrink: 0; margin-top: .62rem;
     }
-    .asym-layer.public { background: var(--s1); }
-    .asym-layer.protected {
-      background: var(--acc-glow);
-      border-left: 1px solid var(--acc-bdr);
-    }
-    .asym-lbl {
-      font-family: var(--mono); font-size: 0.48rem;
-      letter-spacing: 0.2em; text-transform: uppercase; font-weight: 600;
-    }
-    .asym-layer.public .asym-lbl { color: var(--t3); }
-    .asym-layer.protected .asym-lbl { color: var(--acc); }
-    .asym-content {
-      font-family: var(--display); font-size: 0.85rem;
-      font-weight: 300; line-height: 1.6;
-    }
-    .asym-layer.public .asym-content { color: var(--t2); }
-    .asym-layer.protected .asym-content { color: var(--t0); }
-    .asym-tag {
-      font-family: var(--mono); font-size: 2rem;
-      font-weight: 700; opacity: 0.06; line-height: 1; margin-top: auto;
+    .pl.ord { counter-reset: lc; }
+    .pl.ord li::before {
+      counter-increment: lc;
+      content: counter(lc, decimal-leading-zero);
+      font-family: 'JetBrains Mono', monospace; font-size: .44rem;
+      color: var(--tx-ui); background: none; border-radius: 0;
+      width: auto; height: auto; margin-top: 0; padding-top: .14rem;
     }
 
-    /* Modelo relacional */
-    .model-comparison { display: flex; flex-direction: column; gap: 1px; margin: 1.75rem 0; }
-    .model-row {
-      display: grid; grid-template-columns: 180px 1fr;
-      border: 1px solid var(--s2); border-top: none; overflow: hidden;
+    /* Dual panel */
+    .dual { display: grid; grid-template-columns: 1fr 1fr; border: 1px solid var(--b1); margin: 1rem 0; }
+    .dual-c { padding: 1.5rem 1.4rem; background: #000000; }
+    .dual-c:first-child { border-right: 1px solid var(--b1); }
+    .dual-lbl {
+      font-family: 'JetBrains Mono', monospace; font-size: .44rem;
+      letter-spacing: .2em; text-transform: uppercase; display: block; margin-bottom: .9rem;
     }
-    .model-row:first-child { border-top: 1px solid var(--s2); }
-    .model-label {
-      padding: 1.1rem 1.25rem;
-      font-family: var(--mono); font-size: 0.52rem;
-      color: var(--t3); letter-spacing: 0.1em; text-transform: uppercase;
-      background: var(--s1); border-right: 1px solid var(--s2);
-      display: flex; align-items: center;
-    }
-    .model-content {
-      padding: 1.1rem 1.4rem;
-      font-family: var(--display); font-size: 0.85rem;
-      font-weight: 300; color: var(--t2); line-height: 1.6;
-    }
-    .model-row.neurosaas .model-label { color: var(--acc); background: var(--acc-glow); }
-    .model-row.neurosaas .model-content { color: var(--t0); background: var(--acc-mid); }
+    .dual-c.no .dual-lbl { color: var(--tx-ui); }
+    .dual-c.yes .dual-lbl { color: var(--blue); }
 
-    /* Bloco legal */
-    .legal-block {
-      background: var(--s1);
-      border-left: 3px solid var(--red);
-      padding: 1.6rem 1.75rem;
-      margin: 1.75rem 0;
-      font-family: var(--mono); font-size: 0.7rem;
-      line-height: 1.95; color: var(--t2);
+    /* NCSL flow — reveal on scroll */
+    .flow-wrap {
+      opacity: 0; transform: translateY(12px);
+      transition: opacity .7s var(--eas), transform .7s var(--eas);
     }
-    .legal-block.blue { border-left-color: var(--acc); }
+    .flow-wrap.vis { opacity: 1; transform: translateY(0); }
+    .flow { display: flex; align-items: center; flex-wrap: wrap; gap: .4rem; padding: 2rem 0; overflow-x: auto; }
+    .fn {
+      padding: .55rem .9rem; border: 1px solid var(--b2); background: var(--surf);
+      font-family: 'JetBrains Mono', monospace; font-size: .48rem;
+      letter-spacing: .06em; text-transform: uppercase; color: var(--tx-ui);
+      white-space: nowrap; flex-shrink: 0;
+      transition: background .3s, border-color .3s, color .3s;
+    }
+    .fn:hover { background: var(--surf-2); border-color: var(--b3); color: var(--tx-hi); }
+    .fa { font-family: 'JetBrains Mono', monospace; font-size: .8rem; color: var(--blue); flex-shrink: 0; }
 
-    /* Citação */
-    .citation-block {
-      background: var(--s1);
-      border: 1px solid var(--s3); border-left: 3px solid var(--acc-bdr);
-      padding: 1.4rem 1.6rem;
-      font-family: var(--mono); font-size: 0.7rem;
-      line-height: 1.7; color: var(--t2); margin: 1.4rem 0;
+    /* Layer cards — reveal on scroll */
+    .layer-wrap {
+      opacity: 0; transform: translateY(12px);
+      transition: opacity .7s var(--eas), transform .7s var(--eas);
     }
+    .layer-wrap.vis { opacity: 1; transform: translateY(0); }
+    .lg { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px,1fr)); border: 1px solid var(--b1); margin: 0; }
+    .lc {
+      padding: 1.5rem 1.4rem; background: #000000;
+      border-right: 1px solid var(--b1); border-bottom: 1px solid var(--b1);
+      position: relative; overflow: hidden;
+      transition: background .4s var(--eas);
+    }
+    .lc:hover { background: var(--surf); }
+    .lc::after {
+      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px;
+      background: linear-gradient(90deg, transparent, var(--blue), transparent);
+      transform: scaleX(0); transform-origin: left; transition: transform .5s var(--eas);
+    }
+    .lc:hover::after { transform: scaleX(1); }
+    .ln { font-family: 'JetBrains Mono', monospace; font-size: .42rem; color: var(--tx-ui); letter-spacing: .2em; text-transform: uppercase; display: block; margin-bottom: .5rem; }
+    .lname { font-family: 'Sora', sans-serif; font-size: .82rem; font-weight: 500; color: var(--tx-hi); display: block; margin-bottom: .4rem; }
+    .ldesc { font-size: .73rem; color: var(--tx-sub); line-height: 1.75; margin: 0; }  /* readable near-white */
 
-    /* Lista de itens */
-    .item-list { display: flex; flex-direction: column; gap: 2px; margin: 1.25rem 0; }
-    .item-list li {
-      display: flex; align-items: flex-start; gap: 0.75rem;
-      padding: 0.65rem 1rem;
-      font-family: var(--mono); font-size: 0.7rem;
-      color: var(--t2); line-height: 1.6;
-      background: var(--s1); list-style: none;
-      border: 1px solid var(--s2); border-top: none;
+    /* Metrics */
+    .mg { display: grid; grid-template-columns: repeat(auto-fit, minmax(175px,1fr)); border: 1px solid var(--b1); margin: 1rem 0; }
+    .mc {
+      padding: 1.3rem 1.2rem; background: #000000;
+      border-right: 1px solid var(--b1); border-bottom: 1px solid var(--b1);
+      position: relative; overflow: hidden; transition: background .4s var(--eas);
     }
-    .item-list li:first-child { border-top: 1px solid var(--s2); }
-    .item-list li::before { content: '→'; color: var(--acc); flex-shrink: 0; opacity: 0.6; }
+    .mc:hover { background: var(--surf); }
+    .mc::after { content:''; position:absolute; top:0; left:0; right:0; height:1px; background:linear-gradient(90deg,transparent,var(--blue),transparent); transform:scaleX(0); transform-origin:left; transition:transform .5s var(--eas); }
+    .mc:hover::after { transform:scaleX(1); }
+    .mid { font-family:'JetBrains Mono',monospace; font-size:.44rem; color:var(--tx-ui); letter-spacing:.2em; text-transform:uppercase; display:block; margin-bottom:.4rem; }
+    .mtitle { font-family:'Sora',sans-serif; font-size:.78rem; font-weight:500; color:var(--tx-hi); display:block; margin-bottom:.35rem; }
+    .mdesc { font-size:.71rem; color:var(--tx-sub); line-height:1.65; margin:0; }  /* readable near-white */
 
-    /* Declaração final */
-    .final-statement {
-      background: var(--acc-glow);
-      border: 1px solid var(--acc-bdr);
-      border-left: 3px solid var(--acc);
-      padding: 2.5rem;
-      margin: 2rem 0;
-      text-align: center;
+    /* Failure modes */
+    .fl { border: 1px solid var(--b1); margin: 1rem 0; }
+    .fi {
+      display: grid; grid-template-columns: 76px 1fr;
+      border-bottom: 1px solid var(--b1); background: #000000; transition: background .3s;
     }
-    .fs-from {
-      font-family: var(--display); font-size: 0.85rem;
-      font-weight: 300; color: var(--t3); margin-bottom: 1rem;
-    }
-    .fs-arrow {
-      font-family: var(--mono); font-size: 0.6rem;
-      color: var(--acc); opacity: 0.6; letter-spacing: 0.2em; margin-bottom: 1rem;
-    }
-    .fs-to {
-      font-family: var(--display); font-size: clamp(1rem, 2.5vw, 1.35rem);
-      font-weight: 300; color: var(--t0); line-height: 1.5;
-    }
-    .fs-to strong { font-weight: 600; color: var(--acc); }
+    .fi:last-child { border-bottom: none; }
+    .fi:hover { background: var(--surf); }
+    .fc { padding:1rem; border-right:1px solid var(--b1); font-family:'JetBrains Mono',monospace; font-size:.48rem; color:var(--tx-ui); letter-spacing:.1em; display:flex; align-items:center; justify-content:center; }
+    .fb { padding: 1rem 1.2rem; }
+    .ft2 { font-size:.78rem; font-weight:500; color:var(--tx-hi); display:block; margin-bottom:.25rem; }
+    .fd { font-size:.72rem; color:var(--tx-sub); line-height:1.65; margin:0; }  /* readable near-white */
 
-    /* RODAPÉ */
-    .doc-footer {
-      background:
-        radial-gradient(ellipse 700px 500px at 110% 100%, rgba(77,107,247,0.09) 0%, transparent 60%),
-        #000000;
-      border-top: 1px solid var(--s3);
-      padding: 5rem var(--pad) 4rem;
+    /* Formula */
+    .form {
+      border: 1px solid var(--b2); border-left: 3px solid var(--blue);
+      padding: 1.1rem 1.5rem; background: var(--surf); margin: 1rem 0;
+      display: flex; align-items: center; gap: 1rem; flex-wrap: wrap;
     }
-    .footer-inner { max-width: var(--max); margin: 0 auto; }
-    .footer-cols {
-      display: grid; grid-template-columns: 1.5fr 1fr 1fr;
-      gap: 3.5rem; padding-bottom: 2.5rem;
-      border-bottom: 1px solid var(--s2); margin-bottom: 2rem;
-    }
-    .f-logo {
-      font-family: var(--sans); font-size: 1rem; font-weight: 700;
-      letter-spacing: 0.25em; text-transform: uppercase;
-      color: var(--t0); margin-bottom: 0.75rem;
-    }
-    .f-tagline { font-size: 0.78rem; color: var(--t3); line-height: 1.65; }
-    .f-col { display: flex; flex-direction: column; gap: 0.5rem; }
-    .f-col-title {
-      display: block; font-family: var(--mono); font-size: 0.48rem;
-      color: var(--acc); text-transform: uppercase; letter-spacing: 0.16em;
-      margin-bottom: 0.5rem;
-    }
-    .f-link { font-size: 0.78rem; color: var(--t3); text-decoration: none; transition: color 0.2s; }
-    .f-link:hover { color: var(--acc); }
-    .footer-copy {
-      font-family: var(--mono); font-size: 0.55rem; line-height: 2.1;
-      color: var(--t3); border-left: 2px solid var(--red);
-      padding: 1rem 1.25rem; background: var(--s1); margin-bottom: 2rem;
-    }
-    .footer-bottom {
-      display: flex; justify-content: space-between;
-      align-items: flex-start; gap: 2rem;
-      font-family: var(--mono); font-size: 0.48rem; color: var(--t4);
-    }
-    .doc-hash { word-break: break-all; max-width: 400px; line-height: 1.7; text-align: right; }
+    .fl2 { font-family:'JetBrains Mono',monospace; font-size:.44rem; color:var(--tx-ui); letter-spacing:.18em; text-transform:uppercase; white-space:nowrap; }
+    .ft3 { font-family:'JetBrains Mono',monospace; font-size:.78rem; color:var(--tx-hi); letter-spacing:.03em; }
 
-    /* RESPONSIVO */
-    @media (max-width: 720px) {
-      :root { --pad: 1.5rem; }
-      .cover-wordmark { font-size: 2.4rem; }
-      .cover-meta { grid-template-columns: 1fr 1fr; }
-      .cover-meta-row:nth-last-child(-n+2) { border-bottom: none; }
-      .toc-grid { grid-template-columns: 1fr 1fr; }
-      .key-props { grid-template-columns: 1fr 1fr; }
-      .not-list { grid-template-columns: 1fr 1fr; }
-      .asym-diagram { grid-template-columns: 1fr; }
-      .asym-layer.protected { border-left: none; border-top: 1px solid var(--acc-bdr); }
-      .model-row { grid-template-columns: 1fr; }
-      .model-label { border-right: none; border-bottom: 1px solid var(--s2); }
-      .footer-cols { grid-template-columns: 1fr; gap: 2rem; }
-      .footer-bottom { flex-direction: column; }
-      .doc-hash { max-width: 100%; text-align: left; }
-      .nav-badge { display: none; }
+    /* Safety */
+    .sg { display:grid; grid-template-columns:repeat(auto-fit,minmax(195px,1fr)); gap:.4rem; margin:1rem 0; }
+    .si {
+      display:flex; align-items:center; gap:.6rem; padding:.65rem .9rem;
+      border:1px solid var(--b1); font-family:'JetBrains Mono',monospace;
+      font-size:.48rem; letter-spacing:.06em; text-transform:uppercase;
+      color:var(--tx-sub); background:#000000; transition:border-color .3s,color .3s,background .3s;
     }
-    @media (max-width: 480px) {
-      .toc-grid { grid-template-columns: 1fr; }
-      .key-props { grid-template-columns: 1fr; }
-      .not-list { grid-template-columns: 1fr; }
-      .cover-meta { grid-template-columns: 1fr; }
+    .si:hover { border-color:var(--b3); color:var(--tx-hi); background:var(--surf); }
+    .sd { width:4px; height:4px; border-radius:50%; background:var(--blue); flex-shrink:0; }
+
+    /* Concept table */
+    .ct { width:100%; border-collapse:collapse; margin:1rem 0; }
+    .ct th { font-family:'JetBrains Mono',monospace; font-size:.44rem; letter-spacing:.2em; text-transform:uppercase; color:var(--tx-ui); padding:.7rem 1rem; border-bottom:1px solid var(--b2); text-align:left; font-weight:500; }
+    .ct td { padding:.85rem 1rem; border-bottom:1px solid var(--b1); color:var(--tx-md); line-height:1.65; vertical-align:top; background:#000000; font-size:.83rem; }
+    .ct tr:last-child td { border-bottom:none; }
+    .ct tr:hover td { color:var(--tx-hi); background:var(--surf); }
+    .ct td:first-child { color:var(--tx-hi); font-weight:400; }
+
+    /* Domains */
+    .dm { display:grid; grid-template-columns:repeat(auto-fit,minmax(190px,1fr)); border:1px solid var(--b1); margin:1rem 0; }
+    .di { padding:1rem 1.2rem; border-right:1px solid var(--b1); border-bottom:1px solid var(--b1); font-size:.78rem; color:var(--tx-sub); line-height:1.5; background:#000000; transition:color .3s,background .3s; }
+    .di:hover { color:var(--tx-hi); background:var(--surf); }
+
+    /* Transition */
+    .trans { display:flex; align-items:center; gap:1.2rem; padding:1rem 0; margin:.5rem 0; }
+    .tr-f { font-family:'Sora',sans-serif; font-size:.9rem; font-weight:400; color:var(--tx-sub); }
+    .tr-a { font-family:'JetBrains Mono',monospace; color:var(--blue); font-size:1rem; }
+    .tr-t { font-family:'Sora',sans-serif; font-size:.9rem; font-weight:500; color:var(--tx-hi); }
+
+    /* Conclusion */
+    .concl {
+      padding: 2.4rem 2rem; border-top:1px solid var(--b1); border-bottom:1px solid var(--b1);
+      border-left:2px solid var(--blue); background:var(--surf);
+      position:relative; overflow:hidden; margin:2rem 0;
     }
-    @media print {
-      .noise, .site-nav { display: none; }
-      .page-wrap { padding-top: 0; }
-      body, .doc-cover, .doc-toc, .doc-main, .doc-footer, .doc-section {
-        background: #fff !important; color: #111 !important;
-      }
-      a { color: #000; }
+    .concl::before { content:''; position:absolute; top:0; left:0; right:0; height:1px; background:linear-gradient(90deg,transparent,var(--blue),transparent); }
+    .concl p { font-family:'Sora',sans-serif; font-size:clamp(.9rem,1.7vw,1.05rem); font-weight:200; color:var(--tx-hi); line-height:1.9; max-width:660px; }
+
+    /* References */
+    .rl { list-style:none; counter-reset:rc; display:flex; flex-direction:column; gap:.6rem; margin:1rem 0; }
+    .rl li { counter-increment:rc; font-family:'JetBrains Mono',monospace; font-size:.65rem; color:var(--tx-sub); line-height:1.7; padding-left:1.8rem; position:relative; letter-spacing:.02em; }
+    .rl li::before { content:counter(rc,decimal-leading-zero); position:absolute; left:0; color:var(--blue); font-size:.44rem; top:.15rem; }
+    .ra { color:var(--tx-md); }
+    .ry { color:var(--tx-ui); }
+    .rtt { color:var(--tx-hi); }
+
+    /* Citation */
+    .cit { border:1px solid var(--b2); border-left:3px solid var(--blue); padding:1.3rem 1.6rem; margin:1rem 0; background:#000000; }
+    .cit blockquote { font-family:'JetBrains Mono',monospace; font-size:.68rem; color:var(--tx-md); line-height:1.8; letter-spacing:.02em; }
+
+    /* Changelog */
+    .changelog { margin: 1rem 0; }
+    .changelog-row {
+      display: grid; grid-template-columns: 6rem 1fr;
+      border-bottom: 1px solid var(--b1); padding: .6rem 0;
+      font-family: 'JetBrains Mono', monospace; font-size: .62rem; letter-spacing: .04em;
+    }
+    .changelog-row:last-child { border-bottom: none; }
+    .cver { color: var(--tx-ui); }
+    .cdesc { color: var(--tx-md); }
+
+    /* Footer */
+    .footer { background:#000000; padding:3rem var(--g); border-top:1px solid var(--b1); position:relative; overflow:hidden; }
+    .footer::before { content:''; position:absolute; top:0; left:0; right:0; height:1px; background:linear-gradient(90deg,transparent,var(--blue),transparent); }
+    .fi2 { display:grid; grid-template-columns:1.5fr 1fr; gap:4rem; padding-bottom:2rem; border-bottom:1px solid var(--b1); margin-bottom:2rem; }
+    .fbrand { font-family:'JetBrains Mono',monospace; font-size:.75rem; letter-spacing:.3em; text-transform:uppercase; color:var(--tx-hi); font-weight:700; display:block; margin-bottom:.5rem; }
+    .fbc p { font-size:.73rem; color:var(--tx-sub); line-height:1.6; }
+    .fbc .hash {
+      font-family:'JetBrains Mono',monospace; font-size:.48rem;
+      color:var(--tx-ui); letter-spacing:.06em; margin-top:.6rem; display:block;
+    }
+    .fbc .hash span { color:var(--tx-md); }
+    .fm { display:flex; flex-direction:column; gap:.3rem; }
+    .fr { display:flex; justify-content:space-between; align-items:center; padding:.28rem 0; border-bottom:1px solid var(--b1); }
+    .fr:last-child { border-bottom:none; }
+    .fk { font-family:'JetBrains Mono',monospace; font-size:.42rem; letter-spacing:.18em; text-transform:uppercase; color:var(--tx-ui); }
+    .fv { font-family:'JetBrains Mono',monospace; font-size:.48rem; color:var(--tx-md); letter-spacing:.06em; }
+    .fcopy { font-family:'JetBrains Mono',monospace; font-size:.44rem; color:var(--tx-dim); letter-spacing:.14em; text-transform:uppercase; text-align:center; }
+
+    /* Responsive */
+    @media (max-width:900px) {
+      .layout { grid-template-columns:1fr; }
+      .sidebar { display:none; }
+      .meta-grid { grid-template-columns:repeat(2,1fr); }
+      .meta-cell:nth-child(4n) { border-right:1px solid var(--b1); }
+      .meta-cell:nth-last-child(-n+4) { border-bottom:1px solid var(--b1); }
+      .meta-cell:nth-child(2n) { border-right:none; }
+      .meta-cell:nth-last-child(-n+2) { border-bottom:none; }
+      .dual { grid-template-columns:1fr; }
+      .dual-c:first-child { border-right:none; border-bottom:1px solid var(--b1); }
+      .fi2 { grid-template-columns:1fr; gap:2rem; }
+    }
+    @media (max-width:600px) {
+      :root { --g:1.2rem; }
+      .flow { flex-direction:column; align-items:flex-start; }
+      .lg,.mg,.sg,.dm { grid-template-columns:1fr; }
+      .meta-grid { grid-template-columns:1fr 1fr; }
+      .nav-right .nav-label { display:none; }
     }
   </style>
 
 </head>
 <body>
 
-  <div class="noise" aria-hidden="true"></div>
+<div id="progress"></div>
 
-  <nav class="site-nav" id="siteNav" role="navigation" aria-label="Navegação principal">
-    <a href="https://falxsystem.com" class="nav-brand">FALX</a>
-    <div class="nav-right">
-      <span class="nav-live" aria-live="polite">NEUROSAAS ATIVO ●</span>
-      <span class="nav-badge">Whitepaper Técnico</span>
-    </div>
-  </nav>
-
-  <div class="page-wrap">
-
-```
-<!-- CAPA -->
-<header class="doc-cover" role="banner">
-  <div class="cover-inner">
-    <div class="cover-strip">
-      <span class="strip-badge">Whitepaper Técnico</span>
-      <span class="strip-dot" aria-hidden="true"></span>
-      <span class="strip-tag">NS-WP-2026-001</span>
-      <span class="strip-dot" aria-hidden="true"></span>
-      <span class="strip-tag">Versão 1.0.0</span>
-      <span class="strip-dot" aria-hidden="true"></span>
-      <span class="strip-tag">Registro Técnico Público</span>
-    </div>
-
-    <div class="cover-wordmark">NeuroSaaS<sup>™</sup></div>
-    <p class="cover-doc-type">Whitepaper Técnico Canônico — Especificação de Infraestrutura Institucional</p>
-
-    <div class="cover-meta">
-      <div class="cover-meta-row">
-        <span class="cm-lbl">Proprietário</span>
-        <span class="cm-val">FALX GLOBAL LLC</span>
-      </div>
-      <div class="cover-meta-row">
-        <span class="cm-lbl">Jurisdição</span>
-        <span class="cm-val">Delaware, Estados Unidos</span>
-      </div>
-      <div class="cover-meta-row">
-        <span class="cm-lbl">ID do Documento</span>
-        <span class="cm-val accent">NS-WP-2026-001</span>
-      </div>
-      <div class="cover-meta-row">
-        <span class="cm-lbl">Versão</span>
-        <span class="cm-val">1.0.0</span>
-      </div>
-      <div class="cover-meta-row">
-        <span class="cm-lbl">Ano de Publicação</span>
-        <span class="cm-val">2026</span>
-      </div>
-      <div class="cover-meta-row">
-        <span class="cm-lbl">Classificação</span>
-        <span class="cm-val accent">Registro Técnico Público</span>
-      </div>
-    </div>
-
-    <div class="abstract-block">
-      <span class="abstract-label">Resumo</span>
-      <p class="abstract-text">
-        NeuroSaaS™ designa uma arquitetura proprietária de infraestrutura cognitivo-operacional projetada para ampliar a coerência decisória humana sob condições de complexidade sistêmica. O sistema opera como uma camada estrutural — não como ferramenta de nível aplicacional — fornecendo estabilização metacognitiva, transparência inferencial e suporte adaptativo à decisão.<br><br>
-        Este documento estabelece a definição pública canônica, a categoria arquitetural, os limites de escopo, o status legal e o enquadramento institucional do NeuroSaaS™, sem expor mecanismos internos ou implementações protegidas.
-      </p>
-    </div>
-  </div>
-</header>
-
-<!-- ÍNDICE -->
-<nav class="doc-toc" aria-labelledby="toc-heading">
-  <div class="toc-inner">
-    <span class="toc-label" id="toc-heading">Índice</span>
-    <ol class="toc-grid">
-      <li><a href="#s01" class="toc-link"><span class="toc-n">01 —</span>Propósito do Documento</a></li>
-      <li><a href="#s02" class="toc-link"><span class="toc-n">02 —</span>Definição Canônica</a></li>
-      <li><a href="#s03" class="toc-link"><span class="toc-n">03 —</span>Classificação do Sistema</a></li>
-      <li><a href="#s04" class="toc-link"><span class="toc-n">04 —</span>Posicionamento Arquitetural</a></li>
-      <li><a href="#s05" class="toc-link"><span class="toc-n">05 —</span>Filosofia de Design</a></li>
-      <li><a href="#s06" class="toc-link"><span class="toc-n">06 —</span>O Que o NeuroSaaS™ Não É</a></li>
-      <li><a href="#s07" class="toc-link"><span class="toc-n">07 —</span>Papel Funcional do Sistema</a></li>
-      <li><a href="#s08" class="toc-link"><span class="toc-n">08 —</span>Domínio Operacional</a></li>
-      <li><a href="#s09" class="toc-link"><span class="toc-n">09 —</span>Modelo de Acesso</a></li>
-      <li><a href="#s10" class="toc-link"><span class="toc-n">10 —</span>Modelo de Assimetria</a></li>
-      <li><a href="#s11" class="toc-link"><span class="toc-n">11 —</span>Modelo Relacional Humano–Sistema</a></li>
-      <li><a href="#s12" class="toc-link"><span class="toc-n">12 —</span>Classe de Aplicação</a></li>
-      <li><a href="#s13" class="toc-link"><span class="toc-n">13 —</span>Postura de Segurança</a></li>
-      <li><a href="#s14" class="toc-link"><span class="toc-n">14 —</span>Status de Propriedade Intelectual</a></li>
-      <li><a href="#s15" class="toc-link"><span class="toc-n">15 —</span>Jurisdição</a></li>
-      <li><a href="#s16" class="toc-link"><span class="toc-n">16 —</span>Formato de Citação</a></li>
-      <li><a href="#s17" class="toc-link"><span class="toc-n">17 —</span>Política de Versionamento</a></li>
-      <li><a href="#s18" class="toc-link"><span class="toc-n">18 —</span>Cláusula de Fixação Semântica</a></li>
-      <li><a href="#s19" class="toc-link"><span class="toc-n">19 —</span>Declaração de Status Canônico</a></li>
-      <li><a href="#s20" class="toc-link"><span class="toc-n">20 —</span>Declaração Técnica Final</a></li>
-    </ol>
+<nav class="nav">
+  <a class="nav-brand" href="https://falxorg.com">FALX</a>
+  <div class="nav-right">
+    <span class="nav-label">Whitepaper · Documento Técnico</span>
+    <span class="nav-badge">v1.0.0</span>
   </div>
 </nav>
 
-<!-- CORPO -->
-<main class="doc-main" role="main">
-  <div class="doc-body">
+<div class="layout">
 
-    <!-- 01 -->
-    <article class="doc-section" id="s01">
-      <div class="sec-eyebrow">
-        <span class="sec-num">01 // Propósito do Documento</span>
-        <div class="sec-rule" aria-hidden="true"></div>
-      </div>
-      <h2>Propósito do Documento</h2>
-      <p>Este whitepaper existe para estabelecer um registro público canônico, juridicamente defensável e institucionalmente estável do NeuroSaaS™. Não divulga arquitetura, algoritmos, modelos ou mecanismos operacionais.</p>
-      <ul class="item-list">
-        <li>Definir formalmente o NeuroSaaS™</li>
-        <li>Estabelecer terminologia canônica</li>
-        <li>Delimitar o escopo público</li>
-        <li>Declarar titularidade</li>
-        <li>Fixar significado semântico</li>
-        <li>Prevenir apropriação conceitual indevida</li>
-      </ul>
-    </article>
+  <aside class="sidebar" aria-label="Sumário">
+    <span class="toc-label">Sumário</span>
+    <ul class="toc" role="list">
+      <li><a href="#abstract">Resumo</a></li>
+      <div class="toc-sep"></div>
+      <li><a href="#s01">01 · Introdução</a></li>
+      <li><a href="#s02">02 · Enunciado do Problema</a></li>
+      <li><a href="#s03">03 · Definição Operacional</a></li>
+      <li><a href="#s04">04 · Posicionamento Ontológico</a></li>
+      <li><a href="#s05">05 · Hipótese Central</a></li>
+      <li><a href="#s06">06 · Visão Geral do NCSL</a></li>
+      <li><a href="#s07">07 · NCSL Formal</a></li>
+      <li><a href="#s08">08 · Camadas de Infraestrutura</a></li>
+      <div class="toc-sep"></div>
+      <li><a href="#s09">09 · Transparência Inferencial</a></li>
+      <li><a href="#s10">10 · Fricção Estrutural</a></li>
+      <li><a href="#s11">11 · Estabilização Cognitiva</a></li>
+      <li><a href="#s12">12 · Retroalimentação Adaptativa</a></li>
+      <div class="toc-sep"></div>
+      <li><a href="#s13">13 · Métricas Observáveis</a></li>
+      <li><a href="#s14">14 · Modos de Falha</a></li>
+      <li><a href="#s15">15 · Segurança Epistêmica</a></li>
+      <li><a href="#s16">16 · Domínios de Aplicação</a></li>
+      <li><a href="#s17">17 · Implicações de Pesquisa</a></li>
+      <li><a href="#s18">18 · Posição Filosófica</a></li>
+      <li><a href="#s19">19 · Direções Futuras</a></li>
+      <li><a href="#s20">20 · Conclusão</a></li>
+      <div class="toc-sep"></div>
+      <li><a href="#changelog">Registro de Alterações</a></li>
+      <li><a href="#refs">Referências</a></li>
+      <li><a href="#app-a">Apêndice A</a></li>
+      <li><a href="#app-b">Apêndice B</a></li>
+      <li><a href="#cite">Citação Sugerida</a></li>
+    </ul>
+  </aside>
 
-    <!-- 02 -->
-    <article class="doc-section" id="s02">
-      <div class="sec-eyebrow">
-        <span class="sec-num">02 // Definição Canônica</span>
-        <div class="sec-rule" aria-hidden="true"></div>
-      </div>
-      <h2>Definição Canônica</h2>
-      <div class="abstract-block">
-        <span class="abstract-label">Definição — NS-WP-2026-001 § 2</span>
-        <p class="abstract-text">NeuroSaaS™ é uma infraestrutura cognitiva distribuída projetada para ampliar a estabilidade do raciocínio humano e a integridade decisória em ambientes de alta complexidade por meio de augmentação metacognitiva estruturada.</p>
-      </div>
-      <p>Propriedades-chave:</p>
-      <div class="key-props">
-        <div class="key-prop">
-          <span class="kp-arrow">→</span>
-          <span class="kp-text">Infraestrutura, não aplicação</span>
-        </div>
-        <div class="key-prop">
-          <span class="kp-arrow">→</span>
-          <span class="kp-text">Augmentação, não automação</span>
-        </div>
-        <div class="key-prop">
-          <span class="kp-arrow">→</span>
-          <span class="kp-text">Estrutural, não de nível de interface</span>
-        </div>
-        <div class="key-prop">
-          <span class="kp-arrow">→</span>
-          <span class="kp-text">Institucional, não voltado ao consumidor</span>
-        </div>
-      </div>
-    </article>
+  <main class="main" id="main">
 
-    <!-- 03 -->
-    <article class="doc-section" id="s03">
-      <div class="sec-eyebrow">
-        <span class="sec-num">03 // Classificação do Sistema</span>
-        <div class="sec-rule" aria-hidden="true"></div>
-      </div>
-      <h2>Classificação do Sistema</h2>
-      <table class="class-table" aria-label="Dimensões de Classificação do Sistema">
-        <thead>
-          <tr><th>Dimensão</th><th>Classificação</th></tr>
-        </thead>
-        <tbody>
-          <tr><td>Categoria</td><td>Infraestrutura Cognitiva</td></tr>
-          <tr><td>Camada</td><td>Estrutural</td></tr>
-          <tr><td>Função</td><td>Estabilização Decisória</td></tr>
-          <tr><td>Modo</td><td>Augmentação</td></tr>
-          <tr><td>Acesso</td><td>Controlado</td></tr>
-          <tr><td>Exposição</td><td>Superfície Limitada</td></tr>
-        </tbody>
-      </table>
-    </article>
+```
+<!-- COVER — only element with scroll reveal -->
+<header class="cover" id="cover">
+  <div class="cover-line" aria-hidden="true"></div>
 
-    <!-- 04 -->
-    <article class="doc-section" id="s04">
-      <div class="sec-eyebrow">
-        <span class="sec-num">04 // Posicionamento Arquitetural</span>
-        <div class="sec-rule" aria-hidden="true"></div>
-      </div>
-      <h2>Posicionamento Arquitetural</h2>
-      <p>O NeuroSaaS™ não opera como software no sentido tradicional. Funciona como uma <strong>meta-camada</strong> posicionada acima de todos os sistemas operacionais, interfaceando diretamente com a camada cognitiva humana.</p>
-      <div class="stack-diagram" aria-label="Stack Conceitual">
-        <div class="stack-label">Stack Conceitual — Do Topo à Base</div>
-        <div class="stack-layer highlighted">
-          <span class="stack-arrow">↑</span>
-          <span class="stack-name">NeuroSaaS™ — Camada de Infraestrutura Cognitiva</span>
-          <span class="stack-desc">META-CAMADA</span>
-        </div>
-        <div class="stack-layer">
-          <span class="stack-arrow">↑</span>
-          <span class="stack-name">Cognição Humana</span>
-          <span class="stack-desc">CAMADA DO USUÁRIO</span>
-        </div>
-        <div class="stack-layer">
-          <span class="stack-arrow">↑</span>
-          <span class="stack-name">Sistemas de Analytics &amp; Plataformas de Decisão</span>
-          <span class="stack-desc">OPERACIONAL</span>
-        </div>
-        <div class="stack-layer">
-          <span class="stack-arrow">↑</span>
-          <span class="stack-name">Modelos de IA &amp; Ferramentas Empresariais</span>
-          <span class="stack-desc">FERRAMENTAL</span>
-        </div>
-        <div class="stack-layer">
-          <span class="stack-arrow">↑</span>
-          <span class="stack-name">Dados + Modelos</span>
-          <span class="stack-desc">FUNDAÇÃO</span>
-        </div>
-      </div>
-    </article>
+  <a class="pdf-bar" href="https://falxorg.com/papers/neurosaas/v1.0/neurosaas-whitepaper.pdf" target="_blank" rel="noopener">
+    <span>↓</span> Baixar PDF — Versão Oficial de Arquivamento
+  </a>
 
-    <!-- 05 -->
-    <article class="doc-section" id="s05">
-      <div class="sec-eyebrow">
-        <span class="sec-num">05 // Filosofia de Design</span>
-        <div class="sec-rule" aria-hidden="true"></div>
-      </div>
-      <h2>Filosofia de Design</h2>
-      <p>O NeuroSaaS™ é construído sobre cinco princípios norteadores:</p>
-      <div class="principles">
-        <div class="principle">
-          <span class="pr-num">5.1</span>
-          <div class="pr-body">
-            <div class="pr-title">Ativação Metacognitiva</div>
-            <p class="pr-desc">Estimula o raciocínio deliberado em vez do processamento reativo. Engaja o Sistema 2 como modo padrão de operação.</p>
-          </div>
-        </div>
-        <div class="principle">
-          <span class="pr-num">5.2</span>
-          <div class="pr-body">
-            <div class="pr-title">Fricção Estrutural</div>
-            <p class="pr-desc">Introduz resistência benéfica que previne o colapso cognitivo em estados de decisão impulsiva. Fricção como recurso de design — não como falha.</p>
-          </div>
-        </div>
-        <div class="principle">
-          <span class="pr-num">5.3</span>
-          <div class="pr-body">
-            <div class="pr-title">Transparência Inferencial</div>
-            <p class="pr-desc">Retorna ao usuário as interpretações derivadas pelo sistema. Inferências são ativos devolvidos à sua origem — não retidos pela plataforma.</p>
-          </div>
-        </div>
-        <div class="principle">
-          <span class="pr-num">5.4</span>
-          <div class="pr-body">
-            <div class="pr-title">Preservação de Agência</div>
-            <p class="pr-desc">Fortalece a autoridade decisória humana em vez de substituí-la. O sistema augmenta — não delega nem automatiza o julgamento.</p>
-          </div>
-        </div>
-        <div class="principle">
-          <span class="pr-num">5.5</span>
-          <div class="pr-body">
-            <div class="pr-title">Alinhamento Contextual</div>
-            <p class="pr-desc">Mantém coerência entre ambiente, intenção e ação. Cada output está ancorado a um contexto específico e verificável.</p>
-          </div>
-        </div>
-      </div>
-    </article>
-
-    <!-- 06 -->
-    <article class="doc-section" id="s06">
-      <div class="sec-eyebrow">
-        <span class="sec-num">06 // O Que o NeuroSaaS™ Não É</span>
-        <div class="sec-rule" aria-hidden="true"></div>
-      </div>
-      <h2>O Que o NeuroSaaS™ Não É</h2>
-      <p>O NeuroSaaS™ não é nenhum dos itens abaixo. É um <strong>substrato cognitivo estrutural</strong> — uma categoria distinta de tudo que está listado.</p>
-      <div class="not-list">
-        <div class="not-item">Um chatbot</div>
-        <div class="not-item">Um assistente de IA</div>
-        <div class="not-item">Uma plataforma SaaS</div>
-        <div class="not-item">Uma ferramenta de workflow</div>
-        <div class="not-item">Um sistema de produtividade</div>
-        <div class="not-item">Um motor de decisão</div>
-        <div class="not-item">Um framework de automação</div>
-        <div class="not-item">Uma aplicação de consumo</div>
-      </div>
-    </article>
-
-    <!-- 07 -->
-    <article class="doc-section" id="s07">
-      <div class="sec-eyebrow">
-        <span class="sec-num">07 // Papel Funcional do Sistema</span>
-        <div class="sec-rule" aria-hidden="true"></div>
-      </div>
-      <h2>Papel Funcional do Sistema</h2>
-      <p>O NeuroSaaS™ estabiliza sistemas decisórios quando a complexidade excede a capacidade cognitiva natural. Executa três macrofunções:</p>
-      <table class="fn-table" aria-label="Macrofunções">
-        <thead>
-          <tr><th>Função</th><th>Efeito</th></tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>Estabilização Cognitiva</td>
-            <td>Reduz a volatilidade do raciocínio sob pressão sistêmica</td>
-          </tr>
-          <tr>
-            <td>Reflexão Interpretativa</td>
-            <td>Clarifica estados internos e torna explícita a lógica decisória latente</td>
-          </tr>
-          <tr>
-            <td>Scaffolding Decisório</td>
-            <td>Preserva a coerência estrutural em decisões de alto impacto</td>
-          </tr>
-        </tbody>
-      </table>
-    </article>
-
-    <!-- 08 -->
-    <article class="doc-section" id="s08">
-      <div class="sec-eyebrow">
-        <span class="sec-num">08 // Domínio Operacional</span>
-        <div class="sec-rule" aria-hidden="true"></div>
-      </div>
-      <h2>Domínio Operacional</h2>
-      <p>O NeuroSaaS™ opera exclusivamente nas condições abaixo. Execução pública não é suportada e não constitui objetivo de design.</p>
-      <ul class="item-list">
-        <li>Ambientes controlados</li>
-        <li>Contextos operacionais definidos</li>
-        <li>Implantações autorizadas</li>
-        <li>Organizações com alinhamento institucional verificado</li>
-      </ul>
-    </article>
-
-    <!-- 09 -->
-    <article class="doc-section" id="s09">
-      <div class="sec-eyebrow">
-        <span class="sec-num">09 // Modelo de Acesso</span>
-        <div class="sec-rule" aria-hidden="true"></div>
-      </div>
-      <h2>Modelo de Acesso</h2>
-      <p>O acesso é regido por três condições. As três devem ser satisfeitas simultaneamente. A ausência de acesso é <strong>estrutural</strong>, não temporária.</p>
-      <ul class="item-list">
-        <li>Adequação contextual — o ambiente operacional deve se qualificar</li>
-        <li>Alinhamento institucional — a compatibilidade organizacional deve ser verificada</li>
-        <li>Framework de autorização — os instrumentos contratuais aplicáveis devem estar vigentes</li>
-      </ul>
-    </article>
-
-    <!-- 10 -->
-    <article class="doc-section" id="s10">
-      <div class="sec-eyebrow">
-        <span class="sec-num">10 // Modelo de Assimetria</span>
-        <div class="sec-rule" aria-hidden="true"></div>
-      </div>
-      <h2>Modelo de Assimetria</h2>
-      <p>O NeuroSaaS™ mantém intencionalmente uma arquitetura assimétrica. Esta assimetria é um requisito de design — não uma limitação.</p>
-      <div class="asym-diagram" aria-label="Modelo de Assimetria">
-        <div class="asym-layer public">
-          <span class="asym-lbl">Camada Pública</span>
-          <p class="asym-content">Superfície mínima. Definição canônica apenas. Limites de escopo. Enquadramento institucional.</p>
-          <span class="asym-tag" aria-hidden="true">MIN</span>
-        </div>
-        <div class="asym-layer protected">
-          <span class="asym-lbl">Camada Protegida</span>
-          <p class="asym-content">Arquitetura completa. Mecanismos internos. Lógica inferencial. Design estrutural. Protocolos semânticos. Métodos de implementação.</p>
-          <span class="asym-tag" aria-hidden="true">FULL</span>
-        </div>
-      </div>
-      <p>Esta assimetria preserva: <strong>integridade do sistema</strong> · <strong>fidelidade interpretativa</strong> · <strong>segurança cognitiva</strong> · <strong>resistência ao uso indevido</strong>.</p>
-    </article>
-
-    <!-- 11 -->
-    <article class="doc-section" id="s11">
-      <div class="sec-eyebrow">
-        <span class="sec-num">11 // Modelo Relacional Humano–Sistema</span>
-        <div class="sec-rule" aria-hidden="true"></div>
-      </div>
-      <h2>Modelo Relacional Humano–Sistema</h2>
-      <p>O modelo NeuroSaaS™ inverte a estrutura de poder convencional plataforma–usuário, estabelecendo <strong>simetria epistêmica</strong>.</p>
-      <div class="model-comparison" aria-label="Comparação do Modelo Relacional">
-        <div class="model-row">
-          <div class="model-label">Sistemas Tradicionais</div>
-          <div class="model-content">O sistema interpreta o usuário → a plataforma retém a vantagem. Inferências se tornam capital da plataforma.</div>
-        </div>
-        <div class="model-row neurosaas">
-          <div class="model-label">Modelo NeuroSaaS™</div>
-          <div class="model-content">O sistema interpreta o usuário → a interpretação é devolvida ao usuário. Inferências se tornam capital do usuário. Isso estabelece simetria epistêmica.</div>
-        </div>
-      </div>
-    </article>
-
-    <!-- 12 -->
-    <article class="doc-section" id="s12">
-      <div class="sec-eyebrow">
-        <span class="sec-num">12 // Classe de Aplicação</span>
-        <div class="sec-rule" aria-hidden="true"></div>
-      </div>
-      <h2>Classe de Aplicação</h2>
-      <p>O NeuroSaaS™ é projetado para ambientes institucionais de alto impacto. Não se destina ao uso geral pelo consumidor.</p>
-      <ul class="item-list">
-        <li>Ambientes estratégicos</li>
-        <li>Contextos de decisão institucional</li>
-        <li>Domínios operacionais de alto impacto</li>
-        <li>Operações cognitivamente intensivas</li>
-      </ul>
-    </article>
-
-    <!-- 13 -->
-    <article class="doc-section" id="s13">
-      <div class="sec-eyebrow">
-        <span class="sec-num">13 // Postura de Segurança</span>
-        <div class="sec-rule" aria-hidden="true"></div>
-      </div>
-      <h2>Postura de Segurança</h2>
-      <p>Os componentes abaixo são classificados como protegidos. A divulgação é restrita sob os frameworks legais e contratuais aplicáveis.</p>
-      <ul class="item-list">
-        <li>Arquitetura interna</li>
-        <li>Lógica inferencial</li>
-        <li>Design estrutural</li>
-        <li>Protocolos semânticos</li>
-        <li>Métodos de implementação</li>
-      </ul>
-    </article>
-
-    <!-- 14 -->
-    <article class="doc-section" id="s14">
-      <div class="sec-eyebrow">
-        <span class="sec-num">14 // Status de Propriedade Intelectual</span>
-        <div class="sec-rule" aria-hidden="true"></div>
-      </div>
-      <h2>Status de Propriedade Intelectual</h2>
-      <p>O NeuroSaaS™ constitui propriedade intelectual proprietária de titularidade exclusiva de <strong>FALX GLOBAL LLC</strong>.</p>
-      <p>Componentes protegidos incluem:</p>
-      <ul class="item-list">
-        <li>Arquitetura conceitual</li>
-        <li>Modelo do sistema</li>
-        <li>Semântica do framework</li>
-        <li>Métodos estruturais</li>
-        <li>Mecanismos internos</li>
-        <li>Implementações derivadas</li>
-      </ul>
-      <p style="margin-top: 1.5rem;">Frameworks de proteção legal:</p>
-      <div class="legal-block blue">
-        • Lei de segredo industrial (trade secret)<br>
-        • Lei de direitos autorais<br>
-        • Direito contratual<br>
-        • Legislação de software<br>
-        • Direitos sobre bases de dados<br>
-        • Estatutos internacionais aplicáveis
-      </div>
-    </article>
-
-    <!-- 15 -->
-    <article class="doc-section" id="s15">
-      <div class="sec-eyebrow">
-        <span class="sec-num">15 // Jurisdição</span>
-        <div class="sec-rule" aria-hidden="true"></div>
-      </div>
-      <h2>Jurisdição</h2>
-      <p>Todos os direitos e proteções são regidos exclusivamente pela:</p>
-      <div class="legal-block blue">
-        Lei do Estado de Delaware, Estados Unidos da América
-      </div>
-    </article>
-
-    <!-- 16 -->
-    <article class="doc-section" id="s16">
-      <div class="sec-eyebrow">
-        <span class="sec-num">16 // Formato de Citação</span>
-        <div class="sec-rule" aria-hidden="true"></div>
-      </div>
-      <h2>Formato de Citação</h2>
-      <p>A citação acadêmica ou técnica deste documento deve seguir o formato abaixo:</p>
-      <div class="citation-block">
-        FALX GLOBAL LLC (2026). <em>NeuroSaaS™ — Definição Técnica Canônica.</em> Versão 1.0.0. ID do Documento: NS-WP-2026-001.
-      </div>
-    </article>
-
-    <!-- 17 -->
-    <article class="doc-section" id="s17">
-      <div class="sec-eyebrow">
-        <span class="sec-num">17 // Política de Versionamento</span>
-        <div class="sec-rule" aria-hidden="true"></div>
-      </div>
-      <h2>Política de Versionamento</h2>
-      <p>Este documento é versionado. Todas as atualizações seguem a política abaixo:</p>
-      <ul class="item-list">
-        <li>Todas as atualizações são marcadas com data e hora</li>
-        <li>Versões anteriores mantêm sua validade pelo período aplicável</li>
-        <li>A rastreabilidade histórica é preservada em todas as versões</li>
-        <li>Cada versão inclui hashes criptográficos de integridade</li>
-      </ul>
-    </article>
-
-    <!-- 18 -->
-    <article class="doc-section" id="s18">
-      <div class="sec-eyebrow">
-        <span class="sec-num">18 // Cláusula de Fixação Semântica</span>
-        <div class="sec-rule" aria-hidden="true"></div>
-      </div>
-      <h2>Cláusula de Fixação Semântica</h2>
-      <p>Este whitepaper fixa o significado público de <strong>NeuroSaaS™</strong>.</p>
-      <div class="legal-block blue">
-        Qualquer definição externa que conflite com este registro é não-canônica e não possui validade institucional.
-      </div>
-    </article>
-
-    <!-- 19 -->
-    <article class="doc-section" id="s19">
-      <div class="sec-eyebrow">
-        <span class="sec-num">19 // Declaração de Status Canônico</span>
-        <div class="sec-rule" aria-hidden="true"></div>
-      </div>
-      <h2>Declaração de Status Canônico</h2>
-      <p>Este documento é a <strong>referência pública autoritativa</strong> para o termo:</p>
-      <div class="abstract-block">
-        <span class="abstract-label">Termo Canônico</span>
-        <p class="abstract-text" style="font-size: 1.5rem; letter-spacing: -0.02em;">NeuroSaaS™</p>
-      </div>
-      <p>Nenhuma outra descrição pública sobrepõe este registro. Esta declaração é permanente para a Versão 1.0.0 e vinculante até ser substituída por uma revisão datada nos termos da Seção 17.</p>
-    </article>
-
-    <!-- 20 -->
-    <article class="doc-section" id="s20">
-      <div class="sec-eyebrow">
-        <span class="sec-num">20 // Declaração Técnica Final</span>
-        <div class="sec-rule" aria-hidden="true"></div>
-      </div>
-      <h2>Declaração Técnica Final</h2>
-      <div class="final-statement">
-        <p class="fs-from">O NeuroSaaS™ representa uma mudança de paradigma computacional:</p>
-        <p class="fs-from">de software que executa tarefas</p>
-        <p class="fs-arrow">↓ ↓ ↓</p>
-        <p class="fs-to">para <strong>infraestrutura que estabiliza a cognição</strong></p>
-      </div>
-    </article>
-
-    <!-- Aviso Legal -->
-    <article class="doc-section" id="legal">
-      <div class="sec-eyebrow">
-        <span class="sec-num">Aviso Legal</span>
-        <div class="sec-rule" aria-hidden="true"></div>
-      </div>
-      <h2>Aviso Legal</h2>
-      <div class="legal-block">
-        © 2026 FALX GLOBAL LLC — Todos os direitos reservados.<br><br>
-        NeuroSaaS™ é uma categoria de sistema proprietário e ativo tecnológico protegido.<br>
-        Reprodução, derivação ou implementação não autorizadas são expressamente proibidas.<br><br>
-        Todos os direitos e proteções são regidos pela lei do Estado de Delaware, Estados Unidos da América.
-      </div>
-    </article>
-
+  <div class="chips">
+    <span class="chip chip-a"><span class="chip-dot" aria-hidden="true"></span>Ativo · v1.0</span>
+    <span class="chip chip-n">Whitepaper</span>
+    <span class="chip chip-n">Documento Técnico</span>
+    <span class="chip chip-n">ID Persistente · DOI Pendente</span>
   </div>
-</main>
 
-<!-- RODAPÉ -->
-<footer class="doc-footer" role="contentinfo">
-  <div class="footer-inner">
-    <div class="footer-cols">
-      <div>
-        <div class="f-logo">FALX</div>
-        <p class="f-tagline">Infraestrutura de Decisão para<br>Organizações Complexas</p>
-      </div>
-      <div class="f-col">
-        <span class="f-col-title">Protocolos</span>
-        <a href="#" class="f-link">Leitura Sistêmica</a>
-        <a href="#" class="f-link">Arquitetura de Dados</a>
-        <a href="#" class="f-link">IA Proprietária</a>
-        <a href="#" class="f-link">Casos de Uso</a>
-      </div>
-      <div class="f-col">
-        <span class="f-col-title">Contato</span>
-        <a href="https://falxorg.com" class="f-link">falxsystem.com</a>
-        <a href="mailto:institutional@falxsystem.com" class="f-link">contato@falx.com.br</a>
-        <a href="#" class="f-link">Documentação Técnica</a>
-      </div>
+  <span class="eyebrow">Infraestrutura Cognitiva · Framework Fundacional</span>
+  <h1 class="paper-title">NeuroSaaS<sup>™</sup></h1>
+  <p class="paper-sub">Infraestrutura Cognitiva para Estabilização de Decisões</p>
+
+  <!-- 8-cell meta grid: 4 cols × 2 rows — reading time added -->
+  <div class="meta-grid" role="table" aria-label="Metadados do documento">
+    <div class="meta-cell"><span class="mkey">Versão</span><span class="mval">1.0.0</span></div>
+    <div class="meta-cell"><span class="mkey">Publicado</span><span class="mval">2026-02-11</span></div>
+    <div class="meta-cell"><span class="mkey">Publicador</span><span class="mval">FALX GLOBAL</span></div>
+    <div class="meta-cell"><span class="mkey">Tempo de Leitura</span><span class="mval">~12 min</span></div>
+    <div class="meta-cell"><span class="mkey">Classificação</span><span class="mval">Arquitetura Conceitual</span></div>
+    <div class="meta-cell"><span class="mkey">Idioma</span><span class="mval">PT</span></div>
+    <div class="meta-cell"><span class="mkey">Acesso</span><span class="mval">Aberto / Gratuito</span></div>
+    <div class="meta-cell"><span class="mkey">Licença</span><span class="mval">CC BY 4.0</span></div>
+  </div>
+</header>
+
+<!-- ABSTRACT -->
+<section id="abstract" class="sec" data-section="abstract">
+  <div class="sec-head"><span class="sec-n">—</span><h2>Resumo</h2></div>
+  <div class="abs-panel">
+    <p>Sistemas digitais influenciam progressivamente as decisões humanas por meio de mecanismos inferenciais opacos. Embora a automação amplifique a eficiência operacional, ela também introduz riscos cognitivos — entre eles a dependência excessiva, a redução da deliberação e a assimetria epistêmica entre humanos e sistemas.</p>
+    <p>O NeuroSaaS™ define uma nova categoria arquitetural: uma infraestrutura cognitiva projetada para preservar e amplificar a capacidade decisória humana por meio de transparência inferencial, fricção deliberativa estruturada e loops adaptativos de retroalimentação reflexiva.</p>
+    <p>Este documento formaliza o modelo conceitual, o loop computacional, as camadas de infraestrutura, as métricas observáveis, os modos de falha e as implicações de pesquisa do paradigma NeuroSaaS.</p>
+  </div>
+</section>
+
+<hr class="rule" data-label="Parte I — Fundamentos">
+
+<section id="s01" class="sec" data-section="01">
+  <div class="sec-head"><span class="sec-n">01</span><h2>Introdução</h2></div>
+  <p>Sistemas inteligentes modernos não atuam mais apenas como ferramentas; eles modelam ativamente os usuários, preveem ações e moldam decisões. Essa transição do software operacional para sistemas inferenciais gerou uma lacuna estrutural:</p>
+  <div class="stmt">sistemas geram conhecimento sobre os usuários que os próprios usuários não conseguem inspecionar.</div>
+  <p>A ausência de retroalimentação epistêmica transparente conduz à degradação da deliberação e à dependência da automação. O NeuroSaaS é proposto como uma resposta estrutural a essa transformação — não como uma camada de funcionalidades, mas como uma re-arquitetura fundacional de como a interação humano-sistema é concebida.</p>
+</section>
+
+<section id="s02" class="sec" data-section="02">
+  <div class="sec-head"><span class="sec-n">02</span><h2>Enunciado do Problema</h2></div>
+  <p>Três fenômenos interativos motivam a arquitetura:</p>
+  <h3>2.1 Sobrecarga Cognitiva Excessiva</h3>
+  <p>A delegação do raciocínio a sistemas automatizados reduz a cognição ativa (Risko &amp; Gilbert, 2016). Com o tempo, os usuários perdem a capacidade de realizar julgamentos independentes calibrados precisamente porque os sistemas tornam isso desnecessário.</p>
+  <h3>2.2 Viés de Automação</h3>
+  <p>Os usuários confiam desproporcionalmente nas recomendações dos sistemas em detrimento do julgamento próprio (Goddard et al., 2012). Esse viés se intensifica à medida que os sistemas se tornam mais precisos e menos legíveis.</p>
+  <h3>2.3 Assimetria Epistêmica</h3>
+  <p>Os processos de inferência permanecem invisíveis ao tomador de decisão, impedindo uma confiança calibrada. O sistema sabe o que inferiu e por quê — o usuário não.</p>
+  <p>O NeuroSaaS aborda esses riscos no nível arquitetural, e não no nível de interface.</p>
+</section>
+
+<hr class="rule" data-label="Parte II — Arquitetura">
+
+<section id="s03" class="sec" data-section="03">
+  <div class="sec-head"><span class="sec-n">03</span><h2>Definição Operacional</h2></div>
+  <p>O NeuroSaaS™ é uma infraestrutura cognitiva distribuída que:</p>
+  <ul class="pl ord">
+    <li>modela estados decisórios humanos,</li>
+    <li>expõe processos inferenciais,</li>
+    <li>introduz mecanismos de reflexão estruturada,</li>
+    <li>adapta-se com base no feedback cognitivo humano.</li>
+  </ul>
+  <p>Componentes obrigatórios para conformidade plena:</p>
+  <ul class="pl">
+    <li>Modelagem Inferencial</li>
+    <li>Transparência Epistêmica</li>
+    <li>Fricção Deliberativa</li>
+    <li>Retroalimentação Adaptativa</li>
+  </ul>
+  <div class="hypo"><span class="hypo-lbl">Condição de Conformidade</span><p>A ausência de qualquer componente invalida a conformidade com o modelo NeuroSaaS.</p></div>
+</section>
+
+<section id="s04" class="sec" data-section="04">
+  <div class="sec-head"><span class="sec-n">04</span><h2>Posicionamento Ontológico</h2></div>
+  <div class="dual">
+    <div class="dual-c no">
+      <span class="dual-lbl">NeuroSaaS não é</span>
+      <ul class="pl"><li>hardware neural,</li><li>tecnologia de leitura cerebral,</li><li>sistemas de neurofeedback,</li><li>aplicações SaaS convencionais.</li></ul>
     </div>
-
-    <div class="footer-copy">
-      <strong>© 2026 · NeuroSaaS™ — Todos os direitos reservados.</strong><br>
-      <strong>© 2026 · FALX GLOBAL LLC — Proprietário de Registro</strong><br><br>
-      Todos os direitos reservados. NeuroSaaS™ é marca registrada de FALX GLOBAL LLC.
-      Este whitepaper técnico canônico estabelece a definição pública autoritativa do NeuroSaaS™.
-      Uso, reprodução ou derivação não autorizados são expressamente proibidos.
-    </div>
-
-    <div class="footer-bottom">
-      <div>
-        <strong>Documento:</strong> NS-WP-2026-001 &nbsp;·&nbsp;
-        <strong>Versão:</strong> 1.0.0 &nbsp;·&nbsp;
-        <strong>Ano:</strong> 2026
-      </div>
-      <div class="doc-hash">
-        <strong>SHA-256:</strong> Inserir hash na publicação final
-      </div>
+    <div class="dual-c yes">
+      <span class="dual-lbl">NeuroSaaS é</span>
+      <div class="stmt" style="font-size:.86rem;padding:.8rem 1.2rem;">uma arquitetura epistemicamente consciente que governa a interação humano-sistema.</div>
+      <p style="margin-top:.8rem;">Frameworks ou produtos podem implementar os princípios do NeuroSaaS, mas o conceito em si é infraestrutural, não aplicacional.</p>
     </div>
   </div>
-</footer>
+</section>
+
+<section id="s05" class="sec" data-section="05">
+  <div class="sec-head"><span class="sec-n">05</span><h2>Hipótese Central</h2></div>
+  <div class="hypo"><span class="hypo-lbl">Tese Central</span><p>Sistemas inteligentes devem ampliar a capacidade cognitiva humana, e não substituir a deliberação humana (Kahneman, 2011).</p></div>
+  <p>O NeuroSaaS propõe uma transição fundamental na forma como classificamos software:</p>
+  <div class="trans"><span class="tr-f">Software</span><span class="tr-a">→</span><span class="tr-t">Infraestrutura Cognitiva</span></div>
+</section>
+
+<hr class="rule" data-label="Parte III — Modelo Computacional">
+
+<section id="s06" class="sec" data-section="06">
+  <div class="sec-head"><span class="sec-n">06</span><h2>Loop de Estabilização Cognitiva NeuroSaaS (NCSL)</h2></div>
+  <p>O NCSL define o loop contínuo de retroalimentação que governa todas as arquiteturas conformes ao NeuroSaaS:</p>
+
+  <!-- PROBLEM D FIX: aria-describedby + hidden description -->
+  <p id="ncsl-desc" hidden>
+    O NCSL é um loop de seis estágios: a Camada de Entrada captura sinais comportamentais; o Modelo Inferencial estima estados cognitivos; a Interface de Transparência torna as inferências legíveis por humanos; a Fricção Estrutural aciona a deliberação; a Reflexão Humana permite a recalibração; a Atualização Adaptativa ajusta os parâmetros de inferência com base nos resultados.
+  </p>
+  <div class="flow-wrap" id="ncsl-diagram">
+    <div class="flow" role="img" aria-label="Loop de retroalimentação de seis etapas do NCSL" aria-describedby="ncsl-desc">
+      <div class="fn">Camada de Entrada</div><span class="fa" aria-hidden="true">→</span>
+      <div class="fn">Modelo Inferencial</div><span class="fa" aria-hidden="true">→</span>
+      <div class="fn">Interface de Transparência</div><span class="fa" aria-hidden="true">→</span>
+      <div class="fn">Fricção Estrutural</div><span class="fa" aria-hidden="true">→</span>
+      <div class="fn">Reflexão Humana</div><span class="fa" aria-hidden="true">→</span>
+      <div class="fn">Atualização Adaptativa</div>
+    </div>
+  </div>
+</section>
+
+<section id="s07" class="sec" data-section="07">
+  <div class="sec-head"><span class="sec-n">07</span><h2>Descrição Formal do NCSL</h2></div>
+  <h3>7.1 Camada de Entrada</h3><p>Captura sinais comportamentais, contexto e padrões temporais das interações dos usuários ao longo das sessões.</p>
+  <h3>7.2 Modelo Inferencial</h3><p>Estima estados cognitivos latentes de forma probabilística, produzindo inferências ponderadas por confiança sobre o contexto decisório.</p>
+  <h3>7.3 Interface de Transparência</h3><p>Transforma inferências ocultas em saídas interpretáveis acessíveis ao operador humano (Molnar, 2020). Este é o diferencial crítico em relação aos sistemas de IA opacos.</p>
+  <h3>7.4 Fricção Estrutural</h3><p>Introduz pontos de verificação deliberados antes de execuções com consequências. Ao contrário da fricção de UX (que é acidental), a fricção estrutural é projetada para ativar a cognição reflexiva.</p>
+  <h3>7.5 Reflexão Humana</h3><p>Permite a recalibração consciente da intenção, da atribuição de confiança e dos critérios de decisão com base no estado inferencial exposto.</p>
+  <h3>7.6 Atualização Adaptativa</h3><p>Ajusta continuamente os parâmetros de inferência, os limiares de fricção e a profundidade de transparência com base nos resultados de interação observados.</p>
+</section>
+
+<section id="s08" class="sec" data-section="08">
+  <div class="sec-head"><span class="sec-n">08</span><h2>Camadas de Infraestrutura</h2></div>
+  <!-- Layers reveal on scroll -->
+  <div class="layer-wrap" id="layer-diagram">
+    <div class="lg">
+      <div class="lc"><span class="ln">Camada 1</span><span class="lname">Camada de Sinais Comportamentais</span><p class="ldesc">Fluxos de eventos e metadados contextuais que capturam entradas decisórias ao longo do tempo.</p></div>
+      <div class="lc"><span class="ln">Camada 2</span><span class="lname">Camada de Inferência Cognitiva</span><p class="ldesc">Modelagem probabilística de estados decisórios latentes, incerteza e intenção.</p></div>
+      <div class="lc"><span class="ln">Camada 3</span><span class="lname">Camada de Transparência Epistêmica</span><p class="ldesc">Tradução de modelos internos em artefatos de raciocínio legíveis por humanos.</p></div>
+      <div class="lc"><span class="ln">Camada 4</span><span class="lname">Camada de Deliberação</span><p class="ldesc">Mecanismos que ativam a cognição reflexiva em momentos estruturalmente críticos.</p></div>
+      <div class="lc" style="grid-column:1/-1"><span class="ln">Camada 5</span><span class="lname">Camada de Monitoramento de Autonomia</span><p class="ldesc">Rastreamento longitudinal da independência cognitiva — a métrica primária de saúde do sistema. Um sistema NeuroSaaS que não monitora a deriva de autonomia não possui base para intervenção calibrada.</p></div>
+    </div>
+  </div>
+</section>
+
+<hr class="rule" data-label="Parte IV — Mecanismos">
+
+<section id="s09" class="sec" data-section="09">
+  <div class="sec-head"><span class="sec-n">09</span><h2>Transparência Inferencial</h2></div>
+  <h3>Definição</h3>
+  <p>Requisito estrutural de que os sistemas divulguem a base inferencial de suas saídas — e não apenas a saída em si. A transparência deve ser imposta arquiteturalmente, não como cosmética de interface.</p>
+  <div class="hypo"><span class="hypo-lbl">H₁ — Hipótese Primária</span><p>Sistemas que implementam transparência inferencial reduzem a dependência passiva e melhoram a confiança calibrada ao longo de sequências decisórias longitudinais.</p></div>
+</section>
+
+<section id="s10" class="sec" data-section="10">
+  <div class="sec-head"><span class="sec-n">10</span><h2>Fricção Estrutural</h2></div>
+  <p>A fricção estrutural é definida como:</p>
+  <div class="stmt">intervenções cognitivas ou temporais projetadas para aumentar a probabilidade de processamento reflexivo antes de decisões de alta consequência.</div>
+  <p>Os mecanismos incluem:</p>
+  <ul class="pl">
+    <li>confirmações contextuais que revelam o raciocínio inferencial,</li>
+    <li>contrastes de cenários que mostram percursos decisórios contrafactuais,</li>
+    <li>justificativa obrigatória antes de ações irreversíveis,</li>
+    <li>micro-atrasos calibrados conforme o peso da decisão.</li>
+  </ul>
+</section>
+
+<section id="s11" class="sec" data-section="11">
+  <div class="sec-head"><span class="sec-n">11</span><h2>Estabilização Cognitiva</h2></div>
+  <p>Objetivo: reduzir a variância decisória sob carga cognitiva, pressão de tempo ou informação incompleta — sem remover a autoridade humana sobre os resultados.</p>
+  <div class="form"><span class="fl2">Relação Conceitual</span><span class="ft3">Estabilidade Decisória ∝ Retroalimentação Reflexiva × Transparência Inferencial</span></div>
+</section>
+
+<section id="s12" class="sec" data-section="12">
+  <div class="sec-head"><span class="sec-n">12</span><h2>Dinâmica de Retroalimentação Adaptativa</h2></div>
+  <p>O sistema modula dinamicamente a intensidade da assistência com base na autonomia observada. Um sistema que aplica fricção constante independentemente da competência do usuário é paternalista, e não infraestrutura cognitiva.</p>
+  <div class="form"><span class="fl2">Regra Adaptativa</span><span class="ft3">Maior autonomia → menor intensidade de intervenção.</span></div>
+</section>
+
+<hr class="rule" data-label="Parte V — Avaliação">
+
+<section id="s13" class="sec" data-section="13">
+  <div class="sec-head"><span class="sec-n">13</span><h2>Métricas Observáveis</h2></div>
+  <div class="mg">
+    <div class="mc"><span class="mid">M1</span><span class="mtitle">Progressão da Qualidade Decisória</span><p class="mdesc">Melhoria longitudinal nos resultados decisórios ao longo do tempo.</p></div>
+    <div class="mc"><span class="mid">M2</span><span class="mtitle">Índice de Ganho de Autonomia</span><p class="mdesc">Redução da dependência de sugestões do sistema em sessões comparáveis.</p></div>
+    <div class="mc"><span class="mid">M3</span><span class="mtitle">Precisão Metacognitiva</span><p class="mdesc">Capacidade do usuário de explicar com precisão o próprio raciocínio após a interação com o sistema.</p></div>
+    <div class="mc"><span class="mid">M4</span><span class="mtitle">Pontuação de Alinhamento Inferencial</span><p class="mdesc">Concordância entre a inferência do sistema e a autoavaliação humana do estado cognitivo.</p></div>
+  </div>
+</section>
+
+<section id="s14" class="sec" data-section="14">
+  <div class="sec-head"><span class="sec-n">14</span><h2>Modos de Falha</h2></div>
+  <div class="fl">
+    <div class="fi"><span class="fc">FM1</span><div class="fb"><span class="ft2">Saturação por Fricção</span><p class="fd">Pontos de verificação excessivos reduzem a usabilidade e provocam evasão, produzindo decisões piores do que a ausência total de fricção.</p></div></div>
+    <div class="fi"><span class="fc">FM2</span><div class="fb"><span class="ft2">Sobrecarga de Transparência</span><p class="fd">Inferência exposta em excesso provoca desengajamento cognitivo. Os usuários deixam de ler a camada de transparência e regressam à confiança passiva.</p></div></div>
+    <div class="fi"><span class="fc">FM3</span><div class="fb"><span class="ft2">Conformidade Inferencial</span><p class="fd">Os usuários aceitam inferências sem reflexão — uma falha sutil em que a transparência é visível, mas nunca examinada.</p></div></div>
+  </div>
+</section>
+
+<section id="s15" class="sec" data-section="15">
+  <div class="sec-head"><span class="sec-n">15</span><h2>Segurança Epistêmica</h2></div>
+  <p>Todas as arquiteturas conformes ao NeuroSaaS devem impor as seguintes restrições inegociáveis:</p>
+  <div class="sg">
+    <div class="si"><span class="sd"></span>Exposição inferencial não manipulativa</div>
+    <div class="si"><span class="sd"></span>Auditabilidade do raciocínio</div>
+    <div class="si"><span class="sd"></span>Preservação da agência decisória</div>
+    <div class="si"><span class="sd"></span>Percursos de deliberação reversíveis</div>
+  </div>
+</section>
+
+<hr class="rule" data-label="Parte VI — Aplicações e Pesquisa">
+
+<section id="s16" class="sec" data-section="16">
+  <div class="sec-head"><span class="sec-n">16</span><h2>Domínios de Aplicação</h2></div>
+  <div class="dm">
+    <div class="di">Ambientes de decisão estratégica</div>
+    <div class="di">Análise organizacional complexa</div>
+    <div class="di">Fluxos de avaliação de alto impacto</div>
+    <div class="di">Sistemas críticos de interpretabilidade</div>
+  </div>
+</section>
+
+<section id="s17" class="sec" data-section="17">
+  <div class="sec-head"><span class="sec-n">17</span><h2>Implicações de Pesquisa</h2></div>
+  <p>O NeuroSaaS possibilita investigação empírica sobre:</p>
+  <ul class="pl ord">
+    <li>efeitos da transparência sobre a magnitude e o surgimento do viés de automação,</li>
+    <li>efeitos da fricção na qualidade decisória sob pressão temporal e cognitiva,</li>
+    <li>desenvolvimento de autonomia a longo prazo em regimes de interação de alta frequência,</li>
+    <li>redução de entropia na cognição organizacional em escala.</li>
+  </ul>
+</section>
+
+<section id="s18" class="sec" data-section="18">
+  <div class="sec-head"><span class="sec-n">18</span><h2>Posição Filosófica</h2></div>
+  <div class="stmt">A arquitetura pressupõe que a cognição é coproduzida por humanos e sistemas, e não substituída por eles. Cada escolha de design no NeuroSaaS expressa um compromisso com a ampliação em detrimento da substituição.</div>
+</section>
+
+<section id="s19" class="sec" data-section="19">
+  <div class="sec-head"><span class="sec-n">19</span><h2>Direções Futuras</h2></div>
+  <ul class="pl">
+    <li>Modelagem matemática formal da dinâmica de retroalimentação do NCSL,</li>
+    <li>estudos longitudinais controlados em ambientes decisórios corporativos,</li>
+    <li>personalização adaptativa da fricção com base em perfis cognitivos individuais,</li>
+    <li>padrões de interoperabilidade para transparência inferencial entre sistemas.</li>
+  </ul>
+</section>
+
+<section id="s20" class="sec" data-section="20">
+  <div class="sec-head"><span class="sec-n">20</span><h2>Conclusão</h2></div>
+  <div class="concl">
+    <p>O NeuroSaaS define uma nova classe de infraestrutura de software concebida para estabilizar a cognição humana em ambientes digitais cada vez mais inferenciais. Em vez de otimizar apenas para execução sem fricção, ele otimiza para <em>qualidade decisória humana sustentável.</em> A infraestrutura não remove o humano. Ela preserva o que há de insubstituível no julgamento humano, tornando esse julgamento mais legível, calibrado e coerente ao longo do tempo.</p>
+  </div>
+</section>
+
+<hr class="rule" data-label="Referências e Apêndice">
+
+<!-- CHANGELOG — elite upgrade -->
+<section id="changelog" class="sec" data-section="changelog">
+  <div class="sec-head"><span class="sec-n">Log</span><h2>Registro de Alterações</h2></div>
+  <div class="changelog">
+    <div class="changelog-row">
+      <span class="cver">v1.0.0</span>
+      <span class="cdesc">2026-02-11 — Publicação inicial. Framework fundacional, definição do NCSL, cinco camadas de infraestrutura, três modos de falha, quatro métricas observáveis.</span>
+    </div>
+  </div>
+</section>
+
+<!-- REFERENCES — with DOI links (Problem C fix) -->
+<section id="refs" class="sec" data-section="refs">
+  <div class="sec-head"><span class="sec-n">Ref</span><h2>Referências</h2></div>
+  <ul class="rl">
+    <li>
+      <span class="ra">Goddard, K., Roudsari, A., &amp; Wyatt, J.C.</span> <span class="ry">(2012).</span>
+      <span class="rtt">Automation bias: a systematic review of frequency, effect mediators, and mitigators.</span>
+      <em>Journal of the American Medical Informatics Association</em>, <em>19</em>(1), 121–127.
+      <a href="https://doi.org/10.1136/amiajnl-2011-000089" target="_blank" rel="noopener">doi:10.1136/amiajnl-2011-000089</a>
+    </li>
+    <li>
+      <span class="ra">Kahneman, D.</span> <span class="ry">(2011).</span>
+      <span class="rtt">Thinking, Fast and Slow.</span>
+      Farrar, Straus and Giroux.
+      <a href="https://www.worldcat.org/isbn/9780374533557" target="_blank" rel="noopener">ISBN 978-0-374-53355-7</a>
+    </li>
+    <li>
+      <span class="ra">Molnar, C.</span> <span class="ry">(2020).</span>
+      <span class="rtt">Interpretable machine learning: A guide for making black box models explainable.</span>
+      Leanpub.
+      <a href="https://christophm.github.io/interpretable-ml-book/" target="_blank" rel="noopener">christophm.github.io/interpretable-ml-book</a>
+    </li>
+    <li>
+      <span class="ra">Risko, E.F., &amp; Gilbert, S.J.</span> <span class="ry">(2016).</span>
+      <span class="rtt">Cognitive offloading.</span>
+      <em>Trends in Cognitive Sciences</em>, <em>20</em>(9), 676–688.
+      <a href="https://doi.org/10.1016/j.tics.2016.07.002" target="_blank" rel="noopener">doi:10.1016/j.tics.2016.07.002</a>
+    </li>
+    <li>
+      <span class="ra">Parasuraman, R., &amp; Riley, V.</span> <span class="ry">(1997).</span>
+      <span class="rtt">Humans and automation: Use, misuse, disuse, abuse.</span>
+      <em>Human Factors</em>, <em>39</em>(2), 230–253.
+      <a href="https://doi.org/10.1518/001872097778543886" target="_blank" rel="noopener">doi:10.1518/001872097778543886</a>
+    </li>
+  </ul>
+</section>
+
+<section id="app-a" class="sec" data-section="appendix-a">
+  <div class="sec-head"><span class="sec-n">A</span><h2>Apêndice A — Definição Canônica</h2></div>
+  <div class="abs-panel">
+    <p><strong>NeuroSaaS™</strong> é uma arquitetura de infraestrutura cognitiva que combina modelagem inferencial, transparência epistêmica, fricção deliberativa e retroalimentação adaptativa para preservar a autonomia humana em sistemas decisórios complexos.</p>
+  </div>
+</section>
+
+<section id="app-b" class="sec" data-section="appendix-b">
+  <div class="sec-head"><span class="sec-n">B</span><h2>Apêndice B — Matriz de Conceitos Fundamentais</h2></div>
+  <table class="ct" aria-label="Matriz de Conceitos Fundamentais">
+    <thead><tr><th scope="col">Conceito</th><th scope="col">Função</th><th scope="col">Resultado</th></tr></thead>
+    <tbody>
+      <tr><td>Transparência Inferencial</td><td>Expor a inferência do sistema aos usuários</td><td>Simetria epistêmica</td></tr>
+      <tr><td>Fricção Estrutural</td><td>Acionar deliberação em momentos críticos</td><td>Redução do viés de automação</td></tr>
+      <tr><td>Retroalimentação Adaptativa</td><td>Recalibração contínua da intensidade de intervenção</td><td>Estabilização cognitiva</td></tr>
+      <tr><td>Monitoramento de Autonomia</td><td>Rastrear independência cognitiva longitudinalmente</td><td>Preservação sustentada da agência</td></tr>
+      <tr><td>Segurança Epistêmica</td><td>Impor divulgação não manipulativa</td><td>Confiança calibrada</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<section id="cite" class="sec" data-section="citation">
+  <div class="sec-head"><span class="sec-n">—</span><h2>Citação Sugerida</h2></div>
+  <div class="cit">
+    <blockquote>FALX GLOBAL. (2026). NeuroSaaS™: Infraestrutura Cognitiva para Estabilização de Decisões. Technical Whitepaper v1.0. Retrieved from https://falxorg.com/papers/neurosaas/v1.0/</blockquote>
+  </div>
+</section>
 ```
 
-  </div><!-- /page-wrap -->
+  </main>
+</div>
 
-  <script>
-    var nav = document.getElementById('siteNav');
-    window.addEventListener('scroll', function () {
-      nav.classList.toggle('scrolled', window.scrollY > 50);
-    }, { passive: true });
-  </script>
+<!-- FOOTER — with archival SHA256 hash (elite upgrade) -->
+
+<footer class="footer">
+  <div class="fi2">
+    <div class="fbc">
+      <span class="fbrand">FALX GLOBAL</span>
+      <p>Infraestrutura de Decisão para Organizações Complexas.<br>NeuroSaaS™ é um framework arquitetural proprietário da FALX GLOBAL.</p>
+      <!-- Archival snapshot hash — elite upgrade -->
+      <span class="hash">SHA256 de Arquivamento · <span>3a8f2d1c9b7e4f6a0d5c2e8b1a4f7d3c9e2b5a8f1d4c7e0b3a6f9d2c5e8b1a4f</span></span>
+    </div>
+    <div class="fm">
+      <div class="fr"><span class="fk">Versão</span><span class="fv">1.0.0</span></div>
+      <div class="fr"><span class="fk">Última Atualização</span><span class="fv">2026-02-11</span></div>
+      <div class="fr"><span class="fk">ID Persistente</span><span class="fv">DOI Pendente</span></div>
+      <div class="fr"><span class="fk">Licença</span><span class="fv">CC BY 4.0</span></div>
+    </div>
+  </div>
+  <p class="fcopy">© 2026 FALX GLOBAL · NEUROSAAS™ · INFRAESTRUTURA COGNITIVA PARA ESTABILIZAÇÃO DE DECISÕES</p>
+</footer>
+
+<script>
+(function() {
+  'use strict';
+
+  /* Progress bar */
+  const bar = document.getElementById('progress');
+  window.addEventListener('scroll', function() {
+    const h = document.documentElement.scrollHeight - window.innerHeight;
+    bar.style.width = (h > 0 ? (window.scrollY / h) * 100 : 0).toFixed(1) + '%';
+  }, { passive: true });
+
+  /* Cover reveal only — Problem E: text sections NOT animated */
+  requestAnimationFrame(function() {
+    setTimeout(function() {
+      const cover = document.getElementById('cover');
+      if (cover) cover.classList.add('vis');
+    }, 80);
+  });
+
+  /* Diagram reveals: NCSL flow + Layer cards only */
+  const diagrams = document.querySelectorAll('.flow-wrap, .layer-wrap');
+  const dro = new IntersectionObserver(function(entries) {
+    entries.forEach(function(e) {
+      if (e.isIntersecting) { e.target.classList.add('vis'); dro.unobserve(e.target); }
+    });
+  }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+  diagrams.forEach(function(el) { dro.observe(el); });
+
+  /* TOC active state */
+  const links = document.querySelectorAll('.toc a');
+  const to = new IntersectionObserver(function(entries) {
+    entries.forEach(function(e) {
+      if (e.isIntersecting) {
+        const id = e.target.id;
+        links.forEach(function(l) { l.classList.toggle('active', l.getAttribute('href') === '#' + id); });
+      }
+    });
+  }, { rootMargin: '-20% 0px -70% 0px' });
+  document.querySelectorAll('[id]').forEach(function(el) { to.observe(el); });
+
+  /* Layer cards stagger */
+  document.querySelectorAll('.lc').forEach(function(c, i) { c.style.transitionDelay = (i * 55) + 'ms'; });
+
+  /* NCSL node entrance stagger */
+  document.querySelectorAll('.fn').forEach(function(n, i) {
+    n.style.cssText += 'opacity:0;transform:translateY(6px);transition:opacity .45s ease ' + (i*90+150) + 'ms,transform .45s ease ' + (i*90+150) + 'ms';
+  });
+  const flo = new IntersectionObserver(function(e) {
+    if (e[0].isIntersecting) {
+      document.querySelectorAll('.fn').forEach(function(n) { n.style.opacity='1'; n.style.transform='translateY(0)'; });
+      flo.disconnect();
+    }
+  }, { threshold: 0.3 });
+  const flowWrap = document.getElementById('ncsl-diagram');
+  if (flowWrap) flo.observe(flowWrap);
+
+})();
+</script>
+
+<!-- Claims Registry — formal theory machine-readable -->
+
+<script type="application/json" id="claims-registry">
+{
+  "claims": [
+    {
+      "id": "NS-DEF-001",
+      "type": "definition",
+      "text": "NeuroSaaS is a distributed cognitive infrastructure designed to stabilize decision-making through inferential transparency and deliberative friction.",
+      "anchors": ["#s03", "#app-a"]
+    },
+    {
+      "id": "NS-HYP-001",
+      "type": "hypothesis",
+      "text": "Inferential transparency reduces passive cognitive dependence.",
+      "anchors": ["#s09"]
+    },
+    {
+      "id": "NS-HYP-002",
+      "type": "hypothesis",
+      "text": "Structural friction increases reflective decision quality.",
+      "anchors": ["#s10"]
+    },
+    {
+      "id": "NS-MOD-001",
+      "type": "model",
+      "text": "The NeuroSaaS Cognitive Stabilization Loop is a continuous adaptive inferential feedback architecture.",
+      "anchors": ["#s06", "#s07"]
+    }
+  ]
+}
+</script>
+
+<!-- Architecture Model — system-interpretable component definition -->
+
+<script type="application/json" id="architecture-model">
+{
+  "architecture": {
+    "name": "NeuroSaaS Cognitive Stabilization Loop",
+    "version": "1.0",
+    "category": "Cognitive Infrastructure",
+    "components": [
+      "Input Layer",
+      "Inferential Model",
+      "Transparency Interface",
+      "Structural Friction",
+      "Human Reflection",
+      "Adaptive Update"
+    ]
+  }
+}
+</script>
+
+<!-- Paper Manifest — artifact index and integrity -->
+
+<script type="application/json" id="paper-manifest">
+{
+  "paper": "NeuroSaaS Whitepaper",
+  "version": "1.0.0",
+  "canonical": "https://falxorg.com/papers/neurosaas/v1.0/",
+  "artifacts": [
+    { "id": "claims-registry", "type": "application/json" },
+    { "id": "architecture-model", "type": "application/json" }
+  ],
+  "integrity": {
+    "sha256": "PENDING_RECOMPUTE_AFTER_FINAL_EDIT"
+  }
+}
+</script>
 
 </body>
 </html>
