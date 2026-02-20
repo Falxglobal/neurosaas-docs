@@ -1004,6 +1004,233 @@ DOI · 10.5281/zenodo.18702295
     <p>O NeuroSaaS define uma nova classe de infraestrutura de software concebida para estabilizar a cognição humana em ambientes digitais cada vez mais inferenciais. Em vez de otimizar apenas para execução sem fricção, ele otimiza para <em>qualidade decisória humana sustentável.</em> A infraestrutura não remove o humano. Ela preserva o que há de insubstituível no julgamento humano, tornando esse julgamento mais legível, calibrado e coerente ao longo do tempo.</p>
   </div>
 </section>
+<section id="s21" class="sec">
+  <div class="sec-head">
+    <span class="sec-n">21</span>
+    <h2>Modelo Computacional Formal</h2>
+  </div>
+
+  <p>
+    O NeuroSaaS Cognitive Stabilization Loop (NCSL) pode ser formalizado como um sistema dinâmico adaptativo parcialmente observável definido pelo tuple:
+  </p>
+
+  <div class="form">
+    <span class="ft3">
+      NCSL = (U, X, I, T, F, A, Θ)
+    </span>
+  </div>
+
+  <p>onde:</p>
+
+  <ul class="pl">
+    <li><strong>Uₜ</strong> representa o estado observável do usuário no tempo t</li>
+    <li><strong>Xₜ</strong> representa o estado cognitivo latente inferido</li>
+    <li><strong>I</strong> é a função inferencial probabilística</li>
+    <li><strong>T</strong> é a função de transformação de transparência</li>
+    <li><strong>F</strong> é a função de fricção estrutural</li>
+    <li><strong>A</strong> é a função de adaptação paramétrica</li>
+    <li><strong>Θ</strong> é o espaço paramétrico do modelo inferencial</li>
+  </ul>
+
+  <h3>21.1 Dinâmica temporal</h3>
+
+  <p>Para cada timestep discreto t:</p>
+
+  <div class="form">
+    <span class="ft3">
+      Xₜ = I(Uₜ, Θₜ)
+    </span>
+  </div>
+
+  <div class="form">
+    <span class="ft3">
+      Eₜ = T(Xₜ)
+    </span>
+  </div>
+
+  <div class="form">
+    <span class="ft3">
+      Dₜ = F(Eₜ, Cₜ)
+    </span>
+  </div>
+
+  <div class="form">
+    <span class="ft3">
+      Θₜ₊₁ = A(Θₜ, Uₜ, Dₜ, Oₜ)
+    </span>
+  </div>
+
+  <p>
+    onde Cₜ representa o contexto decisório e Oₜ representa o resultado observável da decisão.
+  </p>
+
+  <p>
+    Este formalismo define o NeuroSaaS como um sistema adaptativo recursivo que preserva estabilidade cognitiva ao longo de sequências de decisão.
+  </p>
+
+</section>
+<section id="s22" class="sec">
+  <div class="sec-head">
+    <span class="sec-n">22</span>
+    <h2>Arquitetura Computacional de Referência</h2>
+  </div>
+
+  <p>
+    Uma implementação NeuroSaaS conforme pode ser estruturada como um sistema distribuído composto pelos seguintes módulos computacionais:
+  </p>
+
+  <h3>22.1 Behavioral Signal Processor</h3>
+
+  <p>
+    Pipeline responsável por capturar e estruturar sinais comportamentais:
+  </p>
+
+  <ul class="pl">
+    <li>sequências de decisão</li>
+    <li>latência decisória</li>
+    <li>revisões e reversões</li>
+    <li>padrões de interação longitudinal</li>
+  </ul>
+
+  <h3>22.2 Cognitive Inference Engine</h3>
+
+  <p>
+    Modelo probabilístico que estima estados cognitivos latentes:
+  </p>
+
+  <div class="form">
+    <span class="ft3">
+      P(Xₜ | U₁...Uₜ, Θ)
+    </span>
+  </div>
+
+  <p>
+    Implementações válidas incluem:
+  </p>
+
+  <ul class="pl">
+    <li>Bayesian inference models</li>
+    <li>neural sequence models</li>
+    <li>hidden state estimators</li>
+    <li>probabilistic graphical models</li>
+  </ul>
+
+  <h3>22.3 Transparency Interface Layer</h3>
+
+  <p>
+    Traduz estados inferenciais internos em representações interpretáveis:
+  </p>
+
+  <ul class="pl">
+    <li>confidence distributions</li>
+    <li>uncertainty bounds</li>
+    <li>reasoning trace projections</li>
+  </ul>
+
+  <h3>22.4 Structural Friction Controller</h3>
+
+  <p>
+    Controla intensidade de intervenção deliberativa:
+  </p>
+
+  <div class="form">
+    <span class="ft3">
+      friction_intensity = f(decision_risk, autonomy_score, uncertainty)
+    </span>
+  </div>
+
+  <h3>22.5 Adaptive Learning Module</h3>
+
+  <p>
+    Atualiza parâmetros inferenciais via aprendizado adaptativo:
+  </p>
+
+  <div class="form">
+    <span class="ft3">
+      Θₜ₊₁ = Θₜ + α ∇L(decision_quality)
+    </span>
+  </div>
+
+</section>
+<section id="s23" class="sec">
+  <div class="sec-head">
+    <span class="sec-n">23</span>
+    <h2>Algoritmo Operacional de Referência</h2>
+  </div>
+
+  <p>
+    O loop NeuroSaaS pode ser implementado conforme o seguinte algoritmo:
+  </p>
+
+  <div class="abs-panel">
+<pre>
+Algorithm NeuroSaaS Loop
+
+Input: behavioral signal stream U
+Output: adaptive decision support
+
+Initialize Θ
+
+while system active:
+
+    observe Uₜ
+
+    infer cognitive state:
+        Xₜ = infer(Uₜ, Θ)
+
+    generate transparency output:
+        Eₜ = expose(Xₜ)
+
+    compute intervention:
+        Dₜ = friction(Eₜ)
+
+    apply decision process
+
+    observe outcome Oₜ
+
+    update model:
+        Θ = adapt(Θ, Uₜ, Oₜ)
+
+end
+</pre>
+  </div>
+
+  <p>
+    Este algoritmo define o ciclo operacional mínimo necessário para conformidade NeuroSaaS.
+  </p>
+
+</section>
+<section id="s24" class="sec">
+  <div class="sec-head">
+    <span class="sec-n">24</span>
+    <h2>Métricas Computacionais Formais</h2>
+  </div>
+
+  <h3>24.1 Autonomy Gain Index</h3>
+
+  <div class="form">
+    <span class="ft3">
+      AGI = independent_decisions / total_decisions
+    </span>
+  </div>
+
+  <h3>24.2 Inferential Alignment Score</h3>
+
+  <div class="form">
+    <span class="ft3">
+      IAS = similarity(system_inference, user_self_assessment)
+    </span>
+  </div>
+
+  <h3>24.3 Decision Stability Metric</h3>
+
+  <div class="form">
+    <span class="ft3">
+      DSM = 1 − variance(decision_quality over time)
+    </span>
+  </div>
+
+</section>
 
 <hr class="rule" data-label="Referências e Apêndice">
 
