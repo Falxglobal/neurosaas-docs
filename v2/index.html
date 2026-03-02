@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>NeuroSaaS™ Volume II — FALX</title>
-<meta name="description" content="NeuroSaaS™ formaliza coerência estrutural como variável dinâmica observável em sistemas de decisão não-estacionários. DOI: 10.5281/zenodo.18806001">
+<title>NeuroSaaS™ — Arquitetura Cognitiva Evolutiva · FALX</title>
+<meta name="description" content="NeuroSaaS™ é uma classe arquitetural para sistemas digitais capazes de evoluir estruturalmente ao longo do tempo. Cognição como infraestrutura. Loop fechado. Memória persistente. Evolução contínua. FALX · DOI: 10.5281/zenodo.18806001">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <!-- FIX #1: Corrected font name to 'Editorial New' (space-separated) -->
@@ -809,6 +809,112 @@ code {
 }
 
 /* ═══════════════════════════════════════════
+   ECOSSISTEMA SECTION
+═══════════════════════════════════════════ */
+.ecosys {
+  padding:var(--space-xl) 0;
+  border-bottom:1px solid var(--line);
+  background: var(--bg1);
+}
+.ecosys-intro {
+  display:grid; grid-template-columns: repeat(12,1fr); column-gap:var(--col-gap);
+  align-items:start; margin-bottom:var(--space-l);
+}
+.ecosys-intro > *:first-child { grid-column: span 5; }
+.ecosys-intro > *:last-child  { grid-column: span 7; }
+.ecosys-lead { font-size:1.43rem; line-height:1.95; color:var(--t2); margin-bottom:2rem; }
+.ecosys-stat {
+  display:grid; grid-template-columns: repeat(3,1fr); gap:1px; background:var(--line);
+  margin-bottom:var(--space-l);
+}
+.ecosys-stat-cell {
+  background:var(--bg); padding:2rem var(--space-m);
+}
+.ecosys-stat-num {
+  font-family:var(--f-display); font-size:3.2rem; font-weight:400; line-height:1;
+  color:var(--acid); letter-spacing:-.03em; margin-bottom:.6rem;
+}
+.ecosys-stat-lbl {
+  font-family:var(--f-mono); font-size:.75rem; letter-spacing:.10em;
+  text-transform:uppercase; color:var(--t3); line-height:1.6;
+}
+.ecosys-voices {
+  display:grid; grid-template-columns: repeat(12,1fr); column-gap:var(--col-gap); gap:1px; background:var(--line);
+  margin-bottom:var(--space-l);
+}
+.ecosys-voice {
+  grid-column: span 4;
+  background:var(--bg); padding:var(--space-m);
+  border-top:1px solid var(--line2); position:relative;
+}
+.ecosys-voice-src {
+  font-family:var(--f-mono); font-size:.72rem; letter-spacing:.10em;
+  text-transform:uppercase; color:var(--acid); margin-bottom:1.2rem; opacity:.9;
+}
+.ecosys-voice-q {
+  font-family:var(--f-display); font-size:1.55rem; font-weight:400; line-height:1.4;
+  letter-spacing:-.02em; color:var(--t1); margin-bottom:1rem;
+}
+.ecosys-voice-ctx {
+  font-family:var(--f-mono); font-size:.80rem; color:var(--t4); letter-spacing:.04em; line-height:1.6;
+}
+.ecosys-map-title {
+  font-family:var(--f-mono); font-size:.75rem; letter-spacing:.10em;
+  text-transform:uppercase; color:var(--t3); margin-bottom:1.5rem;
+}
+.ecosys-classes {
+  display:grid; grid-template-columns: repeat(12,1fr); gap:1px; background:var(--line);
+}
+.ecosys-class {
+  grid-column: span 4; background:var(--bg); padding:1.8rem var(--space-m);
+  position:relative; overflow:hidden; transition:background .3s;
+}
+.ecosys-class:hover { background:var(--bg2); }
+.ecosys-class.active {
+  background: rgba(42,92,200,0.08);
+  border-top:2px solid var(--acid);
+}
+.ecosys-class-bar { position:absolute; top:0; left:0; right:0; height:1px; background:var(--line2); }
+.ecosys-class.active .ecosys-class-bar { background:var(--acid); height:2px; }
+.ecosys-class-n {
+  font-family:var(--f-mono); font-size:.68rem; letter-spacing:.10em;
+  text-transform:uppercase; color:var(--t4); margin-bottom:.8rem;
+}
+.ecosys-class.active .ecosys-class-n { color:var(--acid); }
+.ecosys-class-name {
+  font-family:var(--f-display); font-size:1.72rem; font-weight:400;
+  letter-spacing:-.02em; color:var(--t1); margin-bottom:.6rem; line-height:1.2;
+}
+.ecosys-class.active .ecosys-class-name { color:var(--t0); }
+.ecosys-class-desc {
+  font-size:1.20rem; line-height:1.75; color:var(--t3); margin-bottom:1.2rem;
+}
+.ecosys-class-examples {
+  font-family:var(--f-mono); font-size:.78rem; color:var(--t4); letter-spacing:.04em; line-height:1.7;
+}
+.ecosys-class.active .ecosys-class-examples { color:var(--t2); }
+.ecosys-class-badge {
+  display:inline-block; margin-top:1rem;
+  font-family:var(--f-mono); font-size:.68rem; letter-spacing:.10em;
+  text-transform:uppercase; color:var(--acid); border:1px solid rgba(18,70,245,0.30);
+  padding:.3rem .7rem;
+}
+.ecosys-note {
+  margin-top:var(--space-l); padding:2rem var(--space-m);
+  border:1px solid var(--line2); border-left:2px solid var(--acid);
+  background:var(--bg);
+}
+.ecosys-note-lbl {
+  font-family:var(--f-mono); font-size:.72rem; letter-spacing:.10em;
+  text-transform:uppercase; color:var(--t3); margin-bottom:1rem;
+}
+.ecosys-note-txt {
+  font-family:var(--f-display); font-size:1.72rem; font-weight:400;
+  line-height:1.45; letter-spacing:-.02em; color:var(--t1);
+}
+.ecosys-note-txt em { color:var(--acid); font-style:italic; }
+
+/* ═══════════════════════════════════════════
    USE CASES
 ═══════════════════════════════════════════ */
 .cases {
@@ -1095,15 +1201,15 @@ code {
 <nav class="nav" id="nav">
   <div class="nav-logo">FALX</div>
   <div class="nav-links">
-    <a href="#resumo" class="nav-link">Resumo</a>
-    <a href="#fundamentos" class="nav-link">Fundamentos</a>
+    <a href="#fundamento" class="nav-link">Fundamento</a>
+    <a href="#camadas" class="nav-link">Camadas</a>
+    <a href="#criterios" class="nav-link">Critérios</a>
+    <a href="#ecossistema" class="nav-link">Ecossistema</a>
     <a href="#definicao" class="nav-link">Definição</a>
-    <a href="#taxonomia" class="nav-link">Taxonomia</a>
-    <a href="#casos" class="nav-link">Casos</a>
     <a href="#faq" class="nav-link">FAQ</a>
   </div>
   <div class="nav-right">
-    <span class="nav-tag">NeuroSaaS™ Active</span>
+    <span class="nav-tag">NeuroSaaS™ · Arquitetura Cognitiva Evolutiva</span>
     <a href="https://doi.org/10.5281/zenodo.18806001" class="nav-doi" target="_blank" rel="noopener">DOI · 10.5281/zenodo.18806001</a>
   </div>
 </nav>
@@ -1111,27 +1217,27 @@ code {
 <!-- HERO — FIX #3: Left = 5 cols, Right = 7 cols within 12-col grid -->
 <header class="hero">
   <div class="hero-left">
-    <div class="hero-label">Volume II · Infraestrutura de Decisão · FALX · 2025</div>
+    <div class="hero-label">Arquitetura Cognitiva Evolutiva · FALX · 2025</div>
     <h1 class="hero-h1">
-      <span class="hero-line"><span class="hero-word">Coerência</span></span>
-      <span class="hero-line"><span class="hero-word"><em class="italic">Estrutural</em></span></span>
-      <span class="hero-line"><span class="hero-word">como Variável.</span></span>
+      <span class="hero-line"><span class="hero-word">Cognição</span></span>
+      <span class="hero-line"><span class="hero-word"><em class="italic">como</em></span></span>
+      <span class="hero-line"><span class="hero-word">Infraestrutura.</span></span>
     </h1>
     <div class="hero-body-wrap">
       <div class="hero-vbar"></div>
-      <p class="hero-body">Formalização da classe NeuroSaaS™ como expansão topológica de arquiteturas SaaS tradicionais para sistemas dinâmicos com variável explícita de coerência estrutural observável e controlável.</p>
+      <p class="hero-body">NeuroSaaS™ é uma classe arquitetural onde o sistema não apenas executa — ele observa, modela, adapta e evolui. Não é funcionalidade. Não é módulo. Não é camada adicional. É modelo arquitetural onde cognição é infraestrutura.</p>
     </div>
     <div class="hero-actions">
-      <a href="https://doi.org/10.5281/zenodo.18806001" class="btn-acid" target="_blank" rel="noopener">Acessar Publicação</a>
-      <a href="#resumo" class="btn-ghost"><span>Leitura Estrutural</span></a>
+      <a href="https://doi.org/10.5281/zenodo.18806001" class="btn-acid" target="_blank" rel="noopener">Publicação Formal</a>
+      <a href="#fundamento" class="btn-ghost"><span>Arquitetura Completa</span></a>
     </div>
   </div>
   <div class="hero-right">
     <canvas id="heroCanvas"></canvas>
     <div class="hero-badge">
-      <span class="badge-label">Espaço de Estados</span>
-      <div class="badge-val">S<sup>7</sup></div>
-      <span class="badge-label">Variáveis Estruturais</span>
+      <span class="badge-label">Camadas Arquiteturais</span>
+      <div class="badge-val">5<sup>×</sup></div>
+      <span class="badge-label">Evolução Estrutural Nativa</span>
     </div>
   </div>
   <div class="hero-scroll" aria-hidden="true">
@@ -1143,61 +1249,60 @@ code {
 <!-- MARQUEE -->
 <div class="marquee-wrap" aria-hidden="true">
   <div class="marquee-track">
-    <div class="marquee-item"><span class="marquee-txt">Coerência Estrutural</span><span class="marquee-sep"></span></div>
-    <div class="marquee-item"><span class="marquee-txt">Espaço de Estados S⁷</span><span class="marquee-sep"></span></div>
-    <div class="marquee-item"><span class="marquee-txt">Entropia Estrutural</span><span class="marquee-sep"></span></div>
-    <div class="marquee-item"><span class="marquee-txt">NeuroSaaS™ Volume II</span><span class="marquee-sep"></span></div>
-    <div class="marquee-item"><span class="marquee-txt">Separação Formal de Drift</span><span class="marquee-sep"></span></div>
-    <div class="marquee-item"><span class="marquee-txt">Controle Adaptativo</span><span class="marquee-sep"></span></div>
-    <div class="marquee-item"><span class="marquee-txt">Segunda Ordem</span><span class="marquee-sep"></span></div>
-    <div class="marquee-item"><span class="marquee-txt">Campo de Coerência Distribuído</span><span class="marquee-sep"></span></div>
-    <div class="marquee-item"><span class="marquee-txt">Operador Estrutural ℛ</span><span class="marquee-sep"></span></div>
-    <div class="marquee-item"><span class="marquee-txt">FALX — Arquitetura Proprietária</span><span class="marquee-sep"></span></div>
+    <div class="marquee-item"><span class="marquee-txt">Arquitetura Cognitiva Evolutiva</span><span class="marquee-sep"></span></div>
+    <div class="marquee-item"><span class="marquee-txt">Loop Fechado de Feedback</span><span class="marquee-sep"></span></div>
+    <div class="marquee-item"><span class="marquee-txt">Memória Contextual Persistente</span><span class="marquee-sep"></span></div>
+    <div class="marquee-item"><span class="marquee-txt">NeuroSaaS™ · FALX</span><span class="marquee-sep"></span></div>
+    <div class="marquee-item"><span class="marquee-txt">Reconfiguração Estrutural Adaptativa</span><span class="marquee-sep"></span></div>
+    <div class="marquee-item"><span class="marquee-txt">Autonomia Progressiva Mensurável</span><span class="marquee-sep"></span></div>
+    <div class="marquee-item"><span class="marquee-txt">Cognição como Infraestrutura</span><span class="marquee-sep"></span></div>
+    <div class="marquee-item"><span class="marquee-txt">Evolução Estrutural Orientada a Objetivo</span><span class="marquee-sep"></span></div>
+    <div class="marquee-item"><span class="marquee-txt">Instrumentação Cognitiva</span><span class="marquee-sep"></span></div>
+    <div class="marquee-item"><span class="marquee-txt">Sistemas Não-Estacionários</span><span class="marquee-sep"></span></div>
     <div class="marquee-item"><span class="marquee-txt">DOI 10.5281/zenodo.18806001</span><span class="marquee-sep"></span></div>
-    <div class="marquee-item"><span class="marquee-txt">Coerência Estrutural</span><span class="marquee-sep"></span></div>
-    <div class="marquee-item"><span class="marquee-txt">Espaço de Estados S⁷</span><span class="marquee-sep"></span></div>
-    <div class="marquee-item"><span class="marquee-txt">Entropia Estrutural</span><span class="marquee-sep"></span></div>
-    <div class="marquee-item"><span class="marquee-txt">NeuroSaaS™ Volume II</span><span class="marquee-sep"></span></div>
-    <div class="marquee-item"><span class="marquee-txt">Separação Formal de Drift</span><span class="marquee-sep"></span></div>
-    <div class="marquee-item"><span class="marquee-txt">Controle Adaptativo</span><span class="marquee-sep"></span></div>
-    <div class="marquee-item"><span class="marquee-txt">Segunda Ordem</span><span class="marquee-sep"></span></div>
-    <div class="marquee-item"><span class="marquee-txt">Campo de Coerência Distribuído</span><span class="marquee-sep"></span></div>
-    <div class="marquee-item"><span class="marquee-txt">Operador Estrutural ℛ</span><span class="marquee-sep"></span></div>
-    <div class="marquee-item"><span class="marquee-txt">FALX — Arquitetura Proprietária</span><span class="marquee-sep"></span></div>
+    <div class="marquee-item"><span class="marquee-txt">Arquitetura Cognitiva Evolutiva</span><span class="marquee-sep"></span></div>
+    <div class="marquee-item"><span class="marquee-txt">Loop Fechado de Feedback</span><span class="marquee-sep"></span></div>
+    <div class="marquee-item"><span class="marquee-txt">Memória Contextual Persistente</span><span class="marquee-sep"></span></div>
+    <div class="marquee-item"><span class="marquee-txt">NeuroSaaS™ · FALX</span><span class="marquee-sep"></span></div>
+    <div class="marquee-item"><span class="marquee-txt">Reconfiguração Estrutural Adaptativa</span><span class="marquee-sep"></span></div>
+    <div class="marquee-item"><span class="marquee-txt">Autonomia Progressiva Mensurável</span><span class="marquee-sep"></span></div>
+    <div class="marquee-item"><span class="marquee-txt">Cognição como Infraestrutura</span><span class="marquee-sep"></span></div>
+    <div class="marquee-item"><span class="marquee-txt">Evolução Estrutural Orientada a Objetivo</span><span class="marquee-sep"></span></div>
+    <div class="marquee-item"><span class="marquee-txt">Instrumentação Cognitiva</span><span class="marquee-sep"></span></div>
     <div class="marquee-item"><span class="marquee-txt">DOI 10.5281/zenodo.18806001</span><span class="marquee-sep"></span></div>
   </div>
 </div>
 
 <!-- ABSTRACT -->
-<section id="resumo">
+<section id="fundamento">
   <div class="abstract page-wrap"><div class="grid" style="align-items:start;">
     <div class="abstract-sticky rv col-4">
-      <div class="eyebrow">Resumo</div>
-      <h2 class="section-h">Uma variável<br>que ninguém<br><em>modelava.</em></h2>
+      <div class="eyebrow">I · Fundamento Arquitetural</div>
+      <h2 class="section-h">Um sistema<br>que não apenas<br><em>executa.</em></h2>
       <nav class="abstract-meta">
-        <div class="abstract-meta-row">NeuroSaaS™ · Volume II</div>
-        <div class="abstract-meta-row">FALX · 2025</div>
+        <div class="abstract-meta-row">NeuroSaaS™ · FALX</div>
+        <div class="abstract-meta-row">Arquitetura Cognitiva Evolutiva</div>
         <div class="abstract-meta-row">DOI 10.5281/zenodo.18806001</div>
       </nav>
     </div>
     <div class="col-8">
       <div class="abstract-pull rv">
-        A estrutura que organiza decisão permanece fragmentada — não por falta de variáveis, mas porque a <em>coerência estrutural</em> nunca foi modelada explicitamente.
+        NeuroSaaS™ parte de um princípio central: sistemas operam em <em>ambientes não-estacionários</em>. Usuários evoluem. Contextos se transformam. Estratégias exigem recalibração contínua.
       </div>
       <p class="abstract-p rv">
-        O presente volume formaliza a classe NeuroSaaS™ como expansão estrutural de arquiteturas SaaS tradicionais para sistemas dinâmicos com variável explícita de coerência estrutural observável. Demonstra-se que sistemas operacionais tradicionais modelam apenas estados funcionais primários, não incorporando as variáveis estruturais de segunda ordem necessárias para estabilidade sob ambientes não-estacionários.
+        Logo, a arquitetura precisa incorporar adaptação como propriedade nativa. Evolução não é atualização manual — é dinâmica estrutural incorporada ao sistema. Um sistema NeuroSaaS não é atualizado por fora. Ele se reconfigura por dentro.
       </p>
       <p class="abstract-p rv">
-        Propõe-se ampliação topológica do espaço de estados, introduzindo coerência estrutural como variável dinâmica mensurável. Formalizam-se leis de entropia estrutural, separação de drift decisório e ambiental, dinâmica de campo de coerência e operador estrutural de correção.
+        Não é uma funcionalidade. Não é um módulo. Não é uma camada adicional. É um modelo arquitetural onde cognição é infraestrutura — a base sobre a qual toda função opera. O sistema observa o que acontece. Modela o que significa. Adapta o que faz. Evolui estruturalmente com o tempo.
       </p>
       <div class="kws rv">
-        <span class="kw">Coerência Estrutural</span>
-        <span class="kw">Sistemas Não-Estacionários</span>
-        <span class="kw">Espaço de Estados</span>
-        <span class="kw">Entropia Estrutural</span>
-        <span class="kw">Controle Adaptativo</span>
-        <span class="kw">Arquitetura SaaS</span>
-        <span class="kw">Segunda Ordem</span>
+        <span class="kw">Cognição como Infraestrutura</span>
+        <span class="kw">Loop Fechado de Feedback</span>
+        <span class="kw">Memória Contextual Persistente</span>
+        <span class="kw">Evolução Estrutural Nativa</span>
+        <span class="kw">Adaptação Dinâmica</span>
+        <span class="kw">Autonomia Progressiva Mensurável</span>
+        <span class="kw">Reconfiguração Interna</span>
       </div>
     </div>
   </div></div>
@@ -1207,126 +1312,101 @@ code {
 <div class="legal-band">
   <div class="legal-inner page-wrap">
     <div class="legal-box rv">
-      <div class="legal-lbl">Aviso de Propriedade Intelectual</div>
+      <div class="legal-lbl">Declaração de Categoria — NeuroSaaS™</div>
       <div class="legal-txt">
-        <p>NeuroSaaS™ é uma arquitetura proprietária de infraestrutura decisória estrutural desenvolvida exclusivamente pela FALX. O presente documento descreve fundamentos conceituais e modelagens teóricas, não divulgando algoritmos proprietários, métodos internos de cálculo, parametrizações específicas, arquiteturas computacionais detalhadas ou quaisquer mecanismos implementacionais protegidos por patente, segredo industrial ou demais instrumentos de propriedade intelectual.</p>
-        <p>Implementações comerciais, reproduções estruturais, derivações técnicas ou exploração econômica sem autorização formal poderão configurar violação de direitos de propriedade intelectual, conforme legislação aplicável.</p>
+        <p>NeuroSaaS™ define uma nova classe de sistemas: sistemas SaaS cognitivamente adaptativos com arquitetura evolutiva. Adaptação é nativa. Memória é persistente. Evolução é estrutural. Otimização é contínua. O sistema aprende com sua própria operação — não por instrução externa, mas por dinâmica interna orientada por função-objetivo.</p>
+        <p>Arquitetura desenvolvida e protegida pela FALX. Implementações comerciais, reproduções estruturais ou derivações técnicas sem autorização formal constituem violação de propriedade intelectual. DOI: 10.5281/zenodo.18806001.</p>
       </div>
     </div>
   </div>
 </div>
 
 <!-- SEÇÕES TÉCNICAS -->
-<main id="fundamentos" class="secs">
+<main id="camadas" class="secs">
 
-  <!-- I -->
+  <!-- II · CAMADAS -->
   <div class="sec-row"><div class="sec-row-inner">
     <div class="sec-side">
-      <div class="sec-num">Seção · I</div>
-      <div class="sec-t">Introdução</div>
-      <div class="sec-hint">O problema<br>que ninguém<br>nomeava.</div>
+      <div class="sec-num">II</div>
+      <div class="sec-t">Estrutura Arquitetural Obrigatória</div>
+      <div class="sec-hint">Interdependentes.<br>Não opcionais.<br>Constitutivas.</div>
     </div>
     <div class="sec-body">
-      <p class="body-p rv">
-        Arquiteturas SaaS tradicionais operam sobre espaços de estado funcionais descritos genericamente pela equação de transição de estado. Entretanto, tais arquiteturas não modelam explicitamente a coerência estrutural como variável observável de controle.
-      </p>
-      <div class="eq rv">
-        <span class="eq-f">x<sub>t+1</sub>&nbsp;&nbsp;=&nbsp;&nbsp;F(&nbsp;x<sub>t</sub>,&nbsp;u<sub>t</sub>&nbsp;)</span>
-        <span class="eq-n">EQ. 01</span>
+      <p class="body-p rv">Um sistema é NeuroSaaS apenas quando integra as cinco camadas fundamentais de forma interdependente. A ausência de qualquer uma delas desqualifica a arquitetura como evolutiva.</p>
+      <div class="tbl-wrap rv">
+        <span class="tbl-cap">As Cinco Camadas Fundamentais</span>
+        <table class="tbl">
+          <thead><tr><th>Camada</th><th>Dimensão</th><th>Propriedade Crítica</th></tr></thead>
+          <tbody>
+            <tr><td>1 · Operacional</td><td>Entrega funcional concreta — CRM, Health, Performance, Decision Systems, Infraestrutura Organizacional. Sem função operacional real, não há base para evolução.</td><td>Base de existência do sistema</td></tr>
+            <tr><td>2 · Instrumentação Cognitiva</td><td>Captura contínua e estruturada de contexto de uso, comportamento, estado do usuário e resultado das decisões. Observabilidade semântica — o sistema percebe o que acontece e o que significa.</td><td>O sistema percebe e interpreta</td></tr>
+            <tr><td>3 · Modelagem Dinâmica</td><td>Modelos probabilísticos, aprendizado supervisionado e não supervisionado, representação persistente de estado, memória contextual acumulativa. O sistema mantém continuidade cognitiva.</td><td>O sistema não reinicia sua compreensão</td></tr>
+            <tr><td>4 · Adaptativa Estrutural</td><td>Capacidade de reconfiguração interna — fluxos operacionais, priorização, sequência de interação, estratégias internas, estrutura de decisão. Não é ajuste paramétrico. É transformação arquitetural por contexto.</td><td>O sistema se reconfigura por dentro</td></tr>
+            <tr><td>5 · Otimização por Objetivo</td><td>Todo NeuroSaaS opera com função-objetivo explícita — maximização de performance, redução de erro sistêmico, aumento de retenção, otimização cognitiva organizacional. Sem objetivo formal, não há direção adaptativa.</td><td>A função-objetivo orienta toda evolução</td></tr>
+          </tbody>
+        </table>
       </div>
       <p class="body-p rv">
-        Onde <code>x<sub>t</sub></code> representa o estado operacional e <code>u<sub>t</sub></code> a entrada ou ação. Sob ambientes não-estacionários, a distribuição de entrada varia no tempo:
-      </p>
-      <div class="eq rv">
-        <span class="eq-f">P(&nbsp;u<sub>t+1</sub>&nbsp;)&nbsp;&nbsp;≠&nbsp;&nbsp;P(&nbsp;u<sub>t</sub>&nbsp;)</span>
-        <span class="eq-n">EQ. 02</span>
-      </div>
-      <p class="body-p rv">
-        A ausência de variável estrutural observável compromete formalmente as garantias de estabilidade sistêmica. NeuroSaaS™ propõe a expansão estrutural desse paradigma, introduzindo coerência como variável dinâmica de primeira classe no espaço de estados.
+        A arquitetura aprende com sua própria operação. Cada interação alimenta o modelo. Cada ciclo refina a compreensão. Cada recalibração expande a capacidade adaptativa do sistema.
       </p>
     </div>
   </div></div>
 
-  <!-- II -->
-  <div class="sec-row"><div class="sec-row-inner">
+  <!-- III · CRITÉRIOS -->
+  <div class="sec-row" id="criterios"><div class="sec-row-inner">
     <div class="sec-side">
-      <div class="sec-num">Seção · II</div>
-      <div class="sec-t">Expansão do Espaço de Estados</div>
-      <div class="sec-hint">Mudança topológica —<br>não adição funcional.</div>
+      <div class="sec-num">III</div>
+      <div class="sec-t">Critérios Técnicos Estruturais</div>
+      <div class="sec-hint">Arquiteturais,<br>não estéticos.<br>Classe técnica.</div>
     </div>
     <div class="sec-body">
-      <p class="body-p rv">Define-se o espaço estrutural expandido como:</p>
+      <p class="body-p rv">Para ser classificado como NeuroSaaS™, o sistema deve possuir os cinco critérios técnicos estruturais. Esses critérios são arquiteturais — não estéticos, não mercadológicos, não subjetivos. NeuroSaaS™ é uma classe técnica, não um rótulo.</p>
       <div class="eq rv">
-        <span class="eq-f">S<sub>t</sub>&nbsp;=&nbsp;(&nbsp;x<sub>t</sub>,&nbsp;c<sub>t</sub>,&nbsp;a<sub>t</sub>,&nbsp;Φ<sub>t</sub>,&nbsp;D<sub>t</sub>,&nbsp;L<sub>t</sub>,&nbsp;R<sub>t</sub>&nbsp;)</span>
-        <span class="eq-n">EQ. 03</span>
+        <span class="eq-f">NeuroSaaS&nbsp;⟺&nbsp;Loop<sub>fechado</sub>&nbsp;∧&nbsp;Memória<sub>persistente</sub>&nbsp;∧&nbsp;Reconfiguração<sub>adaptativa</sub>&nbsp;∧&nbsp;Evolução<sub>real</sub>&nbsp;∧&nbsp;Autonomia<sub>progressiva</sub></span>
+        <span class="eq-n">Critério Formal de Classificação</span>
       </div>
-      <p class="body-p rv">
-        Essa formulação representa mudança na topologia do espaço de estados, não mera adição funcional. A coerência estrutural torna-se variável interna observável e controlável.
-      </p>
       <div class="tbl-wrap rv">
-        <span class="tbl-cap">Tabela I — Variáveis do espaço estrutural expandido</span>
+        <span class="tbl-cap">Cinco Critérios de Classificação NeuroSaaS™</span>
         <table class="tbl">
-          <thead><tr><th>Símbolo</th><th>Descrição</th></tr></thead>
+          <thead><tr><th>Critério</th><th>Definição Técnica</th></tr></thead>
           <tbody>
-            <tr><td>Φ<sub>t</sub></td><td>Coerência estrutural</td></tr>
-            <tr><td>D<sub>t</sub></td><td>Drift estrutural</td></tr>
-            <tr><td>L<sub>t</sub></td><td>Carga estrutural</td></tr>
-            <tr><td>R<sub>t</sub></td><td>Prontidão estrutural</td></tr>
-            <tr><td>x<sub>t</sub></td><td>Estado operacional primário</td></tr>
-            <tr><td>c<sub>t</sub></td><td>Contexto decisório</td></tr>
-            <tr><td>a<sub>t</sub></td><td>Ação estruturada</td></tr>
+            <tr><td>Loop fechado de feedback</td><td>As saídas do sistema alimentam continuamente o processo interno de modelagem e decisão — criando ciclo de aprendizado autônomo</td></tr>
+            <tr><td>Memória contextual persistente</td><td>Estado cognitivo acumulado e preservado entre sessões, usuários e ciclos operacionais — o sistema lembra e integra</td></tr>
+            <tr><td>Reconfiguração estrutural adaptativa</td><td>Capacidade de alterar fluxos, estratégias e prioridades internas sem intervenção humana — autonomia estrutural real</td></tr>
+            <tr><td>Evolução baseada em dados reais</td><td>Refinamento contínuo de modelos a partir de operação real — não simulada, não sintética, não hipotética</td></tr>
+            <tr><td>Autonomia progressiva mensurável</td><td>Capacidade de decisão autônoma que aumenta com o tempo de operação — evolução verificável e quantificável</td></tr>
           </tbody>
         </table>
       </div>
     </div>
   </div></div>
 
-  <!-- III -->
-  <div class="sec-row"><div class="sec-row-inner">
-    <div class="sec-side">
-      <div class="sec-num">Seção · III</div>
-      <div class="sec-t">Lei de Entropia Estrutural</div>
-      <div class="sec-hint">Sem Φ<sub>t</sub> modelada,<br>dissipação é formal<br>e inevitável.</div>
-    </div>
-    <div class="sec-body">
-      <p class="body-p rv">A dinâmica da coerência estrutural é governada por:</p>
-      <div class="eq rv">
-        <span class="eq-f">ΔΦ<sub>t</sub>&nbsp;&nbsp;=&nbsp;&nbsp;A<sub>t</sub>&nbsp;&nbsp;−&nbsp;&nbsp;B<sub>t</sub></span>
-        <span class="eq-n">EQ. 04</span>
-      </div>
-      <p class="body-p rv">
-        Onde <code>A<sub>t</sub></code> denota contribuições estabilizadoras e <code>B<sub>t</sub></code> forças dissipativas por complexidade acumulada. Se a expectativa de dissipação supera a estabilização:
-      </p>
-      <div class="eq rv">
-        <span class="eq-f">E[&nbsp;B<sub>t</sub>&nbsp;]&nbsp;&nbsp;&gt;&nbsp;&nbsp;E[&nbsp;A<sub>t</sub>&nbsp;]</span>
-        <span class="eq-n">EQ. 05</span>
-      </div>
-      <p class="body-p rv">
-        Então <code>E[Φ<sub>t</sub>]</code> decresce monotonicamente, caracterizando processo dissipativo estrutural. Sem a variável Φ<sub>t</sub> explicitamente modelada, não existe mecanismo formal de estabilização.
-      </p>
-    </div>
-  </div></div>
-
 </main>
 
-<!-- IV — DRIFT -->
-<section class="drift" id="drift">
+<!-- IV — PROPRIEDADES -->
+<section class="drift" id="propriedades">
   <div class="drift-header page-wrap">
-    <div class="eyebrow rv">Seção IV</div>
-    <h2 class="section-h rv">Separação Formal de <em>Drift</em></h2>
+    <div class="eyebrow rv">IV · Propriedades Sistêmicas</div>
+    <h2 class="section-h rv">O sistema <em>aprende<br>com a própria operação.</em></h2>
   </div>
   <div class="drift-grid">
     <div class="drift-cell rv">
       <div class="drift-bar"></div>
-      <div class="drift-lbl">Drift Decisório</div>
-      <div class="drift-sym">D<sup>(A)</sup><sub>t</sub></div>
-      <p class="drift-desc">Representa alterações na política interna do sistema. Captura deslocamentos comportamentais endógenos, permitindo distinção formal de mudanças autoiniciadas versus perturbações externas ao ambiente.</p>
+      <div class="drift-lbl">Evolução Contínua</div>
+      <div class="drift-sym">E<sup>∞</sup></div>
+      <p class="drift-desc">O sistema evolui continuamente ao longo do tempo. Não por atualização externa — por dinâmica interna orientada por cognição. Cada ciclo operacional aumenta a inteligência estrutural. A transformação ocorre no próprio sistema.</p>
     </div>
     <div class="drift-cell rv d1">
       <div class="drift-bar"></div>
-      <div class="drift-lbl">Drift de Retorno</div>
-      <div class="drift-sym">D<sup>(R)</sup><sub>t</sub></div>
-      <p class="drift-desc">Representa alterações no ambiente externo. Isola perturbações exógenas, ampliando a observabilidade estrutural e reduzindo ambiguidade adaptativa. Métricas específicas de cálculo permanecem proprietárias.</p>
+      <div class="drift-lbl">Eficiência Cumulativa</div>
+      <div class="drift-sym">η<sup>+</sup><sub>t</sub></div>
+      <p class="drift-desc">Aumento cumulativo de eficiência com redução progressiva de fricção operacional. O sistema aprende onde há atrito e reconfigura sua estrutura para eliminá-lo. Autonomia progressiva e mensurável — não prometida, verificável.</p>
+    </div>
+    <div class="drift-cell rv d2">
+      <div class="drift-bar"></div>
+      <div class="drift-lbl">Alinhamento Dinâmico</div>
+      <div class="drift-sym">Φ<sup>→</sup><sub>obj</sub></div>
+      <p class="drift-desc">Ajuste dinâmico constante à realidade contextual. O sistema reconhece quando está fora de alinhamento com a função-objetivo e se recalibra autonomamente. Alinhamento não é configuração estática — é propriedade ativa do sistema.</p>
     </div>
   </div>
 </section>
@@ -1335,100 +1415,83 @@ code {
 <div class="secs">
   <div class="sec-row"><div class="sec-row-inner">
     <div class="sec-side">
-      <div class="sec-num">Seção · V</div>
-      <div class="sec-t">Dinâmica do Campo de Coerência</div>
-      <div class="sec-hint">Formulação concentrada<br>e distribuída.</div>
+      <div class="sec-num">V</div>
+      <div class="sec-t">Princípio de Evolução</div>
+      <div class="sec-hint">Estrutural.<br>Mensurável.<br>Internamente reconfigurável.</div>
     </div>
     <div class="sec-body">
-      <p class="body-p rv">A coerência estrutural pode ser representada como sistema dinâmico. Em formulação concentrada:</p>
+      <p class="body-p rv">Nem toda melhoria caracteriza evolução estrutural. NeuroSaaS™ exige que a evolução seja simultaneamente estrutural, mensurável, contextualmente fundamentada, orientada por objetivo e internamente reconfigurável.</p>
       <div class="eq rv">
-        <span class="eq-f">dΦ/dt&nbsp;&nbsp;=&nbsp;&nbsp;αA(t)&nbsp;−&nbsp;βC(t)&nbsp;−&nbsp;γL(t)</span>
-        <span class="eq-n">EQ. 06</span>
+        <span class="eq-f">Evolução<sub>NeuroSaaS</sub>&nbsp;&nbsp;=&nbsp;&nbsp;Estrutural&nbsp;∧&nbsp;Mensurável&nbsp;∧&nbsp;Fundamentada&nbsp;∧&nbsp;Orientada&nbsp;∧&nbsp;Interna</span>
+        <span class="eq-n">Princípio V · Evolução Estrutural</span>
       </div>
-      <p class="body-p rv">Em formulação de campo distribuído:</p>
+      <p class="body-p rv">A transformação ocorre no próprio sistema — não como resposta a instrução externa, mas como consequência direta da dinâmica interna orientada pela função-objetivo. O sistema reconhece quando está fora de alinhamento e se recalibra autonomamente.</p>
       <div class="eq rv">
-        <span class="eq-f">∂Φ/∂t&nbsp;&nbsp;=&nbsp;&nbsp;D·Δ<sub>g</sub>Φ&nbsp;&nbsp;+&nbsp;&nbsp;S(z,t)&nbsp;&nbsp;−&nbsp;&nbsp;λΦ</span>
-        <span class="eq-n">EQ. 07</span>
+        <span class="eq-f">Sistema<sub>t+1</sub>&nbsp;&nbsp;=&nbsp;&nbsp;ℛ(&nbsp;Sistema<sub>t</sub>,&nbsp;Contexto<sub>t</sub>,&nbsp;Objetivo&nbsp;)</span>
+        <span class="eq-n">Operador de Reconfiguração Interna</span>
       </div>
       <p class="body-p rv">
-        As formas funcionais específicas de A(t), C(t), L(t) e S(z,t) são dependentes da implementação e constituem ativos proprietários. A Eq. 07 admite formulação por Laplaciano geométrico, permitindo análise de propagação sobre variedades de estados estruturadas.
+        Onde ℛ representa o operador de reconfiguração estrutural — a capacidade do sistema de transformar sua própria arquitetura operacional em resposta ao contexto, preservando os invariantes de objetivo definidos. Não é patch. Não é update. É dinâmica interna.
       </p>
     </div>
-  </div>
+  </div></div>
+
   <div class="sec-row"><div class="sec-row-inner">
     <div class="sec-side">
-      <div class="sec-num">Seção · VI</div>
-      <div class="sec-t">Operador Estrutural de Correção</div>
+      <div class="sec-num">VI</div>
+      <div class="sec-t">Declaração de Categoria</div>
+      <div class="sec-hint">Nova classe.<br>Padrão formal.<br>Inédita.</div>
     </div>
     <div class="sec-body">
-      <p class="body-p rv">Define-se operador abstrato de correção estrutural:</p>
-      <div class="eq rv">
-        <span class="eq-f">ℛ&nbsp;&nbsp;:&nbsp;&nbsp;S<sub>t</sub>&nbsp;&nbsp;→&nbsp;&nbsp;S'<sub>t</sub></span>
-        <span class="eq-n">EQ. 08</span>
-      </div>
-      <p class="body-p rv">
-        Tal que S'<sub>t</sub> satisfaça os invariantes estruturais definidos. O operador ℛ(S<sub>t</sub>) é definido funcionalmente e pode admitir múltiplas realizações computacionais. Nenhuma implementação específica é divulgada neste documento.
-      </p>
-    </div>
-  </div>
-</div>
-
-<!-- COMPARE -->
-<section id="distincao">
-  <div class="compare page-wrap">
-    <div class="compare-head grid">
-      <h2 class="section-h rv">Distinção<br><em>Categorial</em></h2>
-      <p class="compare-lead rv">A distinção entre NeuroSaaS™ e arquiteturas SaaS tradicionais é estrutural e matemática — não constitui comparação de desempenho ou alegação mercadológica.</p>
-    </div>
-    <!-- FIX #9: Replaced all inline styles with CSS classes -->
-    <div class="tbl-wrap rv">
-      <span class="tbl-cap">Tabela II — Comparação estrutural categorial</span>
-      <table class="tbl">
-        <thead>
-          <tr>
-            <th>Propriedade</th>
-            <th>SaaS Tradicional</th>
+      <p class="body-p rv">NeuroSaaS™ define uma nova classe de sistemas: sistemas SaaS cognitivamente adaptativos com arquitetura evolutiva. Não é um produto. Não é um framework. É uma categoria formal de arquitetura de software.</p>
+      <div class="tbl-wrap rv">
+        <span class="tbl-cap">NeuroSaaS™ versus SaaS Convencional</span>
+        <table class="tbl">
+          <thead><tr>
+            <th>Dimensão</th>
+            <th>SaaS Convencional</th>
             <th class="tbl-th-accent">NeuroSaaS™</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr><td class="tbl-prop">Ordem de estado</td><td>Primeira ordem</td><td class="tbl-col-accent">Segunda ordem</td></tr>
-          <tr><td class="tbl-prop">Variável de coerência</td><td>Não modelada</td><td class="tbl-col-accent">Observável e controlável</td></tr>
-          <tr><td class="tbl-prop">Separação de drift</td><td>Ausente</td><td class="tbl-col-accent">Formal — decisório / ambiental</td></tr>
-          <tr><td class="tbl-prop">Garantias de estabilidade</td><td>Somente funcional</td><td class="tbl-col-accent">Estrutural + funcional</td></tr>
-          <tr><td class="tbl-prop">Carga estrutural</td><td>Implícita</td><td class="tbl-col-accent">L<sub>t</sub> — variável explícita</td></tr>
-          <tr><td class="tbl-prop">Operador de correção</td><td>Não definido formalmente</td><td class="tbl-col-accent">ℛ com invariantes estruturais</td></tr>
-        </tbody>
-      </table>
+          </tr></thead>
+          <tbody>
+            <tr><td class="tbl-prop">Natureza da operação</td><td>Executa processos definidos</td><td class="tbl-col-accent">Executa, observa, modela, adapta e evolui</td></tr>
+            <tr><td class="tbl-prop">Memória entre ciclos</td><td>Ausente — reinicia a cada sessão</td><td class="tbl-col-accent">Persistente — continuidade cognitiva acumulativa</td></tr>
+            <tr><td class="tbl-prop">Adaptação ao contexto</td><td>Manual — requer configuração humana</td><td class="tbl-col-accent">Nativa — dinâmica estrutural incorporada</td></tr>
+            <tr><td class="tbl-prop">Reconfiguração interna</td><td>Não existe — estrutura fixa</td><td class="tbl-col-accent">Ativa — fluxos, prioridades e estratégias se reconfiguram</td></tr>
+            <tr><td class="tbl-prop">Função-objetivo</td><td>Implícita ou ausente</td><td class="tbl-col-accent">Formal e explícita — orienta toda evolução</td></tr>
+            <tr><td class="tbl-prop">Evolução ao longo do tempo</td><td>Por atualizações externas</td><td class="tbl-col-accent">Por dinâmica interna — o sistema evolui com seus usuários</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="body-p rv">O padrão que NeuroSaaS™ estabelece: adaptação é nativa. Memória é persistente. Evolução é estrutural. Otimização é contínua.</p>
     </div>
-  </div>
-</section>
+  </div></div>
+</div>
 
 <!-- DEFINITION BOX -->
 <section class="defbox" id="definicao">
   <div class="defbox-inner page-wrap grid">
     <div class="defbox-sticky rv">
-      <div class="def-tag">Definição Formal</div>
+      <div class="def-tag">Definição Canônica</div>
       <h2 class="section-h section-h--sm">O que é<br><em>NeuroSaaS™?</em></h2>
       <div class="def-stmt">
-        <strong>NeuroSaaS™</strong> é uma infraestrutura proprietária B2B desenvolvida pela FALX para incorporação de <strong>coerência estrutural</strong> e <strong>controle adaptativo</strong> em softwares e sistemas dinâmicos não-estacionários. Opera como arquitetura de segunda ordem com variável explícita de coerência estrutural observável e controlável.
+        <strong>NeuroSaaS™</strong> é uma classe arquitetural para sistemas digitais capazes de <strong>evoluir estruturalmente ao longo do tempo</strong>. Não é uma funcionalidade. Não é um módulo. Não é uma camada adicional. É um modelo arquitetural onde <strong>cognição é infraestrutura</strong>.
       </div>
     </div>
     <div>
       <div class="def-block rv">
-        <div class="def-blk-lbl">Definição Operacional</div>
-        <div class="def-blk-t">Infraestrutura B2B de Decisão Adaptativa</div>
-        <p class="def-blk-p">NeuroSaaS™ opera como camada estrutural sobre arquiteturas SaaS existentes, introduzindo <strong>coerência estrutural (Φ<sub>t</sub>)</strong> como variável dinâmica mensurável. Sistemas que integram NeuroSaaS™ adquirem capacidade formal de estabilização estrutural em ambientes com distribuições não-estacionárias.</p>
+        <div class="def-blk-lbl">O que o sistema faz</div>
+        <div class="def-blk-t">Executa. Observa. Modela. Adapta. Evolui.</div>
+        <p class="def-blk-p">Um sistema NeuroSaaS™ não apenas executa processos — ele percebe o que acontece em cada ciclo operacional, constrói modelos internos persistentes, reconfigura sua própria estrutura em resposta ao contexto e evolui continuamente em direção à sua função-objetivo. A inteligência não é adicionada por fora. Ela é a arquitetura.</p>
       </div>
       <div class="def-block rv d1">
-        <div class="def-blk-lbl">Definição Matemática</div>
-        <div class="def-blk-t">Extensão Topológica do Espaço de Estados</div>
-        <p class="def-blk-p">NeuroSaaS™ constitui extensão topológica de arquiteturas SaaS sob formalismo de sistemas dinâmicos não-lineares: espaço de estados expandido de primeira ordem x<sub>t</sub> para segunda ordem <strong>S<sub>t</sub> = (x<sub>t</sub>, c<sub>t</sub>, a<sub>t</sub>, Φ<sub>t</sub>, D<sub>t</sub>, L<sub>t</sub>, R<sub>t</sub>)</strong>, com variável Φ<sub>t</sub> governada por lei de entropia própria.</p>
+        <div class="def-blk-lbl">O que não é</div>
+        <div class="def-blk-t">Não é Feature. Não é Plugin. Não é IA Adicionada.</div>
+        <p class="def-blk-p">NeuroSaaS™ não é um módulo de IA integrado a um SaaS existente. Não é analytics preditivo. Não é automação de tarefas. É a classe arquitetural onde a capacidade de adaptação estrutural é nativa ao design do sistema — presente desde a fundação, não adicionada depois.</p>
       </div>
       <div class="def-block rv d2">
-        <div class="def-blk-lbl">Categoria Técnica</div>
-        <div class="def-blk-t">Classe Formal de Arquitetura Estrutural</div>
-        <p class="def-blk-p">Não é ferramenta SaaS tradicional de workflow. Não é framework open-source. Não é sistema de analytics. NeuroSaaS™ é <strong>infraestrutura formal de segunda ordem</strong> — classe de arquitetura com especificação matemática definida, publicada com DOI e protegida por propriedade intelectual FALX.</p>
+        <div class="def-blk-lbl">O que define a categoria</div>
+        <div class="def-blk-t">Arquitetura Cognitiva Evolutiva — Classe Formal</div>
+        <p class="def-blk-p">NeuroSaaS™ define uma nova classe: <strong>sistemas SaaS cognitivamente adaptativos com arquitetura evolutiva</strong>. Adaptação nativa. Memória persistente. Evolução estrutural. Otimização contínua. Publicado como categoria técnica formal. DOI: 10.5281/zenodo.18806001.</p>
       </div>
     </div>
   </div>
@@ -1439,44 +1502,63 @@ code {
   <div class="axioms-inner page-wrap">
     <div class="axioms-intro grid">
       <div>
-        <div class="eyebrow rv">Formalização Estrutural</div>
-        <h2 class="section-h rv">Axiomas &amp;<br><em>Teoremas</em></h2>
+        <div class="eyebrow rv">Estrutura Arquitetural</div>
+        <h2 class="section-h rv">As Cinco<br><em>Camadas</em></h2>
       </div>
-      <p class="compare-lead rv">NeuroSaaS™ constitui extensão da teoria de sistemas dinâmicos e controle adaptativo. Fundamentado em axiomas estruturais formais que determinam condições de existência, dissipação e separabilidade.</p>
+      <p class="compare-lead rv">Um sistema é NeuroSaaS™ apenas quando integra as cinco camadas fundamentais de forma interdependente. Cada camada é constitutiva — não opcional, não decorativa, não modular de forma isolada.</p>
     </div>
-    <div class="axiom-grid">
+        <div class="axiom-grid">
+
+      <!-- CAMADA I -->
       <div class="axiom-cell rv">
         <div class="axiom-cell-bar"></div>
         <div class="axiom-ghost">1</div>
-        <div class="axiom-type">Axioma · A1</div>
-        <h3 class="axiom-t">Existência de Variável Estrutural</h3>
-        <p class="axiom-p">Todo sistema operacional não-estacionário possui variável estrutural implícita Φ<sub>t</sub> ∈ ℝ que governa coerência decisória. Na ausência de modelagem explícita, Φ<sub>t</sub> decai monotonicamente sob pressão de complexidade.</p>
-        <div class="axiom-eq">∃ Φ<sub>t</sub> ∈ ℝ : dΦ/dt ≠ 0</div>
+        <div class="axiom-type">Camada · I</div>
+        <h3 class="axiom-t">Operacional</h3>
+        <p class="axiom-p">Entrega funcional concreta. É a dimensão produtiva do sistema: CRM, Health, Performance, Decision Systems, Infraestrutura Organizacional. Sem função operacional real, não há base para evolução. A cognição opera sobre substrato funcional — não no vácuo.</p>
+        <div class="axiom-eq">f(sistema) ≠ ∅ → base para evolução</div>
       </div>
+
+      <!-- CAMADA II -->
       <div class="axiom-cell rv d1">
         <div class="axiom-cell-bar"></div>
         <div class="axiom-ghost">2</div>
-        <div class="axiom-type">Teorema · T1</div>
-        <h3 class="axiom-t">Condição de Dissipação Estrutural</h3>
-        <p class="axiom-p">Se a expectativa de forças dissipativas supera contribuições estabilizadoras, o sistema evolui para entropia estrutural máxima — condição necessária de falha de coerência em escala.</p>
-        <div class="axiom-eq">E[B<sub>t</sub>] &gt; E[A<sub>t</sub>] ⟹ E[Φ<sub>t</sub>] ↓</div>
+        <div class="axiom-type">Camada · II</div>
+        <h3 class="axiom-t">Instrumentação Cognitiva</h3>
+        <p class="axiom-p">Captura contínua e estruturada de contexto de uso, comportamento, estado do usuário e resultado das decisões. Observabilidade semântica: o sistema percebe o que acontece — e o que significa. Sem instrumentação, o sistema é cego à sua própria operação.</p>
+        <div class="axiom-eq">Observar := perceber(evento) ∧ interpretar(significado)</div>
       </div>
+
+      <!-- CAMADA III -->
       <div class="axiom-cell rv d2">
         <div class="axiom-cell-bar"></div>
         <div class="axiom-ghost">3</div>
-        <div class="axiom-type">Proposição · P1</div>
-        <h3 class="axiom-t">Separabilidade Formal de Drift</h3>
-        <p class="axiom-p">O drift estrutural total D<sub>t</sub> é separável em componente decisório D<sup>(A)</sup><sub>t</sub> (endógeno) e componente de retorno D<sup>(R)</sup><sub>t</sub> (exógeno). Separabilidade é condição necessária para observabilidade plena.</p>
-        <div class="axiom-eq">D<sub>t</sub> = D<sup>(A)</sup><sub>t</sub> + D<sup>(R)</sup><sub>t</sub></div>
+        <div class="axiom-type">Camada · III</div>
+        <h3 class="axiom-t">Modelagem Dinâmica</h3>
+        <p class="axiom-p">Modelos probabilísticos, aprendizado supervisionado e não supervisionado, representação persistente de estado, memória contextual acumulativa. O sistema mantém continuidade cognitiva — ele não reinicia sua compreensão a cada interação.</p>
+        <div class="axiom-eq">M(t+1) = M(t) + Δ(observação, contexto)</div>
       </div>
-      <div class="axiom-cell rv d3">
+
+      <!-- CAMADA IV -->
+      <div class="axiom-cell rv">
         <div class="axiom-cell-bar"></div>
         <div class="axiom-ghost">4</div>
-        <div class="axiom-type">Definição · D1</div>
-        <h3 class="axiom-t">Segunda Ordem Estrutural</h3>
-        <p class="axiom-p">Um sistema SaaS é de segunda ordem estrutural se e somente se seu espaço de estados contém Φ<sub>t</sub> explícita, observável, controlável e governada por lei de dinâmica própria. NeuroSaaS™ é a primeira arquitetura formal desta classe.</p>
-        <div class="axiom-eq">S<sub>t</sub> ∋ Φ<sub>t</sub> ∧ dΦ/dt = f(S<sub>t</sub>)</div>
+        <div class="axiom-type">Camada · IV</div>
+        <h3 class="axiom-t">Adaptativa Estrutural</h3>
+        <p class="axiom-p">Capacidade de reconfiguração interna: fluxos operacionais, priorização de ações, sequência de interação, estratégias internas, estrutura de decisão. Não é ajuste paramétrico — é transformação arquitetural orientada por contexto.</p>
+        <div class="axiom-eq">ℛ : Arquitetura(t) → Arquitetura'(t) | contexto</div>
       </div>
+
+      <!-- CAMADA V -->
+      <div class="axiom-cell rv d1">
+        <div class="axiom-cell-bar"></div>
+        <div class="axiom-ghost">5</div>
+        <div class="axiom-type">Camada · V</div>
+        <h3 class="axiom-t">Otimização por Objetivo</h3>
+        <p class="axiom-p">Todo NeuroSaaS™ opera com função-objetivo explícita: maximização de performance, redução de erro sistêmico, aumento de retenção, otimização cognitiva organizacional. A função-objetivo orienta toda a evolução. Sem objetivo formal, não há direção adaptativa.</p>
+        <div class="axiom-eq">Evolução := ℛ*(sistema, objetivo_formal)</div>
+      </div>
+
     </div>
   </div>
 </section>
@@ -1486,10 +1568,10 @@ code {
   <div class="taxonomy-inner page-wrap">
     <div class="tax-intro grid">
       <div>
-        <div class="eyebrow rv">Taxonomia Estrutural</div>
-        <h2 class="section-h section-h--sm rv">Arquiteturas SaaS —<br><em>Classificação</em></h2>
+        <div class="eyebrow rv">Posicionamento de Categoria</div>
+        <h2 class="section-h section-h--sm rv">Arquiteturas SaaS —<br><em>Onde NeuroSaaS™ se posiciona</em></h2>
       </div>
-      <p class="compare-lead rv">NeuroSaaS™ ocupa posição formal na taxonomia de arquiteturas SaaS como classe de segunda ordem — categoria definida pela presença explícita de variável estrutural observável e controlável.</p>
+      <p class="compare-lead rv">NeuroSaaS™ é a única classe arquitetural onde cognição é infraestrutura nativa. Não compete com SaaS funcional, adaptativo ou estrutural — opera em dimensão diferente. É a formalização de uma categoria que o mercado ainda não havia nomeado.</p>
     </div>
     <!-- FIX #9: Inline style on taxonomy highlight cell replaced with .tax-tbl-sub class -->
     <div class="tax-wrap rv">
@@ -1506,54 +1588,211 @@ code {
   </div>
 </section>
 
+<!-- ECOSSISTEMA GLOBAL -->
+<section class="ecosys" id="ecossistema">
+  <div class="page-wrap">
+
+    <!-- INTRO -->
+    <div class="ecosys-intro">
+      <div>
+        <div class="eyebrow rv">Posicionamento Estratégico</div>
+        <h2 class="section-h section-h--sm rv">NeuroSaaS™<br>no Ecossistema<br><em>Global</em></h2>
+      </div>
+      <div>
+        <p class="ecosys-lead rv">O mercado global de SaaS atingiu USD 358 bilhões em 2024 e projeta USD 1,25 trilhão até 2034. Nenhuma das categorias existentes resolve o problema central de empresas que escalam: manter coerência nas decisões quando o ambiente muda, a pressão aumenta e o contexto se torna imprevisível. NeuroSaaS™ ocupa essa posição — que o mercado ainda não havia nomeado.</p>
+        <p class="ecosys-lead rv" style="color:var(--t3)">Em 2025, o Gartner e o Fórum Econômico Mundial identificaram a IA orientada a decisão estrutural como o próximo salto real em inteligência empresarial — auditável, sem erros de interpretação, com rastreabilidade completa de causa e efeito. Não mais IA que sugere. IA que sustenta a arquitetura de decisão da organização.</p>
+      </div>
+    </div>
+
+    <!-- MARKET STATS -->
+    <div class="ecosys-stat rv">
+      <div class="ecosys-stat-cell">
+        <div class="ecosys-stat-num">$358<span style="font-size:1.8rem">B</span></div>
+        <div class="ecosys-stat-lbl">Mercado SaaS global · 2024<br>Fonte: Precedence Research</div>
+      </div>
+      <div class="ecosys-stat-cell">
+        <div class="ecosys-stat-num">13,3<span style="font-size:1.8rem">%</span></div>
+        <div class="ecosys-stat-lbl">Crescimento anual projetado · 2024–2034<br>Demanda estrutural em aceleração</div>
+      </div>
+      <div class="ecosys-stat-cell">
+        <div class="ecosys-stat-num">Classe IX</div>
+        <div class="ecosys-stat-lbl">NeuroSaaS™ · Categoria inédita<br>Primeira arquitetura com coerência decisória como camada</div>
+      </div>
+    </div>
+
+    <!-- VOICES FROM THE FIELD -->
+    <div class="ecosys-map-title rv">O que os principais centros de pesquisa e inteligência global dizem</div>
+    <div class="ecosys-voices rv">
+      <div class="ecosys-voice">
+        <div class="ecosys-voice-src">Gartner · Hype Cycle for AI 2025</div>
+        <div class="ecosys-voice-q">"Abordagens neurossimbólicas podem aumentar e automatizar a tomada de decisão com menor risco de consequências não intencionais."</div>
+        <div class="ecosys-voice-ctx">Reconhecimento no Hype Cycle · Neuro-Symbolic AI como tecnologia estratégica emergente · Outubro 2025</div>
+      </div>
+      <div class="ecosys-voice">
+        <div class="ecosys-voice-src">World Economic Forum · Davos 2025</div>
+        <div class="ecosys-voice-q">"Este tipo de IA opera sem as alucinações comuns em outros sistemas — seu processo decisório é completamente transparente e auditável. Você consegue rastrear exatamente como cada decisão foi tomada."</div>
+        <div class="ecosys-voice-ctx">The Power of Neurosymbolic AI · WEF Dezembro 2025 · Aplicações: finanças, risco sistêmico, infraestrutura crítica</div>
+      </div>
+      <div class="ecosys-voice">
+        <div class="ecosys-voice-src">arXiv · Revisão Sistemática 2024–2025</div>
+        <div class="ecosys-voice-q">"A capacidade de sistemas de IA de entenderem o próprio processo de raciocínio é a área menos desenvolvida — e preencher essa lacuna é decisivo para construir IA confiável, estável e consciente do contexto."</div>
+        <div class="ecosys-voice-ctx">Neuro-Symbolic AI in 2024 · 167 papers analisados · IEEE, Google Scholar, arXiv, ACM, SpringerLink</div>
+      </div>
+      <div class="ecosys-voice">
+        <div class="ecosys-voice-src">NeurIPS 2024 · NeuroAI Workshop</div>
+        <div class="ecosys-voice-q">"O objetivo é criar sistemas que aprendam com a experiência e tomem decisões adaptadas ao contexto — exatamente como organizações de alto desempenho precisam operar."</div>
+        <div class="ecosys-voice-ctx">Dezembro 2024 · Princeton · UCL · Mila · Flatiron Institute · MIT · Stanford</div>
+      </div>
+      <div class="ecosys-voice">
+        <div class="ecosys-voice-src">Nature Machine Intelligence · 2024</div>
+        <div class="ecosys-voice-q">"A nova geração de IA vai descobrir os princípios que explicam como sistemas inteligentes mantêm coerência sob pressão — abrindo caminho para máquinas verdadeiramente mais inteligentes."</div>
+        <div class="ecosys-voice-ctx">The New NeuroAI · Nature Machine Intelligence · Março 2024</div>
+      </div>
+      <div class="ecosys-voice">
+        <div class="ecosys-voice-src">AI SaaS Classification Framework · Enterprise 2026</div>
+        <div class="ecosys-voice-q">"Em 2026, avaliar a arquitetura de um produto de IA antes de adotá-lo não é mais opcional. Empresas que não fazem isso enfrentam custos imprevisíveis, riscos regulatórios e dependências estruturais que travam o crescimento."</div>
+        <div class="ecosys-voice-ctx">AI SaaS Product Classification · Enterprise procurement 2025–2026 · 12 empresas avaliadas</div>
+      </div>
+    </div>
+
+    <!-- SaaS CLASS MAP -->
+    <div class="ecosys-map-title rv" style="margin-top:var(--space-l)">Todas as categorias de software empresarial — e onde NeuroSaaS™ se posiciona</div>
+    <div class="ecosys-classes rv">
+
+      <div class="ecosys-class">
+        <div class="ecosys-class-bar"></div>
+        <div class="ecosys-class-n">Categoria I · Legado</div>
+        <div class="ecosys-class-name">SaaS Monolítico</div>
+        <div class="ecosys-class-desc">Um bloco único de software que faz tudo junto. Simples de operar no início, difícil de escalar depois. A maioria dos ERPs antigos funciona assim — útil até certo ponto de complexidade.</div>
+        <div class="ecosys-class-examples">Exemplos: ERPs legados, sistemas setoriais fechados, ferramentas internas de gestão</div>
+      </div>
+
+      <div class="ecosys-class">
+        <div class="ecosys-class-bar"></div>
+        <div class="ecosys-class-n">Categoria II · Modular</div>
+        <div class="ecosys-class-name">SaaS por Microsserviços</div>
+        <div class="ecosys-class-desc">Software construído como peças independentes que se comunicam. Cada parte escala sozinha, falha isolada e evolui sem parar o restante. Base da maioria dos produtos modernos de alto crescimento.</div>
+        <div class="ecosys-class-examples">Exemplos: Stripe, Twilio, Segment, Shopify</div>
+      </div>
+
+      <div class="ecosys-class">
+        <div class="ecosys-class-bar"></div>
+        <div class="ecosys-class-n">Categoria III · Sob Demanda</div>
+        <div class="ecosys-class-name">SaaS Serverless</div>
+        <div class="ecosys-class-desc">O software só existe quando está sendo usado. Custo zero em ociosidade, escala automática sob demanda. Elimina toda a gestão de infraestrutura. Modelo ideal para produtos com uso variável.</div>
+        <div class="ecosys-class-examples">Exemplos: Vercel, Netlify, apps nativos em AWS Lambda</div>
+      </div>
+
+      <div class="ecosys-class">
+        <div class="ecosys-class-bar"></div>
+        <div class="ecosys-class-n">Categoria IV · Compartilhado</div>
+        <div class="ecosys-class-name">SaaS Multi-Tenant</div>
+        <div class="ecosys-class-desc">Um único sistema serve milhares de clientes ao mesmo tempo, com dados isolados por cliente. Modelo que domina o mercado de SaaS empresarial — eficiente, escalável, previsível em custo.</div>
+        <div class="ecosys-class-examples">Exemplos: Salesforce, HubSpot, Zendesk, Slack, Dropbox, MailChimp</div>
+      </div>
+
+      <div class="ecosys-class">
+        <div class="ecosys-class-bar"></div>
+        <div class="ecosys-class-n">Categoria V · Setorial</div>
+        <div class="ecosys-class-name">SaaS Vertical</div>
+        <div class="ecosys-class-desc">Construído para uma indústria específica, com profundo conhecimento de seus processos, regulações e dados. Alta retenção, pouca concorrência direta, ticket elevado. O produto entende o setor do cliente.</div>
+        <div class="ecosys-class-examples">Exemplos: Veeva (farma), Procore (construção), Toast (restaurantes), nCino (bancos)</div>
+      </div>
+
+      <div class="ecosys-class">
+        <div class="ecosys-class-bar"></div>
+        <div class="ecosys-class-n">Categoria VI · Universal</div>
+        <div class="ecosys-class-name">SaaS Horizontal</div>
+        <div class="ecosys-class-desc">Serve qualquer empresa em qualquer setor. CRM, gestão de projetos, comunicação, produtividade. O maior mercado endereçável possível — diferenciação por experiência e usabilidade.</div>
+        <div class="ecosys-class-examples">Exemplos: Microsoft 365, Google Workspace, Notion, Asana, Zoom, Intercom</div>
+      </div>
+
+      <div class="ecosys-class">
+        <div class="ecosys-class-bar"></div>
+        <div class="ecosys-class-n">Categoria VII · IA Adicionada</div>
+        <div class="ecosys-class-name">SaaS com IA Incorporada</div>
+        <div class="ecosys-class-desc">Produtos tradicionais que adicionaram funcionalidades de IA sobre sua estrutura existente. A IA é uma feature, não a base. Resultado: experiências fragmentadas, ganhos limitados, promessas maiores que a entrega real.</div>
+        <div class="ecosys-class-examples">Exemplos: Salesforce Einstein, HubSpot AI, Notion AI, Monday AI · Gartner: risco de "AI-washing"</div>
+      </div>
+
+      <div class="ecosys-class">
+        <div class="ecosys-class-bar"></div>
+        <div class="ecosys-class-n">Categoria VIII · IA no Núcleo</div>
+        <div class="ecosys-class-name">SaaS Nativo em IA</div>
+        <div class="ecosys-class-desc">Construído do zero com IA como fundação. Sem herança de sistemas antigos. A inteligência não é uma camada — é a estrutura. Produtos mais rápidos, mais adaptativos, com vantagem competitiva crescente.</div>
+        <div class="ecosys-class-examples">Exemplos: Cursor, Glean, Writer, Hightouch, Sardine</div>
+      </div>
+
+      <div class="ecosys-class active">
+        <div class="ecosys-class-bar"></div>
+        <div class="ecosys-class-n">Categoria IX · Infraestrutura de Decisão · FALX</div>
+        <div class="ecosys-class-name">NeuroSaaS™</div>
+        <div class="ecosys-class-desc">A única categoria que resolve o problema que as anteriores não endereçam: como uma organização mantém qualidade de decisão quando escala, quando o mercado muda, quando pressão e complexidade aumentam ao mesmo tempo. NeuroSaaS™ torna a coerência decisória uma camada visível, mensurável e gerenciável — não um resultado esperado, mas uma variável controlada.</div>
+        <div class="ecosys-class-examples">Publicado com DOI · 10.5281/zenodo.18806001 · FALX · 2025 · Categoria protegida por propriedade intelectual</div>
+        <div class="ecosys-class-badge">Categoria única · Sem equivalente no mercado</div>
+      </div>
+
+    </div><!-- /ecosys-classes -->
+
+    <!-- NOTA ESTRATÉGICA -->
+    <div class="ecosys-note rv">
+      <div class="ecosys-note-lbl">Posição Estratégica no Mercado</div>
+      <div class="ecosys-note-txt">
+        As categorias I a VIII respondem como o software é construído, entregue e escalado. NeuroSaaS™ responde uma pergunta diferente: <em>como uma organização mantém a inteligência das suas decisões enquanto cresce.</em> Não substitui nenhuma dessas categorias. <em>Opera sobre todas elas.</em>
+      </div>
+    </div>
+
+  </div>
+</section>
+
 <!-- USE CASES -->
 <section class="cases" id="casos">
   <div class="cases-inner page-wrap">
     <div class="cases-intro grid">
       <div>
-        <div class="eyebrow rv">Ancoragem Operacional</div>
-        <h2 class="section-h rv">Casos de<br><em>Aplicação</em></h2>
+        <div class="eyebrow rv">Propriedades Sistêmicas</div>
+        <h2 class="section-h rv">O que um sistema<br><em>NeuroSaaS™ apresenta</em></h2>
       </div>
-      <p class="compare-lead rv">NeuroSaaS™ resolve drift estrutural e perda de coerência decisória em sistemas que operam sob ambientes não-estacionários de alta complexidade.</p>
+      <p class="compare-lead rv">Um sistema NeuroSaaS™ apresenta cinco propriedades sistêmicas emergentes — consequências diretas da arquitetura cognitiva evolutiva em operação contínua.</p>
     </div>
     <div class="case-grid">
-      <div class="case-cell rv"><div class="case-bar"></div><div class="case-n">Caso · 01</div><h3 class="case-dom">Sistemas Financeiros Adaptativos</h3><div class="case-prob">Drift de mercado · Volatilidade estrutural</div><p class="case-desc">Plataformas fintech e sistemas de risco que operam sob distribuições de mercado não-estacionárias. NeuroSaaS™ modela coerência decisória como variável explícita, separando drift de política interna de variações exógenas de mercado.</p></div>
-      <div class="case-cell rv d1"><div class="case-bar"></div><div class="case-n">Caso · 02</div><h3 class="case-dom">Plataformas Logísticas</h3><div class="case-prob">Variabilidade de demanda · Entropia operacional</div><p class="case-desc">Sistemas logísticos com alta variabilidade sazonal. A lei de entropia estrutural permite modelar formalmente a acumulação de complexidade e ativar operador de correção antes da falha de coerência.</p></div>
-      <div class="case-cell rv d2"><div class="case-bar"></div><div class="case-n">Caso · 03</div><h3 class="case-dom">AI Governance &amp; Decision</h3><div class="case-prob">Alteração de distribuição · Concept drift</div><p class="case-desc">Sistemas de AI corporativos que sofrem concept drift. NeuroSaaS™ oferece camada estrutural formal para governança adaptativa com separação explícita entre drift de modelo e drift ambiental.</p></div>
-      <div class="case-cell rv"><div class="case-bar"></div><div class="case-n">Caso · 04</div><h3 class="case-dom">Motores de Risco Corporativo</h3><div class="case-prob">Carga estrutural · Prontidão decisória</div><p class="case-desc">Plataformas B2B que precisam manter prontidão estrutural R<sub>t</sub> e controlar carga L<sub>t</sub> sob variação contínua de contexto. A dinâmica de campo distribuído permite análise de propagação sobre estruturas organizacionais complexas.</p></div>
-      <div class="case-cell rv d1"><div class="case-bar"></div><div class="case-n">Caso · 05</div><h3 class="case-dom">Automação Industrial</h3><div class="case-prob">Não-estacionariedade · Controle adaptativo</div><p class="case-desc">Sistemas de automação sob variação contínua de parâmetros de processo. NeuroSaaS™ aplica formalismo de controle adaptativo de segunda ordem para manter estabilidade estrutural sem reconfiguração manual.</p></div>
-      <div class="case-cell rv d2"><div class="case-bar"></div><div class="case-n">Caso · 06</div><h3 class="case-dom">Plataformas SaaS Corporativas</h3><div class="case-prob">Escala · Perda de coerência decisória</div><p class="case-desc">SaaS corporativos que crescem em escala e perdem coerência decisória entre níveis. NeuroSaaS™ opera como camada que unifica lógica de decisão, preservando coerência estrutural conforme a organização escala.</p></div>
+      <div class="case-cell rv"><div class="case-bar"></div><div class="case-n">Propriedade · 01</div><h3 class="case-dom">Evolução Contínua</h3><div class="case-prob">Dinâmica estrutural nativa · Sem intervenção externa</div><p class="case-desc">O sistema evolui continuamente ao longo do tempo. Não por atualização externa — por dinâmica interna orientada por cognição. Cada ciclo operacional amplia a capacidade estrutural do sistema.</p></div>
+      <div class="case-cell rv d1"><div class="case-bar"></div><div class="case-n">Propriedade · 02</div><h3 class="case-dom">Eficiência Cumulativa</h3><div class="case-prob">Acumulação progressiva · Resultado composto</div><p class="case-desc">Aumento cumulativo de eficiência com o tempo de operação. Cada ciclo de aprendizado reduz friccão, melhora precisão e aumenta a confiabilidade das decisões automatizadas do sistema.</p></div>
+      <div class="case-cell rv d2"><div class="case-bar"></div><div class="case-n">Propriedade · 03</div><h3 class="case-dom">Redução de Fricção</h3><div class="case-prob">Operação progressivamente mais fluida · Menos atrito</div><p class="case-desc">Redução progressiva de fricção operacional. O sistema identifica onde há resistência estrutural — pontos de atrito, inconsistência decisória, sobrecarga cognitiva — e reconfigura internamente para eliminá-los.</p></div>
+      <div class="case-cell rv"><div class="case-bar"></div><div class="case-n">Propriedade · 04</div><h3 class="case-dom">Ajuste Contextual Dinâmico</h3><div class="case-prob">Alinhamento contínuo ao ambiente real · Sem configuração manual</div><p class="case-desc">Ajuste dinâmico à realidade contextual. O sistema não opera com parâmetros fixos definidos na instalação — ele lê o contexto em tempo real e calibra sua arquitetura operacional de acordo.</p></div>
+      <div class="case-cell rv d1"><div class="case-bar"></div><div class="case-n">Propriedade · 05</div><h3 class="case-dom">Alinhamento à Função-Objetivo</h3><div class="case-prob">Orientação constante · Sem deriva de propósito</div><p class="case-desc">Alinhamento constante à função-objetivo definida. Toda recalibração, reconfiguração e evolução estrutural é orientada pelo objetivo formal do sistema — garantindo que a evolução tenha direção, não apenas movimento.</p></div>
+      <div class="case-cell rv d2"><div class="case-bar"></div><div class="case-n">Síntese</div><h3 class="case-dom">A Arquitetura Aprende</h3><div class="case-prob">Cognição como infraestrutura · Evolução como operação</div><p class="case-desc">A arquitetura aprende com sua própria operação. Ele não apenas executa processos — ele evolui como sistema. Esta é a distinção fundamental: o que em outros sistemas requer intervenção externa, em NeuroSaaS™ é dinâmica interna.</p></div>
     </div>
   </div>
 </section>
 
 <!-- FOR WHO / NOT -->
-<section class="forwho" id="para-quem">
+<section class="forwho" id="sintese">
   <div class="forwho-inner page-wrap">
-    <div class="eyebrow rv">Escopo de Aplicação</div>
+    <div class="eyebrow rv">Síntese Final</div>
     <div class="forwho-grid">
       <div class="forwho-cell rv">
-        <div class="forwho-tag forwho-tag--yes">Indicado para</div>
-        <h3 class="forwho-h">Quando NeuroSaaS™<br>resolve o problema</h3>
+        <div class="forwho-tag forwho-tag--yes">Critério de Elegibilidade</div>
+        <h3 class="forwho-h">Sistemas que<br>exigem evolução</h3>
         <div>
-          <div class="forwho-item">Empresas B2B sob alta variabilidade de ambiente e distribuições não-estacionárias</div>
-          <div class="forwho-item">Sistemas que sofrem drift estrutural — perda progressiva de coerência decisória com crescimento</div>
-          <div class="forwho-item">Softwares corporativos com necessidade de estabilidade adaptativa formal</div>
-          <div class="forwho-item">Plataformas com exigência de governança dinâmica e decisão distribuída coerente</div>
-          <div class="forwho-item">Sistemas financeiros, logísticos e de automação com entropia operacional acumulada</div>
-          <div class="forwho-item">Organizações pós-experimental que precisam escalar decisão com inteligência estrutural</div>
+          <div class="forwho-item">Sistemas que precisam aprender com sua própria operação — sem reconfiguração manual constante</div>
+          <div class="forwho-item">Plataformas onde o contexto muda continuamente e a arquitetura precisa acompanhar</div>
+          <div class="forwho-item">Organizações que escalam e perdem coerência decisória entre níveis e equipes</div>
+          <div class="forwho-item">Softwares com necessidade de memória contextual persistente entre sessões e usuários</div>
+          <div class="forwho-item">Sistemas onde a função-objetivo precisa orientar toda a arquitetura operacional</div>
+          <div class="forwho-item">Ambientes não-estacionários onde adaptação nativa é requisito de sobrevivência estrutural</div>
         </div>
       </div>
       <div class="forwho-cell rv d1" style="background:var(--bg2)">
         <div class="forwho-tag forwho-tag--no">Fora de Escopo</div>
-        <h3 class="forwho-h forwho-h--dim">Quando NeuroSaaS™<br>não se aplica</h3>
+        <h3 class="forwho-h forwho-h--dim">O que NeuroSaaS™<br>não substitui</h3>
         <div>
-          <div class="forwho-item">Sistemas simples de primeira ordem sem necessidade de variável estrutural explícita</div>
-          <div class="forwho-item">Ferramentas SaaS de workflow ou produtividade sem complexidade adaptativa</div>
-          <div class="forwho-item">Sistemas de analytics tradicionais sem componente de controle estrutural</div>
-          <div class="forwho-item">Ambientes estacionários com distribuições de entrada estáveis e previsíveis</div>
-          <div class="forwho-item">Implementações que não requerem separação formal de drift ou operador de correção</div>
-          <div class="forwho-item">Contextos sem variável de coerência como requisito de estabilidade</div>
+          <div class="forwho-item">Software de produtividade, CRM convencional ou ERP estático — NeuroSaaS™ opera sobre eles, não no lugar deles</div>
+          <div class="forwho-item">Ferramentas de automação de tarefas sem necessidade de continuidade cognitiva</div>
+          <div class="forwho-item">Analytics tradicionais sem componente de reconfiguração estrutural adaptativa</div>
+          <div class="forwho-item">Ambientes completamente estacionários com padrões fixos e previsíveis</div>
+          <div class="forwho-item">Sistemas onde toda reconfiguração é intencional, manual e infrequente</div>
+          <div class="forwho-item">Produtos de software onde evolução estrutural não é requisito — apenas execução</div>
         </div>
       </div>
     </div>
@@ -1564,17 +1803,17 @@ code {
 <section class="faq" id="faq">
   <div class="faq-inner page-wrap">
     <div class="faq-sticky rv">
-      <div class="eyebrow">FAQ</div>
-      <h2 class="section-h">Perguntas<br><em>Estruturais</em></h2>
-      <p class="faq-note">Respostas diretas para classificação correta de NeuroSaaS™ como produto, infraestrutura e categoria técnica.</p>
+      <div class="eyebrow">Perguntas</div>
+      <h2 class="section-h">O que as<br>pessoas<br><em>perguntam</em></h2>
+      <p class="faq-note">Respostas precisas para entender NeuroSaaS™ como categoria arquitetural — sem ambiguidade, sem marketing, sem simplificação.</p>
     </div>
     <div class="faq-list">
-      <div class="faq-item rv"><div class="faq-q"><span>O que é NeuroSaaS™?</span><span class="faq-arrow">↗</span></div><div class="faq-a">NeuroSaaS™ é uma <strong>infraestrutura proprietária B2B</strong> desenvolvida pela FALX para incorporação de coerência estrutural e controle adaptativo em softwares e sistemas dinâmicos não-estacionários. Opera como arquitetura de segunda ordem com variável explícita de coerência estrutural observável e controlável.</div></div>
-      <div class="faq-item rv"><div class="faq-q"><span>Para que serve o NeuroSaaS™?</span><span class="faq-arrow">↗</span></div><div class="faq-a">Serve para <strong>estabilizar sistemas de decisão em ambientes não-estacionários</strong>. Resolve drift estrutural, perda de coerência decisória e instabilidade sistêmica em escala. Integra lei de entropia estrutural, separação formal de drift e operador de correção.</div></div>
-      <div class="faq-item rv"><div class="faq-q"><span>Qual a diferença entre NeuroSaaS™ e SaaS tradicional?</span><span class="faq-arrow">↗</span></div><div class="faq-a">SaaS tradicional modela apenas <strong>estados funcionais de primeira ordem</strong>, sem variável estrutural explícita. NeuroSaaS™ expande o espaço de estados para segunda ordem incorporando Φ<sub>t</sub>, D<sub>t</sub>, L<sub>t</sub> e R<sub>t</sub> como variáveis dinâmicas observáveis. Não é adição funcional — é mudança topológica.</div></div>
-      <div class="faq-item rv"><div class="faq-q"><span>Em quais sistemas pode ser integrado?</span><span class="faq-arrow">↗</span></div><div class="faq-a">Pode ser integrado em <strong>sistemas financeiros adaptativos, plataformas SaaS corporativas, AI governance, motores de risco, automação industrial, logística e sistemas de decisão em tempo real</strong>. Requisito central: não-estacionariedade e necessidade de coerência estrutural formal.</div></div>
-      <div class="faq-item rv"><div class="faq-q"><span>Qual a base teórica?</span><span class="faq-arrow">↗</span></div><div class="faq-a">Fundamentado em <strong>teoria de sistemas dinâmicos, controle adaptativo, modelagem não-estacionária e teoria da informação</strong>. Extensão topológica do espaço de estados SaaS sob formalismo de sistemas dinâmicos não-lineares. DOI: 10.5281/zenodo.18806001.</div></div>
-      <div class="faq-item rv"><div class="faq-q"><span>NeuroSaaS™ é open source?</span><span class="faq-arrow">↗</span></div><div class="faq-a">Não. É <strong>arquitetura proprietária</strong> da FALX. A formalização teórica é pública no Zenodo, mas algoritmos, implementações e mecanismos internos são protegidos por propriedade intelectual e segredo industrial.</div></div>
+      <div class="faq-item rv"><div class="faq-q"><span>O que exatamente é NeuroSaaS™?</span><span class="faq-arrow">↗</span></div><div class="faq-a">NeuroSaaS™ é uma <strong>classe arquitetural para sistemas digitais capazes de evoluir estruturalmente ao longo do tempo</strong>. Não é uma funcionalidade, não é um módulo, não é uma camada adicional. É um modelo arquitetural onde cognição é infraestrutura — o sistema não apenas executa, ele observa, modela, adapta e evolui.</div></div>
+      <div class="faq-item rv"><div class="faq-q"><span>Qual a diferença entre NeuroSaaS™ e um SaaS com IA?</span><span class="faq-arrow">↗</span></div><div class="faq-a">Um SaaS com IA adicionada tem inteligência como feature — um módulo que pode ser removido sem afetar a arquitetura central. Em NeuroSaaS™, <strong>a cognição é a arquitetura</strong>. Adaptação é nativa. Memória é persistente. Evolução é estrutural. A distinção é categorial, não de grau.</div></div>
+      <div class="faq-item rv"><div class="faq-q"><span>O que significa "o sistema evolui"?</span><span class="faq-arrow">↗</span></div><div class="faq-a">Significa que o sistema <strong>reconfigura sua própria estrutura interna</strong> — fluxos operacionais, prioridades de ação, estratégias decisórias — em resposta ao contexto real de operação. Não é atualização de versão. Não é ajuste manual de parâmetros. É transformação arquitetural orientada pela função-objetivo e fundamentada em dados reais.</div></div>
+      <div class="faq-item rv"><div class="faq-q"><span>Por que "cognição como infraestrutura"?</span><span class="faq-arrow">↗</span></div><div class="faq-a">Porque em NeuroSaaS™ a inteligência não é adicionada sobre a infraestrutura existente — <strong>ela é a infraestrutura</strong>. Assim como em sistemas modernos a segurança deixou de ser camada adicional e tornou-se propriedade da arquitetura, NeuroSaaS™ faz o mesmo com a capacidade cognitiva e adaptativa do sistema.</div></div>
+      <div class="faq-item rv"><div class="faq-q"><span>Quais os cinco critérios técnicos da classe?</span><span class="faq-arrow">↗</span></div><div class="faq-a">Loop fechado de feedback, memória contextual persistente, reconfiguração estrutural adaptativa, evolução baseada em dados reais e autonomia progressiva mensurável. <strong>Esses critérios são arquiteturais, não estéticos.</strong> NeuroSaaS™ é uma classe técnica formal — não um rótulo de marketing.</div></div>
+      <div class="faq-item rv"><div class="faq-q"><span>NeuroSaaS™ compete com SaaS existentes?</span><span class="faq-arrow">↗</span></div><div class="faq-a">Não. NeuroSaaS™ <strong>opera sobre as categorias existentes</strong> — SaaS Monolítico, Microsserviços, Multi-tenant, Vertical, Horizontal, AI-Native. Não as substitui. As eleva. É a camada que torna qualquer uma dessas arquiteturas capaz de evoluir estruturalmente — ao invés de apenas executar.</div></div>
     </div>
   </div>
 </section>
@@ -1583,9 +1822,9 @@ code {
 <div class="conclusion">
   <div class="conclusion-inner">
     <blockquote class="conclusion-q rv">
-      "Onde há <em>coerência estrutural</em>, há estabilidade formal. Onde há estabilidade formal, há vantagem que se compõe com o tempo."
+      "NeuroSaaS™ é a formalização arquitetural de sistemas que evoluem com seus usuários — não por atualização externa, mas por <em>dinâmica interna orientada por cognição.</em>"
     </blockquote>
-    <div class="conclusion-meta rv">FALX · NEUROSAAS™ · VOLUME II · 2025</div>
+    <div class="conclusion-meta rv">FALX · NEUROSAAS™ · ARQUITETURA COGNITIVA EVOLUTIVA · 2025</div>
     <div class="conclusion-acts rv">
       <a href="https://doi.org/10.5281/zenodo.18806001" class="btn-acid" target="_blank" rel="noopener">Acessar Publicação</a>
       <a href="https://doi.org/10.5281/ZENODO.18702295" class="btn-ghost" target="_blank" rel="noopener"><span>Volume I</span></a>
@@ -1610,7 +1849,7 @@ code {
   <div class="footer-top page-wrap">
     <div>
       <div class="footer-logo">FALX</div>
-      <p class="footer-tag">Infraestrutura de Decisão Estrutural.<br>Arquitetura NeuroSaaS™ — onde coerência e controle se unificam.</p>
+      <p class="footer-tag">Arquitetura Cognitiva Evolutiva.<br>Cognição como infraestrutura. Evolução como operação.</p>
     </div>
     <div>
       <div class="footer-col-t">Publicação</div>
