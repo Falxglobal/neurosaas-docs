@@ -2,7 +2,11 @@
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="theme-color" content="#000000">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="format-detection" content="telephone=no">
 <title>NeuroSaaS™ — Arquitetura Cognitiva Evolutiva · FALX</title>
 <meta name="description" content="NeuroSaaS™ é uma classe arquitetural para sistemas digitais capazes de evoluir estruturalmente ao longo do tempo. Cognição como infraestrutura. Loop fechado. Memória persistente. Evolução contínua. FALX · DOI: 10.5281/zenodo.18806001">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -79,6 +83,8 @@ body {
   font-weight: 400;
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
+  overflow-wrap: break-word;
+  word-break: break-word;
 }
 a { text-decoration:none; color:inherit; }
 
@@ -140,10 +146,11 @@ a { text-decoration:none; color:inherit; }
   background: repeating-linear-gradient(
     0deg,
     transparent,
-    transparent 3px,
-    rgba(0,0,0,0.23) 3px,
-    rgba(0,0,0,0.23) 4px
+    transparent 2px,
+    rgba(0,0,0,0.18) 2px,
+    rgba(0,0,0,0.18) 3px
   );
+  opacity:.7;
 }
 
 /* ═══════════════════════════════════════════
@@ -151,9 +158,9 @@ a { text-decoration:none; color:inherit; }
 ═══════════════════════════════════════════ */
 .grain {
   position:fixed; inset:0; pointer-events:none; z-index:996;
-  opacity:.045;
+  opacity:.11;
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23g)'/%3E%3C/svg%3E");
-  background-size: 256px;
+  background-size: 200px;
 }
 
 /* ═══════════════════════════════════════════
@@ -258,23 +265,21 @@ a { text-decoration:none; color:inherit; }
 }
 
 .hero-h1 {
-  font-family:var(--f-display); font-size:clamp(3.83rem,6.8vw,8.5rem);
+  font-family:var(--f-display); font-size:clamp(4.8rem,8.5vw,11rem);
   font-weight:400;
-  /* MICRO #3: 0.94 — readable density without compression */
-  line-height:.94; letter-spacing:-.04em;
+  line-height:.90; letter-spacing:-.055em;
   color:var(--t0); overflow:visible;
 }
-.hero-line { display:block; overflow:hidden; }
-.hero-word { display:inline-block; transform:translateY(105%); }
-.hero-line:nth-child(1) .hero-word { animation: slide-up .9s var(--ease) .4s forwards; }
-.hero-line:nth-child(2) .hero-word { animation: slide-up .9s var(--ease) .56s forwards; }
-.hero-line:nth-child(3) .hero-word { animation: slide-up .9s var(--ease) .72s forwards; }
+.hero-line { display:block; }
+.hero-word { display:inline-block; opacity:0; animation:fade-in .9s var(--ease) forwards; }
+.hero-line:nth-child(1) .hero-word { animation-delay:.3s; }
+.hero-line:nth-child(2) .hero-word { animation-delay:.45s; }
+.hero-line:nth-child(3) .hero-word { animation-delay:.6s; }
 /* MICRO #3: Italic segment slightly smaller, weight 400 strictly */
 .hero-h1 .italic { font-style:italic; color:var(--t2); font-size:0.95em; font-weight:400; }
 
-@keyframes slide-up { to { transform:translateY(0); } }
-@keyframes fade-up  { from{opacity:0;transform:translateY(16px)} to{opacity:1;transform:translateY(0)} }
 @keyframes fade-in  { to { opacity:1; } }
+@keyframes fade-up  { from{opacity:0} to{opacity:1} }
 
 .hero-body-wrap {
   margin-top:4rem; display:grid; grid-template-columns:3px 1fr; gap:2.5rem;
@@ -562,29 +567,23 @@ code {
    EQUATION BLOCK
 ═══════════════════════════════════════════ */
 .eq {
-  display:flex; align-items:center; justify-content:space-between;
-  padding:1.5rem 2rem; margin:2rem 0;
-  background:var(--surface); border:1px solid var(--line2);
-  /* FIX #5: Neutral border instead of acid-line */
-  border-left:2px solid var(--line2);
-  position:relative; overflow:hidden;
-  transition:background .3s;
+  display:flex; align-items:baseline; justify-content:space-between; flex-wrap:wrap; gap:2rem;
+  padding:2.5rem 0; margin:3.5rem 0;
+  background:transparent;
+  border-top:1px solid var(--line);
+  border-bottom:1px solid var(--line);
+  position:relative;
 }
-.eq::before {
-  content:''; position:absolute; inset:0;
-  /* FIX #5+#6: Reduced glow opacity */
-  background:radial-gradient(ellipse at 0 50%, rgba(18,70,245,0.12), transparent 60%);
-  opacity:0; transition:opacity .4s;
-}
-.eq:hover { background:var(--bg2); }
-.eq:hover::before { opacity:1; }
-.eq-f { font-family:var(--f-mono); font-size:1.43rem; letter-spacing:.05em; color:var(--t0); position:relative; z-index:1; }
-.eq-n { font-family:var(--f-mono); font-size:0.85rem; letter-spacing:.12em; color:var(--t3); opacity:1; position:relative; z-index:1; }
+.eq::before { display:none; }
+.eq:hover { background:transparent; }
+.eq:hover::before { opacity:0; }
+.eq-f { font-family:var(--f-mono); font-size:1.72rem; letter-spacing:.04em; color:var(--t0); position:relative; z-index:1; word-break:break-all; overflow-wrap:break-word; }
+.eq-n { font-family:var(--f-mono); font-size:0.72rem; letter-spacing:.22em; color:var(--t4); opacity:1; position:relative; z-index:1; white-space:nowrap; text-transform:uppercase; }
 
 /* ═══════════════════════════════════════════
    TABLE
 ═══════════════════════════════════════════ */
-.tbl-wrap { margin:2.5rem 0; border:1px solid var(--line2); overflow:hidden; }
+.tbl-wrap { margin:2.5rem 0; border:1px solid var(--line2); overflow-x:auto; -webkit-overflow-scrolling:touch; }
 .tbl-cap {
   display:block; font-family:var(--f-mono); font-size:.75rem;
   /* FIX #2: Reduced from .22em → .12em */
@@ -592,7 +591,7 @@ code {
   text-transform:uppercase; color:var(--t3); opacity:1;
   padding:.9rem 1.6rem; border-bottom:1px solid var(--line); background:var(--surface);
 }
-.tbl { width:100%; border-collapse:collapse; }
+.tbl { width:100%; min-width:560px; border-collapse:collapse; }
 .tbl thead tr { background:var(--bg1); border-bottom:1px solid var(--line2); }
 .tbl thead th {
   font-family:var(--f-mono); font-size:.75rem; letter-spacing:.12em; text-transform:uppercase;
@@ -729,43 +728,109 @@ code {
 /* ═══════════════════════════════════════════
    AXIOMS
 ═══════════════════════════════════════════ */
+/* ═══════════════════════════════════════════
+   AXIOMS — LAYER INDEX
+═══════════════════════════════════════════ */
 .axioms {
-  /* FIX #4: spacing token */
-  padding:var(--space-xl) 0;
-  border-bottom:1px solid var(--line);
+  padding: var(--space-xl) 0;
+  border-bottom: 1px solid var(--line);
 }
 .axioms-inner {}
-.axioms-intro {
-  display:grid; grid-template-columns: repeat(12,1fr); column-gap:var(--col-gap);
-  align-items:end; margin-bottom:var(--space-l);
+
+/* Header */
+.axioms-header {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  column-gap: var(--col-gap);
+  align-items: end;
+  margin-bottom: var(--space-l);
+  padding-bottom: var(--space-m);
+  border-bottom: 1px solid var(--line);
 }
-.axioms-intro > *:first-child { grid-column: span 5; }
-.axioms-intro > *:last-child  { grid-column: span 7; }
-.axiom-grid { display:grid; grid-template-columns: repeat(12,1fr); gap:1px; background:var(--line); }
-.axiom-cell {
+.axioms-header .eyebrow { grid-column: 1 / -1; margin-bottom: 2rem; }
+.axioms-header .section-h { grid-column: span 4; margin:0; }
+.axioms-header .axioms-lead {
   grid-column: span 6;
-  background:var(--bg); padding:var(--space-m) var(--space-m);
-  position:relative; overflow:hidden; transition:background .4s;
+  font-size: 1.18rem;
+  line-height: 1.75;
+  color: var(--t3);
+  margin: 0;
 }
-.axiom-cell:hover { background:var(--bg2); }
-.axiom-cell-bar { position:absolute; top:0; left:0; right:0; height:1px; background:linear-gradient(90deg,var(--acid),transparent); transform:scaleX(0); transform-origin:left; transition:transform .6s var(--ease); }
-.axiom-cell:hover .axiom-cell-bar { transform:scaleX(1); }
-.axiom-ghost { font-family:var(--f-display); font-size:5rem; font-weight:400; color:rgba(255,255,255,0.18); line-height:1; position:absolute; top:1.5rem; right:2rem; }
-/* MICRO #8: axiom-type neutralized — t3 instead of acid */
-.axiom-type {
-  font-family:var(--f-mono); font-size:.72rem;
-  letter-spacing:.10em;
-  text-transform:uppercase; color:var(--t3); opacity:1; margin-bottom:.6rem;
+
+/* Row list */
+.layers { border-top: 1px solid var(--line); }
+
+.layer {
+  display: grid;
+  grid-template-columns: 6rem 1fr 22rem;
+  column-gap: var(--col-gap);
+  align-items: start;
+  padding: 3rem 0;
+  border-bottom: 1px solid var(--line);
+  transition: background .3s;
 }
-.axiom-t { font-family:var(--f-display); font-size:2.37rem; font-weight:400; letter-spacing:-.025em; color:var(--t1); margin-bottom:1rem; line-height:1.15; }
-.axiom-p { font-size:1.38rem; line-height:1.9; color:var(--t3); margin-bottom:1.2rem; }
-.axiom-p em { font-style:italic; color:var(--t2); }
-.axiom-eq {
-  display:inline-flex; align-items:center; gap:1rem;
-  font-family:var(--f-mono); font-size:1.10rem; letter-spacing:.04em; color:var(--t0);
-  background:var(--bg1); padding:.7rem 1.2rem;
-  /* FIX #5: Neutral border instead of acid-line */
-  border-left:2px solid var(--line2);
+.layer:hover { background: var(--bg2); }
+.layer--last {}
+
+/* Number */
+.layer-n {
+  font-family: var(--f-mono);
+  font-size: 0.72rem;
+  letter-spacing: .18em;
+  color: var(--t4);
+  padding-top: .4rem;
+}
+
+/* Body */
+.layer-body {}
+.layer-title {
+  font-family: var(--f-display);
+  font-size: 1.72rem;
+  font-weight: 400;
+  letter-spacing: -.02em;
+  color: var(--t1);
+  margin-bottom: 1rem;
+  line-height: 1.2;
+}
+.layer-desc {
+  font-size: 1.15rem;
+  line-height: 1.85;
+  color: var(--t3);
+  margin: 0;
+  max-width: 56ch;
+}
+
+/* Equation column */
+.layer-eq {
+  font-family: var(--f-mono);
+  font-size: 1rem;
+  letter-spacing: .04em;
+  color: var(--t2);
+  line-height: 1.7;
+  padding-top: .35rem;
+  text-align: right;
+}
+.layer-eq span {
+  display: block;
+  font-size: .7rem;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+  color: var(--t4);
+  margin-top: .6rem;
+}
+
+/* Responsive */
+@media (max-width: 1200px) {
+  .layer { grid-template-columns: 4rem 1fr; }
+  .layer-eq { grid-column: 2; text-align: left; padding-top: 1.5rem; }
+  .axioms-header .section-h { grid-column: span 5; }
+  .axioms-header .axioms-lead { grid-column: span 7; }
+}
+@media (max-width: 700px) {
+  .layer { grid-template-columns: 3rem 1fr; padding: 2rem 0; }
+  .layer-eq { grid-column: 2; }
+  .axioms-header .section-h,
+  .axioms-header .axioms-lead { grid-column: 1 / -1; }
 }
 
 /* ═══════════════════════════════════════════
@@ -783,8 +848,8 @@ code {
 }
 .tax-intro > *:first-child { grid-column: span 5; }
 .tax-intro > *:last-child  { grid-column: span 7; }
-.tax-wrap { border:1px solid rgba(255,255,255,0.22); overflow:hidden; }
-.tax-tbl { width:100%; border-collapse:collapse; }
+.tax-wrap { border:1px solid rgba(255,255,255,0.22); overflow-x:auto; -webkit-overflow-scrolling:touch; }
+.tax-tbl { width:100%; min-width:720px; border-collapse:collapse; }
 .tax-tbl thead tr { background:var(--bg); border-bottom:1px solid rgba(255,255,255,0.22); }
 /* MICRO #4: Uniform padding 1.2rem 1.4rem, reduced header weight */
 .tax-tbl thead th {
@@ -1112,83 +1177,211 @@ code {
 /* ═══════════════════════════════════════════
    SCROLL REVEAL
 ═══════════════════════════════════════════ */
-.rv { opacity:0; transform:translateY(32px); transition:opacity .9s var(--ease), transform .9s var(--ease); }
-.rv.vis { opacity:1; transform:none; }
-.rv.d1 { transition-delay:.1s; }
-.rv.d2 { transition-delay:.2s; }
-.rv.d3 { transition-delay:.3s; }
+.rv { opacity:0; transition:opacity 1.1s var(--ease); }
+.rv.vis { opacity:1; }
+.rv.d1 { transition-delay:.15s; }
+.rv.d2 { transition-delay:.3s; }
+.rv.d3 { transition-delay:.45s; }
+
+/* Disable animations for users who prefer reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration:.01ms !important; animation-iteration-count:1 !important; transition-duration:.01ms !important; }
+  .rv, .hero-word, .hero-label, .hero-body-wrap, .hero-actions, .hero-badge { opacity:1 !important; animation:none !important; }
+}
 
 /* ═══════════════════════════════════════════
-   RESPONSIVE
+   iOS / CROSS-BROWSER BASE FIXES
 ═══════════════════════════════════════════ */
-@media(max-width:1200px){
-  :root { --page-margin: clamp(1.5rem, 4vw, 3rem); }
-  /* FIX #3: Hero stacks to single column on tablet/mobile */
-  .hero { grid-template-columns:1fr; min-height:auto; }
-  .hero-left  { grid-column: span 1; padding:calc(64px + var(--space-m)) var(--page-margin) var(--space-m); justify-content:flex-start; }
-  .hero-right { grid-column: span 1; height:65vw; min-height:320px; border-left:none; border-top:1px solid var(--line); }
 
-  /* Abstract — stack to single column */
-  .abstract .grid { grid-template-columns:1fr; }
+/* iOS tap highlight */
+* { -webkit-tap-highlight-color: transparent; }
+
+/* iOS momentum scroll */
+html { -webkit-overflow-scrolling: touch; }
+
+/* Hero height — 100dvh works on modern iOS/Chrome, fallback for older */
+.hero {
+  min-height: 100vh;
+  min-height: 100dvh;
+}
+
+/* Backdrop filter — needs webkit prefix for iOS Safari < 15 */
+.nav.scrolled {
+  -webkit-backdrop-filter: blur(20px) saturate(200%);
+  backdrop-filter: blur(20px) saturate(200%);
+}
+.hero-badge {
+  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
+}
+
+/* Prevent text size adjustment on orientation change (iOS) */
+html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
+
+/* Safe area insets for notch / home bar (iPhone X+) */
+.nav    { padding-left: max(var(--g), env(safe-area-inset-left)); padding-right: max(var(--g), env(safe-area-inset-right)); }
+.footer { padding-bottom: env(safe-area-inset-bottom); }
+
+/* ═══════════════════════════════════════════
+   TABLET — ≤1200px
+═══════════════════════════════════════════ */
+@media (max-width: 1200px) {
+  :root {
+    --page-margin: clamp(1.5rem, 4vw, 3rem);
+    --space-xl: 7rem;
+    --space-l:  4.5rem;
+    --space-m:  2.5rem;
+  }
+
+  /* Hero — stack */
+  .hero { grid-template-columns: 1fr; min-height: auto; }
+  .hero-left  { grid-column: span 1; padding: calc(64px + var(--space-m)) var(--page-margin) var(--space-m); justify-content: flex-start; }
+  .hero-right { grid-column: span 1; height: 65vw; min-height: 320px; border-left: none; border-top: 1px solid var(--line); }
+  .hero-body  { max-width: 100%; }
+
+  /* Abstract */
+  .abstract .grid { grid-template-columns: 1fr; }
   .abstract .col-4, .abstract .col-8 { grid-column: span 1; }
-  .abstract-sticky { position:static; }
+  .abstract-sticky { position: static; }
 
-  /* Sections — stack sidebar */
-  .sec-row-inner { grid-template-columns:1fr; }
-  .sec-side { grid-column:span 1; position:static; max-height:none; border-right:none; border-bottom:1px solid var(--line); padding:var(--space-m) 0 2rem; }
-  .sec-body { grid-column:span 1; padding:var(--space-m) 0; }
+  /* Tech sections */
+  .sec-row-inner { grid-template-columns: 1fr; }
+  .sec-side { grid-column: span 1; position: static; max-height: none; border-right: none; border-bottom: 1px solid var(--line); padding: var(--space-m) 0 2rem; }
+  .sec-body { grid-column: span 1; padding: var(--space-m) 0; }
 
-  /* Drift */
-  .drift-grid { grid-template-columns:1fr; }
-  .drift-cell { grid-column:span 12; border-right:none; border-bottom:1px solid var(--line); }
+  /* Drift cells */
+  .drift-grid { grid-template-columns: 1fr; }
+  .drift-cell { grid-column: span 12; border-right: none; border-bottom: 1px solid var(--line); }
 
-  /* Two-col intros → stack */
+  /* Two-col intros → full width */
   .compare-head > *, .axioms-intro > *, .tax-intro > *,
-  .cases-intro > *, .defbox-inner > * { grid-column:span 12 !important; }
-  .defbox-inner > *:last-child { padding-left:0; }
-  .defbox-sticky { position:static; }
+  .cases-intro > *, .defbox-inner > * { grid-column: span 12 !important; }
+  .defbox-inner > *:last-child { padding-left: 0; }
+  .defbox-sticky { position: static; }
 
-  /* Axioms 2-col → 1 */
-  .axiom-cell { grid-column:span 12; }
+  /* Axioms — 1 col on tablet/mobile */
+  .axiom-cell { grid-column: span 1; }
+  .axiom-grid { grid-template-columns: 1fr; }
 
-  /* Cases 3-col → 2 */
-  .case-cell { grid-column:span 6; }
+  /* Cases 3→2 */
+  .case-cell { grid-column: span 6; }
 
-  /* Forwho → stack */
-  .forwho-cell { grid-column:span 12; }
-
-  /* FAQ → stack */
-  .faq-inner { grid-template-columns:1fr; }
-  .faq-sticky { grid-column:span 12; position:static; padding-right:0; border-right:none; border-bottom:1px solid var(--line); padding-bottom:var(--space-m); margin-bottom:2rem; }
-  .faq-list   { grid-column:span 12; padding-left:0; }
-
-  /* DOI → 2 col */
-  .doi-cell { grid-column:span 6; }
-  .doi-cell:nth-child(2){ border-right:none; }
-  .doi-cell:nth-child(3){ border-top:1px solid var(--line); }
-  .doi-cell:nth-child(4){ grid-column:span 12; border-top:1px solid var(--line); }
+  /* Forwho, FAQ */
+  .forwho-cell { grid-column: span 12; }
+  .faq-inner { grid-template-columns: 1fr; }
+  .faq-sticky { grid-column: span 12; position: static; padding-right: 0; border-right: none; border-bottom: 1px solid var(--line); padding-bottom: var(--space-m); margin-bottom: 2rem; }
+  .faq-list   { grid-column: span 12; padding-left: 0; }
 
   /* Footer → 2 col */
-  .footer-top > *:nth-child(1) { grid-column:span 6; }
-  .footer-top > *:nth-child(2) { grid-column:span 6; padding-left:0; }
-  .footer-top > *:nth-child(3) { grid-column:span 6; }
+  .footer-top > *:nth-child(1) { grid-column: span 6; }
+  .footer-top > *:nth-child(2) { grid-column: span 6; padding-left: 0; }
+  .footer-top > *:nth-child(3) { grid-column: span 6; }
 
-  .nav-links { display:none; }
+  /* Nav — hide secondary links */
+  .nav-links { display: none; }
+
+  /* Ecosys → tablet 2-col */
+  .ecosys-intro > *:first-child,
+  .ecosys-intro > *:last-child { grid-column: span 12; }
+  .ecosys-stat   { grid-template-columns: 1fr 1fr; }
+  .ecosys-voice  { grid-column: span 6; }
+  .ecosys-class  { grid-column: span 6; }
 }
-@media(max-width:700px){
-  :root { --page-margin: 1.25rem; --col-gap: .75rem; }
 
-  .case-cell { grid-column:span 12; }
-  .hero-right { height:90vw; }
-  .hero-scroll { display:none; }
+/* ═══════════════════════════════════════════
+   MOBILE — ≤700px  (iOS + Android Chrome)
+═══════════════════════════════════════════ */
+@media (max-width: 700px) {
+  :root {
+    --page-margin: 1.25rem;
+    --col-gap: .75rem;
+    --space-xl: 5rem;
+    --space-l:  3.5rem;
+    --space-m:  2rem;
+  }
 
-  .doi-cell { grid-column:span 12; border-right:none; border-bottom:1px solid var(--line); }
+  /* Prevent horizontal overflow — critical iOS fix */
+  html, body { overflow-x: hidden; width: 100%; }
 
-  .footer-top > * { grid-column:span 12 !important; padding-left:0 !important; }
-  .footer-bottom { flex-direction:column; align-items:flex-start; gap:1rem; }
+  /* Nav — minimal */
+  .nav-right { display: none; }
+  .nav-links { display: none; }
+  .nav { padding-left: max(1.25rem, env(safe-area-inset-left)); padding-right: max(1.25rem, env(safe-area-inset-right)); }
 
-  .forwho-cell { grid-column:span 12; }
-  .axiom-cell  { grid-column:span 12; }
+  /* Hero */
+  .hero { min-height: 100svh; }
+  .hero-right { height: 72vw; min-height: 280px; }
+  .hero-scroll { display: none; }
+  .hero-body  { font-size: 1.25rem; }
+  .hero-badge { bottom: 1rem; left: 1rem; padding: 1rem 1.25rem; }
+  .badge-val  { font-size: 3.2rem; }
+
+  /* Section headings — clamp already handles size, but floor it */
+  .section-h { font-size: clamp(2.4rem, 10vw, 5rem); }
+  .section-h--sm { font-size: clamp(1.7rem, 5.5vw, 2.8rem); }
+  .abstract-pull { font-size: clamp(1.7rem, 5.5vw, 2.8rem); }
+
+  /* Minimum touch target — all buttons 44px+ */
+  .btn-acid, .btn-ghost { height: 48px; width: 100%; justify-content: center; }
+  .hero-actions { flex-direction: column; }
+
+  /* Cases → 1 col */
+  .case-cell { grid-column: span 12; }
+
+  /* Forwho, axioms */
+  .forwho-cell { grid-column: span 12; }
+  .axiom-cell  { grid-column: span 1; }
+  .axiom-cell--center { width: 100% !important; }
+  .axiom-grid { grid-template-columns: 1fr; }
+
+  /* Ecosys → full stack */
+  .ecosys-intro { grid-template-columns: 1fr; }
+  .ecosys-intro > *:first-child,
+  .ecosys-intro > *:last-child { grid-column: span 12; }
+  .ecosys-stat  { grid-template-columns: 1fr; }
+  .ecosys-voice { grid-column: span 12; }
+  .ecosys-class { grid-column: span 12; }
+
+  /* Tables — horizontal scroll instead of overflow:hidden breaking layout */
+  .tbl-wrap, .tax-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; max-width: 100%; }
+
+  /* Equation blocks — wrap on small screens */
+  .eq { flex-direction: column; gap: .75rem; }
+  .eq-f { font-size: 1.1rem; word-break: break-all; }
+  .eq-n { font-size: .75rem; }
+
+  /* Axiom equation labels — prevent overflow */
+  .axiom-eq { font-size: .85rem; word-break: break-all; white-space: normal; }
+
+  /* Footer */
+  .footer-top > * { grid-column: span 12 !important; padding-left: 0 !important; }
+  .footer-bottom { flex-direction: column; align-items: flex-start; gap: 1rem; }
+
+  /* DOI cells */
+  .doi-cell { grid-column: span 12; border-right: none; border-bottom: 1px solid var(--line); }
+
+  /* Drift symbols — scale down on mobile */
+  .drift-sym { font-size: 4rem; }
+
+  /* FAQ — readable line length */
+  .faq-a { font-size: 1.25rem; }
+
+  /* Conclusion quote */
+  .conclusion-q { font-size: clamp(1.5rem, 4.5vw, 2.5rem); }
+
+  /* Reveal — FORCE all visible on mobile (IntersectionObserver unreliable on iOS) */
+  .rv { opacity: 1 !important; transform: none !important; transition: none !important; }
+}
+
+/* ═══════════════════════════════════════════
+   VERY SMALL — ≤390px  (iPhone SE, small Android)
+═══════════════════════════════════════════ */
+@media (max-width: 390px) {
+  :root { --page-margin: 1rem; }
+  .hero-h1  { font-size: clamp(2.8rem, 11vw, 4rem); }
+  .section-h { font-size: clamp(2.2rem, 9.5vw, 3.5rem); }
+  .badge-val { font-size: 2.8rem; }
+  .hero-right { height: 80vw; }
 }
 </style>
 </head>
@@ -1225,7 +1418,7 @@ code {
     </h1>
     <div class="hero-body-wrap">
       <div class="hero-vbar"></div>
-      <p class="hero-body">NeuroSaaS™ é uma classe arquitetural onde o sistema não apenas executa — ele observa, modela, adapta e evolui. Não é funcionalidade. Não é módulo. Não é camada adicional. É modelo arquitetural onde cognição é infraestrutura.</p>
+      <p class="hero-body">NeuroSaaS™ designa uma classe arquitetural formal para sistemas digitais com capacidade de evolução estrutural nativa. Não é funcionalidade adicionada. Não é módulo optativo. Não é camada suplementar. É o modelo arquitetural onde cognição constitui a infraestrutura — e adaptação é propriedade intrínseca, não intervenção externa.</p>
     </div>
     <div class="hero-actions">
       <a href="https://doi.org/10.5281/zenodo.18806001" class="btn-acid" target="_blank" rel="noopener">Publicação Formal</a>
@@ -1287,13 +1480,13 @@ code {
     </div>
     <div class="col-8">
       <div class="abstract-pull rv">
-        NeuroSaaS™ parte de um princípio central: sistemas operam em <em>ambientes não-estacionários</em>. Usuários evoluem. Contextos se transformam. Estratégias exigem recalibração contínua.
+        NeuroSaaS™ parte de um princípio irredutível: sistemas operam em <em>ambientes não-estacionários</em>. Usuários evoluem. Contextos se transformam. Estratégias exigem recalibração contínua. A arquitetura que não incorpora esse princípio não é robusta — é frágil por design.
       </div>
       <p class="abstract-p rv">
-        Logo, a arquitetura precisa incorporar adaptação como propriedade nativa. Evolução não é atualização manual — é dinâmica estrutural incorporada ao sistema. Um sistema NeuroSaaS não é atualizado por fora. Ele se reconfigura por dentro.
+        Logo, adaptação não pode ser camada opcional — deve ser propriedade constitutiva da arquitetura. Evolução não é atualização manual programada externamente. É dinâmica estrutural incorporada ao sistema desde sua fundação. Um sistema NeuroSaaS™ não é recalibrado por instrução. Ele se reconfigura por lógica interna.
       </p>
       <p class="abstract-p rv">
-        Não é uma funcionalidade. Não é um módulo. Não é uma camada adicional. É um modelo arquitetural onde cognição é infraestrutura — a base sobre a qual toda função opera. O sistema observa o que acontece. Modela o que significa. Adapta o que faz. Evolui estruturalmente com o tempo.
+        O sistema observa o que acontece. Modela o que significa. Adapta o que faz. Evolui estruturalmente ao longo do tempo. A inteligência não é adicionada sobre a infraestrutura — ela é a infraestrutura. Cognição como base, não como feature. Evolução como operação, não como exceção.
       </p>
       <div class="kws rv">
         <span class="kw">Cognição como Infraestrutura</span>
@@ -1314,8 +1507,8 @@ code {
     <div class="legal-box rv">
       <div class="legal-lbl">Declaração de Categoria — NeuroSaaS™</div>
       <div class="legal-txt">
-        <p>NeuroSaaS™ define uma nova classe de sistemas: sistemas SaaS cognitivamente adaptativos com arquitetura evolutiva. Adaptação é nativa. Memória é persistente. Evolução é estrutural. Otimização é contínua. O sistema aprende com sua própria operação — não por instrução externa, mas por dinâmica interna orientada por função-objetivo.</p>
-        <p>Arquitetura desenvolvida e protegida pela FALX. Implementações comerciais, reproduções estruturais ou derivações técnicas sem autorização formal constituem violação de propriedade intelectual. DOI: 10.5281/zenodo.18806001.</p>
+        <p>NeuroSaaS™ define uma nova classe formal de sistemas: sistemas SaaS cognitivamente adaptativos com arquitetura evolutiva estrutural nativa. Adaptação é propriedade constitutiva. Memória é infraestrutura persistente. Evolução é dinâmica interna. Otimização é operação contínua orientada a objetivo. O sistema aprende com sua própria operação — não por instrução externa, mas por lógica interna governada por função-objetivo explícita e formal.</p>
+        <p>Arquitetura desenvolvida e protegida pela FALX. Implementações comerciais, reproduções estruturais equivalentes ou derivações técnicas baseadas nos elementos protegidos requerem autorização formal e escrita. DOI: 10.5281/zenodo.18806001.</p>
       </div>
     </div>
   </div>
@@ -1332,17 +1525,17 @@ code {
       <div class="sec-hint">Interdependentes.<br>Não opcionais.<br>Constitutivas.</div>
     </div>
     <div class="sec-body">
-      <p class="body-p rv">Um sistema é NeuroSaaS apenas quando integra as cinco camadas fundamentais de forma interdependente. A ausência de qualquer uma delas desqualifica a arquitetura como evolutiva.</p>
+      <p class="body-p rv">Um sistema é NeuroSaaS™ apenas quando integra as cinco camadas fundamentais de forma interdependente e constitutiva. A ausência de qualquer uma delas não reduz a classe — desqualifica a arquitetura como evolutiva. Não há grau intermediário. Há conformidade arquitetural ou ausência dela.</p>
       <div class="tbl-wrap rv">
-        <span class="tbl-cap">As Cinco Camadas Fundamentais</span>
+        <span class="tbl-cap">As Cinco Camadas Fundamentais — Estrutura Não-Negociável</span>
         <table class="tbl">
-          <thead><tr><th>Camada</th><th>Dimensão</th><th>Propriedade Crítica</th></tr></thead>
+          <thead><tr><th>Camada</th><th>Dimensão Funcional</th><th>Propriedade Crítica</th></tr></thead>
           <tbody>
-            <tr><td>1 · Operacional</td><td>Entrega funcional concreta — CRM, Health, Performance, Decision Systems, Infraestrutura Organizacional. Sem função operacional real, não há base para evolução.</td><td>Base de existência do sistema</td></tr>
-            <tr><td>2 · Instrumentação Cognitiva</td><td>Captura contínua e estruturada de contexto de uso, comportamento, estado do usuário e resultado das decisões. Observabilidade semântica — o sistema percebe o que acontece e o que significa.</td><td>O sistema percebe e interpreta</td></tr>
-            <tr><td>3 · Modelagem Dinâmica</td><td>Modelos probabilísticos, aprendizado supervisionado e não supervisionado, representação persistente de estado, memória contextual acumulativa. O sistema mantém continuidade cognitiva.</td><td>O sistema não reinicia sua compreensão</td></tr>
-            <tr><td>4 · Adaptativa Estrutural</td><td>Capacidade de reconfiguração interna — fluxos operacionais, priorização, sequência de interação, estratégias internas, estrutura de decisão. Não é ajuste paramétrico. É transformação arquitetural por contexto.</td><td>O sistema se reconfigura por dentro</td></tr>
-            <tr><td>5 · Otimização por Objetivo</td><td>Todo NeuroSaaS opera com função-objetivo explícita — maximização de performance, redução de erro sistêmico, aumento de retenção, otimização cognitiva organizacional. Sem objetivo formal, não há direção adaptativa.</td><td>A função-objetivo orienta toda evolução</td></tr>
+            <tr><td>1 · Operacional</td><td>Entrega funcional concreta — CRM, Health, Performance, Decision Systems, Infraestrutura Organizacional. Sem substrato operacional real, não há base sobre a qual a cognição possa operar. A inteligência não existe no vácuo — opera sobre função real.</td><td>Substrato de existência sistêmica</td></tr>
+            <tr><td>2 · Instrumentação Cognitiva</td><td>Captura contínua e estruturada de contexto de uso, padrões comportamentais, estado do usuário e resultado decisório. Observabilidade semântica: o sistema não apenas registra eventos — interpreta o que significam dentro do seu modelo de mundo persistente.</td><td>Percepção e interpretação ativa</td></tr>
+            <tr><td>3 · Modelagem Dinâmica</td><td>Modelos probabilísticos, aprendizado supervisionado e não supervisionado, representação persistente de estado, memória contextual acumulativa entre ciclos. O sistema mantém continuidade cognitiva — sua compreensão não é reiniciada a cada interação.</td><td>Continuidade cognitiva inter-sessões</td></tr>
+            <tr><td>4 · Adaptativa Estrutural</td><td>Capacidade de reconfiguração interna autônoma — fluxos operacionais, priorização de ações, sequência de interação, estratégias internas, estrutura decisória. Não é ajuste paramétrico. É transformação arquitetural orientada por contexto real e governada por objetivo formal.</td><td>Reconfiguração interna autônoma</td></tr>
+            <tr><td>5 · Otimização por Objetivo</td><td>Todo sistema NeuroSaaS™ opera governado por função-objetivo explícita e formal — maximização de performance, redução de erro sistêmico, aumento de retenção, otimização cognitiva organizacional. A função-objetivo não é implícita nem emergente. É o invariante que orienta toda evolução estrutural.</td><td>Direção adaptativa formal e explícita</td></tr>
           </tbody>
         </table>
       </div>
@@ -1360,21 +1553,21 @@ code {
       <div class="sec-hint">Arquiteturais,<br>não estéticos.<br>Classe técnica.</div>
     </div>
     <div class="sec-body">
-      <p class="body-p rv">Para ser classificado como NeuroSaaS™, o sistema deve possuir os cinco critérios técnicos estruturais. Esses critérios são arquiteturais — não estéticos, não mercadológicos, não subjetivos. NeuroSaaS™ é uma classe técnica, não um rótulo.</p>
+      <p class="body-p rv">Para ser classificado como NeuroSaaS™, o sistema deve satisfazer os cinco critérios técnicos estruturais de forma simultânea e verificável. Esses critérios são arquiteturais — não estéticos, não mercadológicos, não subjetivos, não graduáveis. NeuroSaaS™ é uma classe técnica formal, não um rótulo de posicionamento.</p>
       <div class="eq rv">
-        <span class="eq-f">NeuroSaaS&nbsp;⟺&nbsp;Loop<sub>fechado</sub>&nbsp;∧&nbsp;Memória<sub>persistente</sub>&nbsp;∧&nbsp;Reconfiguração<sub>adaptativa</sub>&nbsp;∧&nbsp;Evolução<sub>real</sub>&nbsp;∧&nbsp;Autonomia<sub>progressiva</sub></span>
-        <span class="eq-n">Critério Formal de Classificação</span>
+        <span class="eq-f">NeuroSaaS™&nbsp;⟺&nbsp;Loop<sub>fechado</sub>&nbsp;∧&nbsp;Memória<sub>persistente</sub>&nbsp;∧&nbsp;Reconfiguração<sub>adaptativa</sub>&nbsp;∧&nbsp;Evolução<sub>real</sub>&nbsp;∧&nbsp;Autonomia<sub>progressiva</sub></span>
+        <span class="eq-n">Critério Formal de Classificação — Necessário e Suficiente</span>
       </div>
       <div class="tbl-wrap rv">
-        <span class="tbl-cap">Cinco Critérios de Classificação NeuroSaaS™</span>
+        <span class="tbl-cap">Cinco Critérios Técnicos — Classificação NeuroSaaS™</span>
         <table class="tbl">
-          <thead><tr><th>Critério</th><th>Definição Técnica</th></tr></thead>
+          <thead><tr><th>Critério</th><th>Definição Técnica Formal</th></tr></thead>
           <tbody>
-            <tr><td>Loop fechado de feedback</td><td>As saídas do sistema alimentam continuamente o processo interno de modelagem e decisão — criando ciclo de aprendizado autônomo</td></tr>
-            <tr><td>Memória contextual persistente</td><td>Estado cognitivo acumulado e preservado entre sessões, usuários e ciclos operacionais — o sistema lembra e integra</td></tr>
-            <tr><td>Reconfiguração estrutural adaptativa</td><td>Capacidade de alterar fluxos, estratégias e prioridades internas sem intervenção humana — autonomia estrutural real</td></tr>
-            <tr><td>Evolução baseada em dados reais</td><td>Refinamento contínuo de modelos a partir de operação real — não simulada, não sintética, não hipotética</td></tr>
-            <tr><td>Autonomia progressiva mensurável</td><td>Capacidade de decisão autônoma que aumenta com o tempo de operação — evolução verificável e quantificável</td></tr>
+            <tr><td>Loop fechado de feedback</td><td>As saídas operacionais do sistema alimentam continuamente o processo interno de modelagem e decisão — instituindo ciclo de aprendizado autônomo, sem dependência de instrução humana</td></tr>
+            <tr><td>Memória contextual persistente</td><td>Estado cognitivo acumulado, estruturado e preservado entre sessões, usuários e ciclos operacionais — o sistema integra história e não reinicia compreensão</td></tr>
+            <tr><td>Reconfiguração estrutural adaptativa</td><td>Capacidade de alterar fluxos, estratégias internas e prioridades sem intervenção humana — autonomia estrutural operacional e verificável</td></tr>
+            <tr><td>Evolução baseada em dados reais</td><td>Refinamento contínuo de modelos internos fundamentado exclusivamente em operação real — não simulada, não sintética, não hipotética</td></tr>
+            <tr><td>Autonomia progressiva mensurável</td><td>Capacidade decisória autônoma que cresce com o tempo de operação — evolução estrutural verificável, quantificável e auditável</td></tr>
           </tbody>
         </table>
       </div>
@@ -1394,13 +1587,13 @@ code {
       <div class="drift-bar"></div>
       <div class="drift-lbl">Evolução Contínua</div>
       <div class="drift-sym">E<sup>∞</sup></div>
-      <p class="drift-desc">O sistema evolui continuamente ao longo do tempo. Não por atualização externa — por dinâmica interna orientada por cognição. Cada ciclo operacional aumenta a inteligência estrutural. A transformação ocorre no próprio sistema.</p>
+      <p class="drift-desc">O sistema evolui continuamente ao longo do tempo — não por atualização externa programada, mas por dinâmica interna orientada por cognição. Cada ciclo operacional incrementa a inteligência estrutural. A transformação não é evento — é propriedade contínua do sistema.</p>
     </div>
     <div class="drift-cell rv d1">
       <div class="drift-bar"></div>
       <div class="drift-lbl">Eficiência Cumulativa</div>
       <div class="drift-sym">η<sup>+</sup><sub>t</sub></div>
-      <p class="drift-desc">Aumento cumulativo de eficiência com redução progressiva de fricção operacional. O sistema aprende onde há atrito e reconfigura sua estrutura para eliminá-lo. Autonomia progressiva e mensurável — não prometida, verificável.</p>
+      <p class="drift-desc">Aumento cumulativo de eficiência com redução progressiva de fricção operacional. O sistema identifica onde há atrito e reconfigura sua estrutura para eliminá-lo. A autonomia progressiva não é prometida — é mensurável, verificável e auditável ao longo do tempo de operação.</p>
     </div>
     <div class="drift-cell rv d2">
       <div class="drift-bar"></div>
@@ -1420,18 +1613,18 @@ code {
       <div class="sec-hint">Estrutural.<br>Mensurável.<br>Internamente reconfigurável.</div>
     </div>
     <div class="sec-body">
-      <p class="body-p rv">Nem toda melhoria caracteriza evolução estrutural. NeuroSaaS™ exige que a evolução seja simultaneamente estrutural, mensurável, contextualmente fundamentada, orientada por objetivo e internamente reconfigurável.</p>
+      <p class="body-p rv">Nem toda melhoria caracteriza evolução estrutural. NeuroSaaS™ exige que a evolução seja simultaneamente estrutural, mensurável, contextualmente fundamentada, orientada por objetivo formal e operada por reconfiguração interna. Qualquer uma dessas condições ausente degrada a evolução a simples otimização incremental — que não é o mesmo.</p>
       <div class="eq rv">
-        <span class="eq-f">Evolução<sub>NeuroSaaS</sub>&nbsp;&nbsp;=&nbsp;&nbsp;Estrutural&nbsp;∧&nbsp;Mensurável&nbsp;∧&nbsp;Fundamentada&nbsp;∧&nbsp;Orientada&nbsp;∧&nbsp;Interna</span>
-        <span class="eq-n">Princípio V · Evolução Estrutural</span>
+        <span class="eq-f">Evolução<sub>NeuroSaaS™</sub>&nbsp;&nbsp;=&nbsp;&nbsp;Estrutural&nbsp;∧&nbsp;Mensurável&nbsp;∧&nbsp;Fundamentada&nbsp;∧&nbsp;Orientada&nbsp;∧&nbsp;Interna</span>
+        <span class="eq-n">Princípio V · Evolução Estrutural — Condição Necessária e Suficiente</span>
       </div>
-      <p class="body-p rv">A transformação ocorre no próprio sistema — não como resposta a instrução externa, mas como consequência direta da dinâmica interna orientada pela função-objetivo. O sistema reconhece quando está fora de alinhamento e se recalibra autonomamente.</p>
+      <p class="body-p rv">A transformação ocorre no próprio sistema — não como resposta a instrução externa, mas como consequência direta da lógica interna governada pela função-objetivo. O sistema identifica divergência entre estado atual e objetivo formal — e se recalibra. Sem intermediário humano.</p>
       <div class="eq rv">
         <span class="eq-f">Sistema<sub>t+1</sub>&nbsp;&nbsp;=&nbsp;&nbsp;ℛ(&nbsp;Sistema<sub>t</sub>,&nbsp;Contexto<sub>t</sub>,&nbsp;Objetivo&nbsp;)</span>
         <span class="eq-n">Operador de Reconfiguração Interna</span>
       </div>
       <p class="body-p rv">
-        Onde ℛ representa o operador de reconfiguração estrutural — a capacidade do sistema de transformar sua própria arquitetura operacional em resposta ao contexto, preservando os invariantes de objetivo definidos. Não é patch. Não é update. É dinâmica interna.
+        Onde ℛ representa o operador de reconfiguração estrutural: a capacidade do sistema de transformar sua própria arquitetura operacional em resposta ao contexto, preservando os invariantes de objetivo definidos. Não é patch. Não é versão. Não é update. É dinâmica interna contínua e autônoma.
       </p>
     </div>
   </div></div>
@@ -1443,9 +1636,9 @@ code {
       <div class="sec-hint">Nova classe.<br>Padrão formal.<br>Inédita.</div>
     </div>
     <div class="sec-body">
-      <p class="body-p rv">NeuroSaaS™ define uma nova classe de sistemas: sistemas SaaS cognitivamente adaptativos com arquitetura evolutiva. Não é um produto. Não é um framework. É uma categoria formal de arquitetura de software.</p>
+      <p class="body-p rv">NeuroSaaS™ define uma nova classe formal de sistemas: sistemas SaaS cognitivamente adaptativos com arquitetura evolutiva estrutural nativa. Não é produto. Não é framework. Não é metodologia. É uma categoria arquitetural — com critérios de classificação formais, verificáveis e publicados.</p>
       <div class="tbl-wrap rv">
-        <span class="tbl-cap">NeuroSaaS™ versus SaaS Convencional</span>
+        <span class="tbl-cap">NeuroSaaS™ versus SaaS Convencional — Distinção Categorial</span>
         <table class="tbl">
           <thead><tr>
             <th>Dimensão</th>
@@ -1453,16 +1646,16 @@ code {
             <th class="tbl-th-accent">NeuroSaaS™</th>
           </tr></thead>
           <tbody>
-            <tr><td class="tbl-prop">Natureza da operação</td><td>Executa processos definidos</td><td class="tbl-col-accent">Executa, observa, modela, adapta e evolui</td></tr>
-            <tr><td class="tbl-prop">Memória entre ciclos</td><td>Ausente — reinicia a cada sessão</td><td class="tbl-col-accent">Persistente — continuidade cognitiva acumulativa</td></tr>
-            <tr><td class="tbl-prop">Adaptação ao contexto</td><td>Manual — requer configuração humana</td><td class="tbl-col-accent">Nativa — dinâmica estrutural incorporada</td></tr>
-            <tr><td class="tbl-prop">Reconfiguração interna</td><td>Não existe — estrutura fixa</td><td class="tbl-col-accent">Ativa — fluxos, prioridades e estratégias se reconfiguram</td></tr>
-            <tr><td class="tbl-prop">Função-objetivo</td><td>Implícita ou ausente</td><td class="tbl-col-accent">Formal e explícita — orienta toda evolução</td></tr>
-            <tr><td class="tbl-prop">Evolução ao longo do tempo</td><td>Por atualizações externas</td><td class="tbl-col-accent">Por dinâmica interna — o sistema evolui com seus usuários</td></tr>
+            <tr><td class="tbl-prop">Natureza da operação</td><td>Executa processos definidos externamente</td><td class="tbl-col-accent">Executa, observa, modela, adapta e evolui — autonomamente</td></tr>
+            <tr><td class="tbl-prop">Memória entre ciclos</td><td>Ausente — reinicia compreensão a cada sessão</td><td class="tbl-col-accent">Persistente — continuidade cognitiva acumulativa inter-ciclos</td></tr>
+            <tr><td class="tbl-prop">Adaptação ao contexto</td><td>Manual — requer configuração e intervenção humana</td><td class="tbl-col-accent">Nativa — dinâmica estrutural constitutiva da arquitetura</td></tr>
+            <tr><td class="tbl-prop">Reconfiguração interna</td><td>Inexistente — estrutura fixa por design</td><td class="tbl-col-accent">Ativa e autônoma — fluxos, prioridades e estratégias se reconfiguram</td></tr>
+            <tr><td class="tbl-prop">Função-objetivo</td><td>Implícita ou ausente — sem direção formal</td><td class="tbl-col-accent">Formal e explícita — invariante que governa toda evolução</td></tr>
+            <tr><td class="tbl-prop">Evolução temporal</td><td>Por atualizações externas programadas</td><td class="tbl-col-accent">Por dinâmica interna — o sistema evolui estruturalmente com seus usuários</td></tr>
           </tbody>
         </table>
       </div>
-      <p class="body-p rv">O padrão que NeuroSaaS™ estabelece: adaptação é nativa. Memória é persistente. Evolução é estrutural. Otimização é contínua.</p>
+      <p class="body-p rv">O padrão que NeuroSaaS™ institui: adaptação é nativa. Memória é persistente. Evolução é estrutural. Otimização é contínua, formal e orientada por objetivo.</p>
     </div>
   </div></div>
 </div>
@@ -1474,24 +1667,24 @@ code {
       <div class="def-tag">Definição Canônica</div>
       <h2 class="section-h section-h--sm">O que é<br><em>NeuroSaaS™?</em></h2>
       <div class="def-stmt">
-        <strong>NeuroSaaS™</strong> é uma classe arquitetural para sistemas digitais capazes de <strong>evoluir estruturalmente ao longo do tempo</strong>. Não é uma funcionalidade. Não é um módulo. Não é uma camada adicional. É um modelo arquitetural onde <strong>cognição é infraestrutura</strong>.
+        <strong>NeuroSaaS™</strong> é uma classe arquitetural formal para sistemas digitais capazes de <strong>evoluir estruturalmente ao longo do tempo</strong>. Não é uma funcionalidade. Não é um módulo optativo. Não é uma camada suplementar. É o modelo arquitetural onde <strong>cognição é infraestrutura</strong> — e adaptação é propriedade constitutiva, não extensão posterior.
       </div>
     </div>
     <div>
       <div class="def-block rv">
         <div class="def-blk-lbl">O que o sistema faz</div>
         <div class="def-blk-t">Executa. Observa. Modela. Adapta. Evolui.</div>
-        <p class="def-blk-p">Um sistema NeuroSaaS™ não apenas executa processos — ele percebe o que acontece em cada ciclo operacional, constrói modelos internos persistentes, reconfigura sua própria estrutura em resposta ao contexto e evolui continuamente em direção à sua função-objetivo. A inteligência não é adicionada por fora. Ela é a arquitetura.</p>
+        <p class="def-blk-p">Um sistema NeuroSaaS™ não apenas executa processos — ele percebe o que ocorre em cada ciclo operacional, constrói e preserva modelos internos persistentes, reconfigura sua própria estrutura em resposta ao contexto e evolui continuamente em direção à sua função-objetivo formal. A inteligência não é adicionada sobre a arquitetura. Ela é a arquitetura — constitutiva e não removível.</p>
       </div>
       <div class="def-block rv d1">
         <div class="def-blk-lbl">O que não é</div>
         <div class="def-blk-t">Não é Feature. Não é Plugin. Não é IA Adicionada.</div>
-        <p class="def-blk-p">NeuroSaaS™ não é um módulo de IA integrado a um SaaS existente. Não é analytics preditivo. Não é automação de tarefas. É a classe arquitetural onde a capacidade de adaptação estrutural é nativa ao design do sistema — presente desde a fundação, não adicionada depois.</p>
+        <p class="def-blk-p">NeuroSaaS™ não é um módulo de IA integrado sobre SaaS existente. Não é analytics preditivo. Não é automação de tarefas. É a classe arquitetural onde capacidade de adaptação estrutural é nativa ao design do sistema — presente desde a fundação, não acoplada posteriormente. A distinção é categorial, não de grau.</p>
       </div>
       <div class="def-block rv d2">
         <div class="def-blk-lbl">O que define a categoria</div>
-        <div class="def-blk-t">Arquitetura Cognitiva Evolutiva — Classe Formal</div>
-        <p class="def-blk-p">NeuroSaaS™ define uma nova classe: <strong>sistemas SaaS cognitivamente adaptativos com arquitetura evolutiva</strong>. Adaptação nativa. Memória persistente. Evolução estrutural. Otimização contínua. Publicado como categoria técnica formal. DOI: 10.5281/zenodo.18806001.</p>
+        <div class="def-blk-t">Arquitetura Cognitiva Evolutiva — Classe Formal Publicada</div>
+        <p class="def-blk-p">NeuroSaaS™ institui uma nova classe formal: <strong>sistemas SaaS cognitivamente adaptativos com arquitetura evolutiva estrutural nativa</strong>. Adaptação constitutiva. Memória persistente. Evolução estrutural. Otimização contínua orientada a objetivo. Publicado como categoria técnica formal com registro acadêmico. DOI: 10.5281/zenodo.18806001.</p>
       </div>
     </div>
   </div>
@@ -1500,66 +1693,62 @@ code {
 <!-- AXIOMS -->
 <section class="axioms" id="axiomatizacao">
   <div class="axioms-inner page-wrap">
-    <div class="axioms-intro grid">
-      <div>
-        <div class="eyebrow rv">Estrutura Arquitetural</div>
-        <h2 class="section-h rv">As Cinco<br><em>Camadas</em></h2>
-      </div>
-      <p class="compare-lead rv">Um sistema é NeuroSaaS™ apenas quando integra as cinco camadas fundamentais de forma interdependente. Cada camada é constitutiva — não opcional, não decorativa, não modular de forma isolada.</p>
+
+    <div class="axioms-header rv">
+      <div class="eyebrow">Estrutura Arquitetural</div>
+      <h2 class="section-h">As Cinco<br><em>Camadas</em></h2>
+      <p class="axioms-lead">Um sistema é NeuroSaaS™ apenas quando integra as cinco camadas de forma interdependente e constitutiva. Cada camada é necessária — não decorativa, não modular de forma isolada. A arquitetura é o conjunto. Não existe em partes.</p>
     </div>
-        <div class="axiom-grid">
 
-      <!-- CAMADA I -->
-      <div class="axiom-cell rv">
-        <div class="axiom-cell-bar"></div>
-        <div class="axiom-ghost">1</div>
-        <div class="axiom-type">Camada · I</div>
-        <h3 class="axiom-t">Operacional</h3>
-        <p class="axiom-p">Entrega funcional concreta. É a dimensão produtiva do sistema: CRM, Health, Performance, Decision Systems, Infraestrutura Organizacional. Sem função operacional real, não há base para evolução. A cognição opera sobre substrato funcional — não no vácuo.</p>
-        <div class="axiom-eq">f(sistema) ≠ ∅ → base para evolução</div>
+    <div class="layers">
+
+      <div class="layer rv">
+        <div class="layer-n">01</div>
+        <div class="layer-body">
+          <div class="layer-title">Operacional</div>
+          <p class="layer-desc">Entrega funcional concreta — a dimensão produtiva do sistema: CRM, Health, Performance, Decision Systems, Infraestrutura Organizacional. Sem substrato operacional real, não há base sobre a qual a cognição opere. A inteligência não existe no vácuo — ela opera sobre função verificável.</p>
+        </div>
+        <div class="layer-eq">f(sistema) ≠ ∅<br><span>substrato operacional</span></div>
       </div>
 
-      <!-- CAMADA II -->
-      <div class="axiom-cell rv d1">
-        <div class="axiom-cell-bar"></div>
-        <div class="axiom-ghost">2</div>
-        <div class="axiom-type">Camada · II</div>
-        <h3 class="axiom-t">Instrumentação Cognitiva</h3>
-        <p class="axiom-p">Captura contínua e estruturada de contexto de uso, comportamento, estado do usuário e resultado das decisões. Observabilidade semântica: o sistema percebe o que acontece — e o que significa. Sem instrumentação, o sistema é cego à sua própria operação.</p>
-        <div class="axiom-eq">Observar := perceber(evento) ∧ interpretar(significado)</div>
+      <div class="layer rv">
+        <div class="layer-n">02</div>
+        <div class="layer-body">
+          <div class="layer-title">Instrumentação Cognitiva</div>
+          <p class="layer-desc">Captura contínua e estruturada de contexto de uso, padrões comportamentais, estado do usuário e resultado decisório. O sistema não apenas registra eventos — interpreta o que significam dentro do seu modelo de mundo persistente. Sem instrumentação, o sistema permanece estruturalmente cego à sua própria operação.</p>
+        </div>
+        <div class="layer-eq">Observar := perceber(e) ∧ interp(s)<br><span>observabilidade semântica</span></div>
       </div>
 
-      <!-- CAMADA III -->
-      <div class="axiom-cell rv d2">
-        <div class="axiom-cell-bar"></div>
-        <div class="axiom-ghost">3</div>
-        <div class="axiom-type">Camada · III</div>
-        <h3 class="axiom-t">Modelagem Dinâmica</h3>
-        <p class="axiom-p">Modelos probabilísticos, aprendizado supervisionado e não supervisionado, representação persistente de estado, memória contextual acumulativa. O sistema mantém continuidade cognitiva — ele não reinicia sua compreensão a cada interação.</p>
-        <div class="axiom-eq">M(t+1) = M(t) + Δ(observação, contexto)</div>
+      <div class="layer rv">
+        <div class="layer-n">03</div>
+        <div class="layer-body">
+          <div class="layer-title">Modelagem Dinâmica</div>
+          <p class="layer-desc">Modelos probabilísticos, aprendizado supervisionado e não supervisionado, representação persistente de estado, memória contextual acumulativa entre ciclos. O sistema mantém continuidade cognitiva — sua compreensão não é reiniciada a cada interação. O estado cognitivo se acumula e se aprofunda.</p>
+        </div>
+        <div class="layer-eq">M(t+1) = M(t) + Δ(obs, ctx)<br><span>memória estrutural persistente</span></div>
       </div>
 
-      <!-- CAMADA IV -->
-      <div class="axiom-cell rv">
-        <div class="axiom-cell-bar"></div>
-        <div class="axiom-ghost">4</div>
-        <div class="axiom-type">Camada · IV</div>
-        <h3 class="axiom-t">Adaptativa Estrutural</h3>
-        <p class="axiom-p">Capacidade de reconfiguração interna: fluxos operacionais, priorização de ações, sequência de interação, estratégias internas, estrutura de decisão. Não é ajuste paramétrico — é transformação arquitetural orientada por contexto.</p>
-        <div class="axiom-eq">ℛ : Arquitetura(t) → Arquitetura'(t) | contexto</div>
+      <div class="layer rv">
+        <div class="layer-n">04</div>
+        <div class="layer-body">
+          <div class="layer-title">Adaptativa Estrutural</div>
+          <p class="layer-desc">Reconfiguração interna autônoma: fluxos operacionais, priorização de ações, sequência de interação, estrutura decisória. Não é ajuste paramétrico — é transformação arquitetural orientada por contexto real e governada por objetivo formal explícito.</p>
+        </div>
+        <div class="layer-eq">ℛ : Arq(t) → Arq'(t) | ctx<br><span>reconfiguração autônoma</span></div>
       </div>
 
-      <!-- CAMADA V -->
-      <div class="axiom-cell rv d1">
-        <div class="axiom-cell-bar"></div>
-        <div class="axiom-ghost">5</div>
-        <div class="axiom-type">Camada · V</div>
-        <h3 class="axiom-t">Otimização por Objetivo</h3>
-        <p class="axiom-p">Todo NeuroSaaS™ opera com função-objetivo explícita: maximização de performance, redução de erro sistêmico, aumento de retenção, otimização cognitiva organizacional. A função-objetivo orienta toda a evolução. Sem objetivo formal, não há direção adaptativa.</p>
-        <div class="axiom-eq">Evolução := ℛ*(sistema, objetivo_formal)</div>
+      <div class="layer layer--last rv">
+        <div class="layer-n">05</div>
+        <div class="layer-body">
+          <div class="layer-title">Otimização por Objetivo</div>
+          <p class="layer-desc">Todo sistema NeuroSaaS™ opera governado por função-objetivo explícita e formal: maximização de performance, redução de erro sistêmico, aumento de retenção, otimização cognitiva organizacional. A função-objetivo é o invariante estrutural que orienta toda evolução. Sem objetivo formal, não há direção adaptativa possível.</p>
+        </div>
+        <div class="layer-eq">Evolução := ℛ*(sistema, obj)<br><span>invariante estrutural</span></div>
       </div>
 
     </div>
+
   </div>
 </section>
 
@@ -1787,12 +1976,12 @@ code {
         <div class="forwho-tag forwho-tag--no">Fora de Escopo</div>
         <h3 class="forwho-h forwho-h--dim">O que NeuroSaaS™<br>não substitui</h3>
         <div>
-          <div class="forwho-item">Software de produtividade, CRM convencional ou ERP estático — NeuroSaaS™ opera sobre eles, não no lugar deles</div>
-          <div class="forwho-item">Ferramentas de automação de tarefas sem necessidade de continuidade cognitiva</div>
-          <div class="forwho-item">Analytics tradicionais sem componente de reconfiguração estrutural adaptativa</div>
-          <div class="forwho-item">Ambientes completamente estacionários com padrões fixos e previsíveis</div>
-          <div class="forwho-item">Sistemas onde toda reconfiguração é intencional, manual e infrequente</div>
-          <div class="forwho-item">Produtos de software onde evolução estrutural não é requisito — apenas execução</div>
+          <div class="forwho-item">Software de produtividade, CRM convencional ou ERP estático — NeuroSaaS™ opera sobre essas arquiteturas como camada cognitiva, não em substituição a elas</div>
+          <div class="forwho-item">Ferramentas de automação de tarefas sem requisito de continuidade cognitiva ou memória contextual persistente</div>
+          <div class="forwho-item">Analytics tradicionais sem componente de reconfiguração estrutural adaptativa ou loop fechado de feedback</div>
+          <div class="forwho-item">Ambientes completamente estacionários com padrões fixos, previsíveis e imutáveis por design</div>
+          <div class="forwho-item">Sistemas onde toda reconfiguração é intencional, humana, manual e infrequente por natureza</div>
+          <div class="forwho-item">Produtos de software onde evolução estrutural não é requisito arquitetural — apenas execução determinística de processos definidos</div>
         </div>
       </div>
     </div>
@@ -1810,9 +1999,9 @@ code {
     <div class="faq-list">
       <div class="faq-item rv"><div class="faq-q"><span>O que exatamente é NeuroSaaS™?</span><span class="faq-arrow">↗</span></div><div class="faq-a">NeuroSaaS™ é uma <strong>classe arquitetural para sistemas digitais capazes de evoluir estruturalmente ao longo do tempo</strong>. Não é uma funcionalidade, não é um módulo, não é uma camada adicional. É um modelo arquitetural onde cognição é infraestrutura — o sistema não apenas executa, ele observa, modela, adapta e evolui.</div></div>
       <div class="faq-item rv"><div class="faq-q"><span>Qual a diferença entre NeuroSaaS™ e um SaaS com IA?</span><span class="faq-arrow">↗</span></div><div class="faq-a">Um SaaS com IA adicionada tem inteligência como feature — um módulo que pode ser removido sem afetar a arquitetura central. Em NeuroSaaS™, <strong>a cognição é a arquitetura</strong>. Adaptação é nativa. Memória é persistente. Evolução é estrutural. A distinção é categorial, não de grau.</div></div>
-      <div class="faq-item rv"><div class="faq-q"><span>O que significa "o sistema evolui"?</span><span class="faq-arrow">↗</span></div><div class="faq-a">Significa que o sistema <strong>reconfigura sua própria estrutura interna</strong> — fluxos operacionais, prioridades de ação, estratégias decisórias — em resposta ao contexto real de operação. Não é atualização de versão. Não é ajuste manual de parâmetros. É transformação arquitetural orientada pela função-objetivo e fundamentada em dados reais.</div></div>
-      <div class="faq-item rv"><div class="faq-q"><span>Por que "cognição como infraestrutura"?</span><span class="faq-arrow">↗</span></div><div class="faq-a">Porque em NeuroSaaS™ a inteligência não é adicionada sobre a infraestrutura existente — <strong>ela é a infraestrutura</strong>. Assim como em sistemas modernos a segurança deixou de ser camada adicional e tornou-se propriedade da arquitetura, NeuroSaaS™ faz o mesmo com a capacidade cognitiva e adaptativa do sistema.</div></div>
-      <div class="faq-item rv"><div class="faq-q"><span>Quais os cinco critérios técnicos da classe?</span><span class="faq-arrow">↗</span></div><div class="faq-a">Loop fechado de feedback, memória contextual persistente, reconfiguração estrutural adaptativa, evolução baseada em dados reais e autonomia progressiva mensurável. <strong>Esses critérios são arquiteturais, não estéticos.</strong> NeuroSaaS™ é uma classe técnica formal — não um rótulo de marketing.</div></div>
+      <div class="faq-item rv"><div class="faq-q"><span>O que significa "o sistema evolui"?</span><span class="faq-arrow">↗</span></div><div class="faq-a">Significa que o sistema <strong>reconfigura sua própria arquitetura interna de forma autônoma</strong> — fluxos operacionais, prioridades decisórias, estratégias internas — em resposta ao contexto real de operação. Não é atualização de versão. Não é ajuste manual de parâmetros. É transformação arquitetural orientada pela função-objetivo formal e fundamentada exclusivamente em dados reais de operação.</div></div>
+      <div class="faq-item rv"><div class="faq-q"><span>Por que "cognição como infraestrutura"?</span><span class="faq-arrow">↗</span></div><div class="faq-a">Porque em NeuroSaaS™ a inteligência não é adicionada sobre a infraestrutura existente — <strong>ela é a infraestrutura</strong>. Assim como segurança evoluiu de camada adicional para propriedade constitutiva da arquitetura em sistemas modernos, NeuroSaaS™ realiza a mesma transição com a capacidade cognitiva e adaptativa: ela não é acoplada, ela é fundacional.</div></div>
+      <div class="faq-item rv"><div class="faq-q"><span>Quais os cinco critérios técnicos da classe?</span><span class="faq-arrow">↗</span></div><div class="faq-a">Loop fechado de feedback, memória contextual persistente, reconfiguração estrutural adaptativa, evolução baseada em dados reais e autonomia progressiva mensurável. <strong>Esses critérios são arquiteturais, não estéticos, não graduáveis.</strong> NeuroSaaS™ é uma classe técnica formal — ou o sistema os satisfaz integralmente, ou não pertence à classe.</div></div>
       <div class="faq-item rv"><div class="faq-q"><span>NeuroSaaS™ compete com SaaS existentes?</span><span class="faq-arrow">↗</span></div><div class="faq-a">Não. NeuroSaaS™ <strong>opera sobre as categorias existentes</strong> — SaaS Monolítico, Microsserviços, Multi-tenant, Vertical, Horizontal, AI-Native. Não as substitui. As eleva. É a camada que torna qualquer uma dessas arquiteturas capaz de evoluir estruturalmente — ao invés de apenas executar.</div></div>
     </div>
   </div>
@@ -1822,7 +2011,7 @@ code {
 <div class="conclusion">
   <div class="conclusion-inner">
     <blockquote class="conclusion-q rv">
-      "NeuroSaaS™ é a formalização arquitetural de sistemas que evoluem com seus usuários — não por atualização externa, mas por <em>dinâmica interna orientada por cognição.</em>"
+      "NeuroSaaS™ é a formalização arquitetural de sistemas que evoluem com seus usuários — não por atualização externa, mas por <em>dinâmica interna governada por cognição e orientada por objetivo formal.</em>"
     </blockquote>
     <div class="conclusion-meta rv">FALX · NEUROSAAS™ · ARQUITETURA COGNITIVA EVOLUTIVA · 2025</div>
     <div class="conclusion-acts rv">
@@ -1861,7 +2050,7 @@ code {
     </div>
   </div>
   <div class="footer-bottom page-wrap">
-    <p class="footer-copy">© 2025 FALX — Infraestrutura de Decisão Estrutural · NeuroSaaS™ · Todos os direitos reservados.</p>
+    <p class="footer-copy">© 2025 FALX — Arquitetura Cognitiva Evolutiva · NeuroSaaS™ · Todos os direitos reservados.</p>
     <div class="footer-legal">
       <a href="#">Privacidade</a>
       <a href="#">Termos</a>
@@ -1876,10 +2065,18 @@ const nav = document.getElementById('nav');
 addEventListener('scroll',()=>nav.classList.toggle('scrolled',scrollY>60),{passive:true});
 
 /* ═══ REVEAL ═══ */
-const io = new IntersectionObserver(es=>{
-  es.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('vis'); io.unobserve(e.target); } });
-},{threshold:.08,rootMargin:'0px 0px -50px 0px'});
-document.querySelectorAll('.rv').forEach(el=>io.observe(el));
+const isMobile = window.innerWidth <= 700;
+if (isMobile) {
+  // On mobile, show everything immediately — no animation needed
+  document.querySelectorAll('.rv').forEach(el => el.classList.add('vis'));
+} else {
+  const io = new IntersectionObserver(es => {
+    es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('vis'); io.unobserve(e.target); } });
+  }, { threshold: 0, rootMargin: '0px 0px -40px 0px' });
+  document.querySelectorAll('.rv').forEach(el => io.observe(el));
+}
+// Absolute fallback — catch anything missed after 1.5s
+setTimeout(() => { document.querySelectorAll('.rv:not(.vis)').forEach(el => el.classList.add('vis')); }, 1500);
 
 /* ═══ SMOOTH SCROLL ═══ */
 document.querySelectorAll('a[href^="#"]').forEach(a=>{
